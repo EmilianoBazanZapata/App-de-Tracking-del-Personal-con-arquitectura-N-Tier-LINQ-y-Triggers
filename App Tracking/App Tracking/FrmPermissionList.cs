@@ -16,5 +16,18 @@ namespace App_Tracking
         {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();   
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            FrmPermission frmPermission = new FrmPermission();
+            this.Hide();
+            frmPermission.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

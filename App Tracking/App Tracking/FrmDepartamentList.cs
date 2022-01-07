@@ -21,5 +21,13 @@ namespace App_Tracking
         {
             this.Close();   
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            frmDepartament frmDepartament = new frmDepartament();
+            this.Hide();
+            frmDepartament.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

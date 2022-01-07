@@ -24,10 +24,23 @@ namespace App_Tracking
                 e.Handled = General.IsNumber(e);
             }
         }
-
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmMain frm = new FrmMain();
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                Application.Exit();
+            }
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit(); 
+            Application.Exit();
         }
     }
 }

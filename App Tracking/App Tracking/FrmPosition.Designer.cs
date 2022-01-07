@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPosition = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cboDepartament = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
@@ -46,13 +46,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Position";
             // 
-            // textBox1
+            // txtPosition
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(134, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 26);
-            this.textBox1.TabIndex = 1;
+            this.txtPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPosition.Location = new System.Drawing.Point(134, 33);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(111, 26);
+            this.txtPosition.TabIndex = 1;
             // 
             // label2
             // 
@@ -103,7 +103,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cboDepartament);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPosition);
             this.Controls.Add(this.label1);
             this.Name = "FrmPosition";
             this.Text = "Position";
@@ -115,7 +115,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPosition;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboDepartament;
         private System.Windows.Forms.Button btnClose;

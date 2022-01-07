@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSalaryList = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboPosition = new System.Windows.Forms.ComboBox();
             this.cboDepartament = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.cboPosition = new System.Windows.Forms.ComboBox();
+            this.cboMonth = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtSurName = new System.Windows.Forms.TextBox();
+            this.txtSalary = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUserNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtLastname = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSalaryList)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvSalaryList);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(274, 0);
@@ -64,18 +64,18 @@
             this.panel1.Size = new System.Drawing.Size(200, 450);
             this.panel1.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvSalaryList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 148);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(200, 302);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvSalaryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSalaryList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSalaryList.Location = new System.Drawing.Point(0, 148);
+            this.dgvSalaryList.Name = "dgvSalaryList";
+            this.dgvSalaryList.Size = new System.Drawing.Size(200, 302);
+            this.dgvSalaryList.TabIndex = 1;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cboPosition);
             this.panel2.Controls.Add(this.cboDepartament);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label8);
@@ -85,14 +85,14 @@
             this.panel2.Size = new System.Drawing.Size(200, 148);
             this.panel2.TabIndex = 0;
             // 
-            // comboBox1
+            // cboPosition
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(7, 114);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(181, 28);
-            this.comboBox1.TabIndex = 16;
+            this.cboPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPosition.FormattingEnabled = true;
+            this.cboPosition.Location = new System.Drawing.Point(7, 114);
+            this.cboPosition.Name = "cboPosition";
+            this.cboPosition.Size = new System.Drawing.Size(181, 28);
+            this.cboPosition.TabIndex = 16;
             // 
             // cboDepartament
             // 
@@ -144,14 +144,14 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // cboPosition
+            // cboMonth
             // 
-            this.cboPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboPosition.FormattingEnabled = true;
-            this.cboPosition.Location = new System.Drawing.Point(143, 186);
-            this.cboPosition.Name = "cboPosition";
-            this.cboPosition.Size = new System.Drawing.Size(111, 28);
-            this.cboPosition.TabIndex = 22;
+            this.cboMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMonth.FormattingEnabled = true;
+            this.cboMonth.Location = new System.Drawing.Point(143, 186);
+            this.cboMonth.Name = "cboMonth";
+            this.cboMonth.Size = new System.Drawing.Size(111, 28);
+            this.cboMonth.TabIndex = 22;
             // 
             // label5
             // 
@@ -163,13 +163,13 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Month";
             // 
-            // txtSurName
+            // txtSalary
             // 
-            this.txtSurName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSurName.Location = new System.Drawing.Point(143, 122);
-            this.txtSurName.Name = "txtSurName";
-            this.txtSurName.Size = new System.Drawing.Size(111, 26);
-            this.txtSurName.TabIndex = 18;
+            this.txtSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalary.Location = new System.Drawing.Point(143, 122);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(111, 26);
+            this.txtSalary.TabIndex = 18;
             // 
             // label3
             // 
@@ -217,14 +217,14 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "UserNO";
             // 
-            // textBox1
+            // txtYear
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(143, 154);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 26);
-            this.textBox1.TabIndex = 24;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYear.Location = new System.Drawing.Point(143, 154);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(111, 26);
+            this.txtYear.TabIndex = 24;
+            this.txtYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label4
             // 
@@ -236,13 +236,13 @@
             this.label4.TabIndex = 23;
             this.label4.Text = "Year";
             // 
-            // textBox2
+            // txtLastname
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(143, 90);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(111, 26);
-            this.textBox2.TabIndex = 26;
+            this.txtLastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastname.Location = new System.Drawing.Point(143, 90);
+            this.txtLastname.Name = "txtLastname";
+            this.txtLastname.Size = new System.Drawing.Size(111, 26);
+            this.txtLastname.TabIndex = 26;
             // 
             // label6
             // 
@@ -259,13 +259,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 450);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtLastname);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtYear);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.cboPosition);
+            this.Controls.Add(this.cboMonth);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtSurName);
+            this.Controls.Add(this.txtSalary);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
@@ -277,7 +277,7 @@
             this.Name = "FrmSalary";
             this.Text = "Salary";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSalaryList)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -288,23 +288,23 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSalaryList;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ComboBox cboPosition;
+        private System.Windows.Forms.ComboBox cboMonth;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtSurName;
+        private System.Windows.Forms.TextBox txtSalary;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUserNo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtLastname;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboPosition;
         private System.Windows.Forms.ComboBox cboDepartament;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

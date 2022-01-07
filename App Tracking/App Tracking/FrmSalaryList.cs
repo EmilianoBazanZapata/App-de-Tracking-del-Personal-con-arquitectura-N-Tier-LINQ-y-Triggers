@@ -21,5 +21,18 @@ namespace App_Tracking
         {
             e.Handled = General.IsNumber(e);
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            FrmSalary frmSalary = new FrmSalary();
+            this.Hide();
+            frmSalary.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

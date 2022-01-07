@@ -48,6 +48,7 @@
             this.btnEmployee.Text = "Employee";
             this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEmployee.UseVisualStyleBackColor = true;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // btnTasks
             // 
@@ -59,6 +60,7 @@
             this.btnTasks.Text = "Tasks";
             this.btnTasks.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTasks.UseVisualStyleBackColor = true;
+            this.btnTasks.Click += new System.EventHandler(this.btnTasks_Click);
             // 
             // btnSalary
             // 
@@ -70,17 +72,19 @@
             this.btnSalary.Text = "Salary";
             this.btnSalary.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalary.UseVisualStyleBackColor = true;
+            this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
             // 
             // btnPosition
             // 
             this.btnPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPosition.Location = new System.Drawing.Point(460, 150);
+            this.btnPosition.Location = new System.Drawing.Point(462, 150);
             this.btnPosition.Name = "btnPosition";
             this.btnPosition.Size = new System.Drawing.Size(218, 132);
             this.btnPosition.TabIndex = 5;
             this.btnPosition.Text = "Position";
             this.btnPosition.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPosition.UseVisualStyleBackColor = true;
+            this.btnPosition.Click += new System.EventHandler(this.btnPosition_Click);
             // 
             // btnDepartament
             // 
@@ -92,6 +96,7 @@
             this.btnDepartament.Text = "Departament";
             this.btnDepartament.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDepartament.UseVisualStyleBackColor = true;
+            this.btnDepartament.Click += new System.EventHandler(this.btnDepartament_Click);
             // 
             // btnPermission
             // 
@@ -103,6 +108,7 @@
             this.btnPermission.Text = "Permission";
             this.btnPermission.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPermission.UseVisualStyleBackColor = true;
+            this.btnPermission.Click += new System.EventHandler(this.btnPermission_Click);
             // 
             // btnExit
             // 
@@ -126,6 +132,7 @@
             this.btnLogOut.Text = "LogOut";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // FrmMain
             // 

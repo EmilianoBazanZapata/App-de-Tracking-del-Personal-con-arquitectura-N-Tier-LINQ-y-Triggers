@@ -31,5 +31,13 @@ namespace App_Tracking
         {
             //pnlAdmin.Hide();   
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            FrmTask frmTask = new FrmTask();
+            this.Hide();
+            frmTask.ShowDialog();
+            this.Visible = true;
+        }
     }
 }
