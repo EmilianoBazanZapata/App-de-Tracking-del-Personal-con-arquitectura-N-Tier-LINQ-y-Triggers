@@ -4,3 +4,4 @@ C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitec
 C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\DAL\obj\Debug\DAL.dll
 C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\DAL\obj\Debug\DAL.pdb
+C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\DAL\bin\Debug\DAL.dll.config

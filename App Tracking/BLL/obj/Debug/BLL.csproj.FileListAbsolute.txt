@@ -7,3 +7,4 @@ C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitec
 C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\BLL\obj\Debug\BLL.dll
 C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\BLL\obj\Debug\BLL.pdb
+C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\BLL\bin\Debug\DAL.dll.config
