@@ -21,3 +21,5 @@ C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitec
 C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\App Tracking\obj\Debug\App_Tracking.FrmMain.resources
 C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\App Tracking\obj\Debug\App_Tracking.FrmPosition.resources
 C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\App Tracking\obj\Debug\App_Tracking.FrmPositionList.resources
+C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\App Tracking\obj\Debug\App_Tracking.FrmTaskList.resources
+C:\Users\Emiliano\Desktop\App Tracking\App-de-Tracking-del-Personal-con-arquitectura-N-Tier-LINQ-y-Triggers\App Tracking\App Tracking\obj\Debug\App_Tracking.FrmTask.resources

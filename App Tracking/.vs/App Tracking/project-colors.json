@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6dd7bfb6-051c-497b-bb05-724b66a25bb0": {
+      "ProjectGuid": "6dd7bfb6-051c-497b-bb05-724b66a25bb0",
+      "DisplayName": "App Tracking",
+      "ColorIndex": 0
+    },
+    "7ac94cbb-e6f4-4ae9-9441-02806a412105": {
+      "ProjectGuid": "7ac94cbb-e6f4-4ae9-9441-02806a412105",
+      "DisplayName": "BLL",
+      "ColorIndex": 1
+    },
+    "917185d9-f9bd-4861-936b-da4bdfd4d37a": {
+      "ProjectGuid": "917185d9-f9bd-4861-936b-da4bdfd4d37a",
+      "DisplayName": "DAL",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
