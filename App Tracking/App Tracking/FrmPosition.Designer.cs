@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboDepartament = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -64,14 +64,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Departament";
             // 
-            // comboBox1
+            // cboDepartament
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(134, 65);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(111, 28);
-            this.comboBox1.TabIndex = 3;
+            this.cboDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDepartament.FormattingEnabled = true;
+            this.cboDepartament.Location = new System.Drawing.Point(134, 65);
+            this.cboDepartament.Name = "cboDepartament";
+            this.cboDepartament.Size = new System.Drawing.Size(111, 28);
+            this.cboDepartament.TabIndex = 3;
             // 
             // btnClose
             // 
@@ -101,7 +101,7 @@
             this.ClientSize = new System.Drawing.Size(255, 158);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboDepartament);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -117,7 +117,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboDepartament;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
     }
