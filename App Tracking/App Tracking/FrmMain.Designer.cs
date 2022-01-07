@@ -141,7 +141,7 @@
             this.Controls.Add(this.btnTasks);
             this.Controls.Add(this.btnEmployee);
             this.Name = "FrmMain";
-            this.Text = "FrmMain";
+            this.Text = "Main";
             this.ResumeLayout(false);
 
         }
