@@ -40,6 +40,7 @@
             // 
             // dgvDepartamentList
             // 
+            this.dgvDepartamentList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDepartamentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDepartamentList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDepartamentList.Location = new System.Drawing.Point(0, 0);
@@ -111,6 +112,7 @@
             this.Name = "FrmDepartamentList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Departament List";
+            this.Load += new System.EventHandler(this.FrmDepartamentList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

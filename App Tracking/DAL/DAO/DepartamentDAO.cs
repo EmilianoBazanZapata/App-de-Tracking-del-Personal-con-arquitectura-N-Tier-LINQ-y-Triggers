@@ -21,5 +21,10 @@ namespace DAL.DAO
                 throw ex;
             }
         }
+
+        public static List<DEPARTAMENTS> GetDepartament()
+        {
+            return db.DEPARTAMENTS.ToList();
+        }
     }
 }
