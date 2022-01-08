@@ -93,6 +93,7 @@
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmPosition
             // 
@@ -107,6 +108,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmPosition";
             this.Text = "Position";
+            this.Load += new System.EventHandler(this.FrmPosition_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
