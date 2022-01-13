@@ -94,6 +94,7 @@
             // 
             // dgvPositionList
             // 
+            this.dgvPositionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPositionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPositionList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPositionList.Location = new System.Drawing.Point(0, 0);
@@ -110,6 +111,7 @@
             this.Controls.Add(this.dgvPositionList);
             this.Name = "FrmPositionList";
             this.Text = "Position List";
+            this.Load += new System.EventHandler(this.FrmPositionList_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPositionList)).EndInit();
             this.ResumeLayout(false);
