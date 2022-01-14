@@ -66,12 +66,14 @@
             // 
             // dgvTaskList
             // 
+            this.dgvTaskList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTaskList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaskList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTaskList.Location = new System.Drawing.Point(0, 127);
             this.dgvTaskList.Name = "dgvTaskList";
             this.dgvTaskList.Size = new System.Drawing.Size(200, 323);
             this.dgvTaskList.TabIndex = 1;
+            this.dgvTaskList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaskList_RowEnter);
             // 
             // panel2
             // 
@@ -112,6 +114,7 @@
             this.cboDepartament.Name = "cboDepartament";
             this.cboDepartament.Size = new System.Drawing.Size(111, 28);
             this.cboDepartament.TabIndex = 14;
+            this.cboDepartament.SelectedIndexChanged += new System.EventHandler(this.cboDepartament_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -256,6 +259,7 @@
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmTask
             // 
@@ -279,6 +283,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmTask";
             this.Text = "Task";
+            this.Load += new System.EventHandler(this.FrmTask_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaskList)).EndInit();
             this.panel2.ResumeLayout(false);

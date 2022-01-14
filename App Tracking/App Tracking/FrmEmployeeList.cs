@@ -57,7 +57,7 @@ namespace App_Tracking
             dgvEmployeeList.Columns[0].Visible = false;
             dgvEmployeeList.Columns[1].Visible = false;
             dgvEmployeeList.Columns[2].HeaderText = "Name";
-            dgvEmployeeList.Columns[3].HeaderText = "Sur Name";
+            dgvEmployeeList.Columns[3].HeaderText = "SurName";
             dgvEmployeeList.Columns[4].HeaderText = "Department";
             dgvEmployeeList.Columns[5].HeaderText = "Position";
             dgvEmployeeList.Columns[6].Visible = false;
