@@ -81,6 +81,7 @@
             this.btnClear.TabIndex = 13;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // cboPosition
             // 
@@ -109,6 +110,7 @@
             this.cboDepartament.Name = "cboDepartament";
             this.cboDepartament.Size = new System.Drawing.Size(111, 28);
             this.cboDepartament.TabIndex = 10;
+            this.cboDepartament.SelectedIndexChanged += new System.EventHandler(this.cboDepartament_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -129,6 +131,7 @@
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSurName
             // 
@@ -187,6 +190,7 @@
             // 
             // dgvEmployeeList
             // 
+            this.dgvEmployeeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmployeeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployeeList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEmployeeList.Location = new System.Drawing.Point(0, 155);
@@ -259,6 +263,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmEmployeeList";
             this.Text = "Employee List";
+            this.Load += new System.EventHandler(this.FrmEmployeeList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeList)).EndInit();

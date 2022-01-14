@@ -203,6 +203,7 @@
             this.pbEmployee.Location = new System.Drawing.Point(288, 85);
             this.pbEmployee.Name = "pbEmployee";
             this.pbEmployee.Size = new System.Drawing.Size(172, 175);
+            this.pbEmployee.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEmployee.TabIndex = 15;
             this.pbEmployee.TabStop = false;
             // 

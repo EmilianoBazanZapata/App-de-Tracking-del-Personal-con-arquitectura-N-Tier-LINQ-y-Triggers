@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,50 @@ namespace DAL.DAO
 
                 throw ex;
             }
+        }
+
+        public static List<EmployeeDetailDTO> GetUsers()
+        {
+            List<EmployeeDetailDTO> employeelist = new List<EmployeeDetailDTO>();
+            var list = (from e in db.USERS 
+                        join d in db.DEPARTAMENTS on e.DEPARTAMENT_ID equals d.ID
+                        join p in db.POSITIONS on e.POSITION_ID equals p.ID
+                        select new 
+                        {
+                            UserNo = e.USER_NO,
+                            Name = e.NAME,
+                            SurName = e.SURNAME,
+                            EmployeeID = e.ID,
+                            Password = e.PASSWORD,
+                            DepatmentName = d.DEPARTAMENT_NAME,
+                            PositionName = p.POSITION_NAME,
+                            DepartmentID = d.ID,
+                            PositionID = p.ID,
+                            IsAdmin = e.IS_ADMIN,
+                            Salary = e.SALARY,
+                            ImagePath = e.IMAGE_PATH,
+                            BirthDay = e.BIRTH_DAY,
+                            Adress = e.ADRESS
+                        }).OrderBy(x=>x.UserNo).ToList();
+            foreach (var item in list)
+            {
+                EmployeeDetailDTO dto = new EmployeeDetailDTO();
+                dto.Name = item.Name;
+                dto.SurName = item.SurName;
+                dto.UserNo = item.UserNo;
+                dto.Id = item.EmployeeID;
+                dto.Password = item.Password;
+                dto.DepartmentID = item.DepartmentID;
+                dto.DepartmentName = item.DepatmentName;
+                dto.PositionID = item.PositionID;
+                dto.PositionName = item.PositionName;
+                dto.IsAdmin = item.IsAdmin;
+                dto.Salary = item.Salary;
+                dto.BhirtDay = item.BirthDay;
+                dto.Adress = item.Adress;
+                employeelist.Add(dto);
+            }
+            return employeelist;
         }
     }
 }
