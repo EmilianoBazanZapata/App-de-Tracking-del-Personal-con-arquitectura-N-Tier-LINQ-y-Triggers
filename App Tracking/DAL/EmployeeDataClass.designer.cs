@@ -33,9 +33,6 @@ namespace DAL
     partial void InsertDEPARTAMENTS(DEPARTAMENTS instance);
     partial void UpdateDEPARTAMENTS(DEPARTAMENTS instance);
     partial void DeleteDEPARTAMENTS(DEPARTAMENTS instance);
-    partial void InsertUSERS(USERS instance);
-    partial void UpdateUSERS(USERS instance);
-    partial void DeleteUSERS(USERS instance);
     partial void InsertMONTHS(MONTHS instance);
     partial void UpdateMONTHS(MONTHS instance);
     partial void DeleteMONTHS(MONTHS instance);
@@ -57,6 +54,9 @@ namespace DAL
     partial void InsertTASKS(TASKS instance);
     partial void UpdateTASKS(TASKS instance);
     partial void DeleteTASKS(TASKS instance);
+    partial void InsertUSERS(USERS instance);
+    partial void UpdateUSERS(USERS instance);
+    partial void DeleteUSERS(USERS instance);
     #endregion
 		
 		public EmployeeDataClassDataContext() : 
@@ -94,14 +94,6 @@ namespace DAL
 			get
 			{
 				return this.GetTable<DEPARTAMENTS>();
-			}
-		}
-		
-		public System.Data.Linq.Table<USERS> USERS
-		{
-			get
-			{
-				return this.GetTable<USERS>();
 			}
 		}
 		
@@ -160,6 +152,14 @@ namespace DAL
 				return this.GetTable<TASKS>();
 			}
 		}
+		
+		public System.Data.Linq.Table<USERS> USERS
+		{
+			get
+			{
+				return this.GetTable<USERS>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DEPARTAMENTS")]
@@ -172,9 +172,9 @@ namespace DAL
 		
 		private string _DEPARTAMENT_NAME;
 		
-		private EntitySet<USERS> _USERS;
-		
 		private EntitySet<POSITIONS> _POSITIONS;
+		
+		private EntitySet<USERS> _USERS;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -188,8 +188,8 @@ namespace DAL
 		
 		public DEPARTAMENTS()
 		{
-			this._USERS = new EntitySet<USERS>(new Action<USERS>(this.attach_USERS), new Action<USERS>(this.detach_USERS));
 			this._POSITIONS = new EntitySet<POSITIONS>(new Action<POSITIONS>(this.attach_POSITIONS), new Action<POSITIONS>(this.detach_POSITIONS));
+			this._USERS = new EntitySet<USERS>(new Action<USERS>(this.attach_USERS), new Action<USERS>(this.detach_USERS));
 			OnCreated();
 		}
 		
@@ -233,19 +233,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEPARTAMENTS_USERS", Storage="_USERS", ThisKey="ID", OtherKey="DEPARTAMENT_ID")]
-		public EntitySet<USERS> USERS
-		{
-			get
-			{
-				return this._USERS;
-			}
-			set
-			{
-				this._USERS.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEPARTAMENTS_POSITIONS", Storage="_POSITIONS", ThisKey="ID", OtherKey="DEPARTAMENT_ID")]
 		public EntitySet<POSITIONS> POSITIONS
 		{
@@ -259,6 +246,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEPARTAMENTS_USERS", Storage="_USERS", ThisKey="ID", OtherKey="DEPARTAMENT_ID")]
+		public EntitySet<USERS> USERS
+		{
+			get
+			{
+				return this._USERS;
+			}
+			set
+			{
+				this._USERS.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -277,18 +277,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_USERS(USERS entity)
-		{
-			this.SendPropertyChanging();
-			entity.DEPARTAMENTS = this;
-		}
-		
-		private void detach_USERS(USERS entity)
-		{
-			this.SendPropertyChanging();
-			entity.DEPARTAMENTS = null;
 		}
 		
 		private void attach_POSITIONS(POSITIONS entity)
@@ -302,432 +290,17 @@ namespace DAL
 			this.SendPropertyChanging();
 			entity.DEPARTAMENTS = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERS")]
-	public partial class USERS : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _USER_NO;
-		
-		private string _NAME;
-		
-		private string _SURNAME;
-		
-		private string _IMAGE_PATH;
-		
-		private int _DEPARTAMENT_ID;
-		
-		private double _SALARY;
-		
-		private string _ADRESS;
-		
-		private System.DateTime _BIRTH_DAY;
-		
-		private string _PASSWORD;
-		
-		private bool _IS_ADMIN;
-		
-		private EntitySet<PERMISSIONS> _PERMISSIONS;
-		
-		private EntitySet<SALARIES> _SALARIES;
-		
-		private EntitySet<TASKS> _TASKS;
-		
-		private EntityRef<DEPARTAMENTS> _DEPARTAMENTS;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnUSER_NOChanging(int value);
-    partial void OnUSER_NOChanged();
-    partial void OnNAMEChanging(string value);
-    partial void OnNAMEChanged();
-    partial void OnSURNAMEChanging(string value);
-    partial void OnSURNAMEChanged();
-    partial void OnIMAGE_PATHChanging(string value);
-    partial void OnIMAGE_PATHChanged();
-    partial void OnDEPARTAMENT_IDChanging(int value);
-    partial void OnDEPARTAMENT_IDChanged();
-    partial void OnSALARYChanging(double value);
-    partial void OnSALARYChanged();
-    partial void OnADRESSChanging(string value);
-    partial void OnADRESSChanged();
-    partial void OnBIRTH_DAYChanging(System.DateTime value);
-    partial void OnBIRTH_DAYChanged();
-    partial void OnPASSWORDChanging(string value);
-    partial void OnPASSWORDChanged();
-    partial void OnIS_ADMINChanging(bool value);
-    partial void OnIS_ADMINChanged();
-    #endregion
-		
-		public USERS()
-		{
-			this._PERMISSIONS = new EntitySet<PERMISSIONS>(new Action<PERMISSIONS>(this.attach_PERMISSIONS), new Action<PERMISSIONS>(this.detach_PERMISSIONS));
-			this._SALARIES = new EntitySet<SALARIES>(new Action<SALARIES>(this.attach_SALARIES), new Action<SALARIES>(this.detach_SALARIES));
-			this._TASKS = new EntitySet<TASKS>(new Action<TASKS>(this.attach_TASKS), new Action<TASKS>(this.detach_TASKS));
-			this._DEPARTAMENTS = default(EntityRef<DEPARTAMENTS>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_NO", DbType="Int NOT NULL")]
-		public int USER_NO
-		{
-			get
-			{
-				return this._USER_NO;
-			}
-			set
-			{
-				if ((this._USER_NO != value))
-				{
-					this.OnUSER_NOChanging(value);
-					this.SendPropertyChanging();
-					this._USER_NO = value;
-					this.SendPropertyChanged("USER_NO");
-					this.OnUSER_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string NAME
-		{
-			get
-			{
-				return this._NAME;
-			}
-			set
-			{
-				if ((this._NAME != value))
-				{
-					this.OnNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._NAME = value;
-					this.SendPropertyChanged("NAME");
-					this.OnNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SURNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string SURNAME
-		{
-			get
-			{
-				return this._SURNAME;
-			}
-			set
-			{
-				if ((this._SURNAME != value))
-				{
-					this.OnSURNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._SURNAME = value;
-					this.SendPropertyChanged("SURNAME");
-					this.OnSURNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_PATH", DbType="NVarChar(MAX)")]
-		public string IMAGE_PATH
-		{
-			get
-			{
-				return this._IMAGE_PATH;
-			}
-			set
-			{
-				if ((this._IMAGE_PATH != value))
-				{
-					this.OnIMAGE_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._IMAGE_PATH = value;
-					this.SendPropertyChanged("IMAGE_PATH");
-					this.OnIMAGE_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPARTAMENT_ID", DbType="Int NOT NULL")]
-		public int DEPARTAMENT_ID
-		{
-			get
-			{
-				return this._DEPARTAMENT_ID;
-			}
-			set
-			{
-				if ((this._DEPARTAMENT_ID != value))
-				{
-					if (this._DEPARTAMENTS.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDEPARTAMENT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._DEPARTAMENT_ID = value;
-					this.SendPropertyChanged("DEPARTAMENT_ID");
-					this.OnDEPARTAMENT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARY", DbType="Float NOT NULL")]
-		public double SALARY
-		{
-			get
-			{
-				return this._SALARY;
-			}
-			set
-			{
-				if ((this._SALARY != value))
-				{
-					this.OnSALARYChanging(value);
-					this.SendPropertyChanging();
-					this._SALARY = value;
-					this.SendPropertyChanged("SALARY");
-					this.OnSALARYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADRESS", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string ADRESS
-		{
-			get
-			{
-				return this._ADRESS;
-			}
-			set
-			{
-				if ((this._ADRESS != value))
-				{
-					this.OnADRESSChanging(value);
-					this.SendPropertyChanging();
-					this._ADRESS = value;
-					this.SendPropertyChanged("ADRESS");
-					this.OnADRESSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTH_DAY", DbType="DateTime NOT NULL")]
-		public System.DateTime BIRTH_DAY
-		{
-			get
-			{
-				return this._BIRTH_DAY;
-			}
-			set
-			{
-				if ((this._BIRTH_DAY != value))
-				{
-					this.OnBIRTH_DAYChanging(value);
-					this.SendPropertyChanging();
-					this._BIRTH_DAY = value;
-					this.SendPropertyChanged("BIRTH_DAY");
-					this.OnBIRTH_DAYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASSWORD", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string PASSWORD
-		{
-			get
-			{
-				return this._PASSWORD;
-			}
-			set
-			{
-				if ((this._PASSWORD != value))
-				{
-					this.OnPASSWORDChanging(value);
-					this.SendPropertyChanging();
-					this._PASSWORD = value;
-					this.SendPropertyChanged("PASSWORD");
-					this.OnPASSWORDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_ADMIN", DbType="Bit NOT NULL")]
-		public bool IS_ADMIN
-		{
-			get
-			{
-				return this._IS_ADMIN;
-			}
-			set
-			{
-				if ((this._IS_ADMIN != value))
-				{
-					this.OnIS_ADMINChanging(value);
-					this.SendPropertyChanging();
-					this._IS_ADMIN = value;
-					this.SendPropertyChanged("IS_ADMIN");
-					this.OnIS_ADMINChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="USERS_PERMISSIONS", Storage="_PERMISSIONS", ThisKey="ID", OtherKey="EMPLOYEE_ID")]
-		public EntitySet<PERMISSIONS> PERMISSIONS
-		{
-			get
-			{
-				return this._PERMISSIONS;
-			}
-			set
-			{
-				this._PERMISSIONS.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="USERS_SALARIES", Storage="_SALARIES", ThisKey="ID", OtherKey="EMPLOYEE_ID")]
-		public EntitySet<SALARIES> SALARIES
-		{
-			get
-			{
-				return this._SALARIES;
-			}
-			set
-			{
-				this._SALARIES.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="USERS_TASKS", Storage="_TASKS", ThisKey="ID", OtherKey="EMPLOYEE_ID")]
-		public EntitySet<TASKS> TASKS
-		{
-			get
-			{
-				return this._TASKS;
-			}
-			set
-			{
-				this._TASKS.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEPARTAMENTS_USERS", Storage="_DEPARTAMENTS", ThisKey="DEPARTAMENT_ID", OtherKey="ID", IsForeignKey=true)]
-		public DEPARTAMENTS DEPARTAMENTS
-		{
-			get
-			{
-				return this._DEPARTAMENTS.Entity;
-			}
-			set
-			{
-				DEPARTAMENTS previousValue = this._DEPARTAMENTS.Entity;
-				if (((previousValue != value) 
-							|| (this._DEPARTAMENTS.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DEPARTAMENTS.Entity = null;
-						previousValue.USERS.Remove(this);
-					}
-					this._DEPARTAMENTS.Entity = value;
-					if ((value != null))
-					{
-						value.USERS.Add(this);
-						this._DEPARTAMENT_ID = value.ID;
-					}
-					else
-					{
-						this._DEPARTAMENT_ID = default(int);
-					}
-					this.SendPropertyChanged("DEPARTAMENTS");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_PERMISSIONS(PERMISSIONS entity)
+		private void attach_USERS(USERS entity)
 		{
 			this.SendPropertyChanging();
-			entity.USERS = this;
+			entity.DEPARTAMENTS = this;
 		}
 		
-		private void detach_PERMISSIONS(PERMISSIONS entity)
+		private void detach_USERS(USERS entity)
 		{
 			this.SendPropertyChanging();
-			entity.USERS = null;
-		}
-		
-		private void attach_SALARIES(SALARIES entity)
-		{
-			this.SendPropertyChanging();
-			entity.USERS = this;
-		}
-		
-		private void detach_SALARIES(SALARIES entity)
-		{
-			this.SendPropertyChanging();
-			entity.USERS = null;
-		}
-		
-		private void attach_TASKS(TASKS entity)
-		{
-			this.SendPropertyChanging();
-			entity.USERS = this;
-		}
-		
-		private void detach_TASKS(TASKS entity)
-		{
-			this.SendPropertyChanging();
-			entity.USERS = null;
+			entity.DEPARTAMENTS = null;
 		}
 	}
 	
@@ -865,9 +438,9 @@ namespace DAL
 		
 		private int _PERMISSION_DAY;
 		
-		private EntityRef<USERS> _USERS;
-		
 		private EntityRef<STATETS_PERMISSIONS> _STATETS_PERMISSIONS;
+		
+		private EntityRef<USERS> _USERS;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -891,8 +464,8 @@ namespace DAL
 		
 		public PERMISSIONS()
 		{
-			this._USERS = default(EntityRef<USERS>);
 			this._STATETS_PERMISSIONS = default(EntityRef<STATETS_PERMISSIONS>);
+			this._USERS = default(EntityRef<USERS>);
 			OnCreated();
 		}
 		
@@ -1044,40 +617,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="USERS_PERMISSIONS", Storage="_USERS", ThisKey="EMPLOYEE_ID", OtherKey="ID", IsForeignKey=true)]
-		public USERS USERS
-		{
-			get
-			{
-				return this._USERS.Entity;
-			}
-			set
-			{
-				USERS previousValue = this._USERS.Entity;
-				if (((previousValue != value) 
-							|| (this._USERS.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._USERS.Entity = null;
-						previousValue.PERMISSIONS.Remove(this);
-					}
-					this._USERS.Entity = value;
-					if ((value != null))
-					{
-						value.PERMISSIONS.Add(this);
-						this._EMPLOYEE_ID = value.ID;
-					}
-					else
-					{
-						this._EMPLOYEE_ID = default(int);
-					}
-					this.SendPropertyChanged("USERS");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="STATETS_PERMISSIONS_PERMISSIONS", Storage="_STATETS_PERMISSIONS", ThisKey="PERMISSION_STATE", OtherKey="ID", IsForeignKey=true)]
 		public STATETS_PERMISSIONS STATETS_PERMISSIONS
 		{
@@ -1108,6 +647,40 @@ namespace DAL
 						this._PERMISSION_STATE = default(int);
 					}
 					this.SendPropertyChanged("STATETS_PERMISSIONS");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="USERS_PERMISSIONS", Storage="_USERS", ThisKey="EMPLOYEE_ID", OtherKey="ID", IsForeignKey=true)]
+		public USERS USERS
+		{
+			get
+			{
+				return this._USERS.Entity;
+			}
+			set
+			{
+				USERS previousValue = this._USERS.Entity;
+				if (((previousValue != value) 
+							|| (this._USERS.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._USERS.Entity = null;
+						previousValue.PERMISSIONS.Remove(this);
+					}
+					this._USERS.Entity = value;
+					if ((value != null))
+					{
+						value.PERMISSIONS.Add(this);
+						this._EMPLOYEE_ID = value.ID;
+					}
+					else
+					{
+						this._EMPLOYEE_ID = default(int);
+					}
+					this.SendPropertyChanged("USERS");
 				}
 			}
 		}
@@ -1145,6 +718,8 @@ namespace DAL
 		
 		private System.Nullable<int> _DEPARTAMENT_ID;
 		
+		private EntitySet<USERS> _USERS;
+		
 		private EntityRef<DEPARTAMENTS> _DEPARTAMENTS;
 		
     #region Definiciones de métodos de extensibilidad
@@ -1161,6 +736,7 @@ namespace DAL
 		
 		public POSITIONS()
 		{
+			this._USERS = new EntitySet<USERS>(new Action<USERS>(this.attach_USERS), new Action<USERS>(this.detach_USERS));
 			this._DEPARTAMENTS = default(EntityRef<DEPARTAMENTS>);
 			OnCreated();
 		}
@@ -1229,6 +805,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="POSITIONS_USERS", Storage="_USERS", ThisKey="ID", OtherKey="POSITION_ID")]
+		public EntitySet<USERS> USERS
+		{
+			get
+			{
+				return this._USERS;
+			}
+			set
+			{
+				this._USERS.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEPARTAMENTS_POSITIONS", Storage="_DEPARTAMENTS", ThisKey="DEPARTAMENT_ID", OtherKey="ID", IsForeignKey=true)]
 		public DEPARTAMENTS DEPARTAMENTS
 		{
@@ -1281,6 +870,18 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_USERS(USERS entity)
+		{
+			this.SendPropertyChanging();
+			entity.POSITIONS = this;
+		}
+		
+		private void detach_USERS(USERS entity)
+		{
+			this.SendPropertyChanging();
+			entity.POSITIONS = null;
 		}
 	}
 	
@@ -2037,6 +1638,498 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERS")]
+	public partial class USERS : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _USER_NO;
+		
+		private string _NAME;
+		
+		private string _SURNAME;
+		
+		private string _IMAGE_PATH;
+		
+		private int _DEPARTAMENT_ID;
+		
+		private double _SALARY;
+		
+		private string _ADRESS;
+		
+		private System.DateTime _BIRTH_DAY;
+		
+		private string _PASSWORD;
+		
+		private bool _IS_ADMIN;
+		
+		private System.Nullable<int> _POSITION_ID;
+		
+		private EntitySet<PERMISSIONS> _PERMISSIONS;
+		
+		private EntitySet<SALARIES> _SALARIES;
+		
+		private EntitySet<TASKS> _TASKS;
+		
+		private EntityRef<DEPARTAMENTS> _DEPARTAMENTS;
+		
+		private EntityRef<POSITIONS> _POSITIONS;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnUSER_NOChanging(int value);
+    partial void OnUSER_NOChanged();
+    partial void OnNAMEChanging(string value);
+    partial void OnNAMEChanged();
+    partial void OnSURNAMEChanging(string value);
+    partial void OnSURNAMEChanged();
+    partial void OnIMAGE_PATHChanging(string value);
+    partial void OnIMAGE_PATHChanged();
+    partial void OnDEPARTAMENT_IDChanging(int value);
+    partial void OnDEPARTAMENT_IDChanged();
+    partial void OnSALARYChanging(double value);
+    partial void OnSALARYChanged();
+    partial void OnADRESSChanging(string value);
+    partial void OnADRESSChanged();
+    partial void OnBIRTH_DAYChanging(System.DateTime value);
+    partial void OnBIRTH_DAYChanged();
+    partial void OnPASSWORDChanging(string value);
+    partial void OnPASSWORDChanged();
+    partial void OnIS_ADMINChanging(bool value);
+    partial void OnIS_ADMINChanged();
+    partial void OnPOSITION_IDChanging(System.Nullable<int> value);
+    partial void OnPOSITION_IDChanged();
+    #endregion
+		
+		public USERS()
+		{
+			this._PERMISSIONS = new EntitySet<PERMISSIONS>(new Action<PERMISSIONS>(this.attach_PERMISSIONS), new Action<PERMISSIONS>(this.detach_PERMISSIONS));
+			this._SALARIES = new EntitySet<SALARIES>(new Action<SALARIES>(this.attach_SALARIES), new Action<SALARIES>(this.detach_SALARIES));
+			this._TASKS = new EntitySet<TASKS>(new Action<TASKS>(this.attach_TASKS), new Action<TASKS>(this.detach_TASKS));
+			this._DEPARTAMENTS = default(EntityRef<DEPARTAMENTS>);
+			this._POSITIONS = default(EntityRef<POSITIONS>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_NO", DbType="Int NOT NULL")]
+		public int USER_NO
+		{
+			get
+			{
+				return this._USER_NO;
+			}
+			set
+			{
+				if ((this._USER_NO != value))
+				{
+					this.OnUSER_NOChanging(value);
+					this.SendPropertyChanging();
+					this._USER_NO = value;
+					this.SendPropertyChanged("USER_NO");
+					this.OnUSER_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this.OnNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._NAME = value;
+					this.SendPropertyChanged("NAME");
+					this.OnNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SURNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SURNAME
+		{
+			get
+			{
+				return this._SURNAME;
+			}
+			set
+			{
+				if ((this._SURNAME != value))
+				{
+					this.OnSURNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._SURNAME = value;
+					this.SendPropertyChanged("SURNAME");
+					this.OnSURNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_PATH", DbType="NVarChar(MAX)")]
+		public string IMAGE_PATH
+		{
+			get
+			{
+				return this._IMAGE_PATH;
+			}
+			set
+			{
+				if ((this._IMAGE_PATH != value))
+				{
+					this.OnIMAGE_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_PATH = value;
+					this.SendPropertyChanged("IMAGE_PATH");
+					this.OnIMAGE_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPARTAMENT_ID", DbType="Int NOT NULL")]
+		public int DEPARTAMENT_ID
+		{
+			get
+			{
+				return this._DEPARTAMENT_ID;
+			}
+			set
+			{
+				if ((this._DEPARTAMENT_ID != value))
+				{
+					if (this._DEPARTAMENTS.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDEPARTAMENT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._DEPARTAMENT_ID = value;
+					this.SendPropertyChanged("DEPARTAMENT_ID");
+					this.OnDEPARTAMENT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARY", DbType="Float NOT NULL")]
+		public double SALARY
+		{
+			get
+			{
+				return this._SALARY;
+			}
+			set
+			{
+				if ((this._SALARY != value))
+				{
+					this.OnSALARYChanging(value);
+					this.SendPropertyChanging();
+					this._SALARY = value;
+					this.SendPropertyChanged("SALARY");
+					this.OnSALARYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADRESS", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ADRESS
+		{
+			get
+			{
+				return this._ADRESS;
+			}
+			set
+			{
+				if ((this._ADRESS != value))
+				{
+					this.OnADRESSChanging(value);
+					this.SendPropertyChanging();
+					this._ADRESS = value;
+					this.SendPropertyChanged("ADRESS");
+					this.OnADRESSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTH_DAY", DbType="DateTime NOT NULL")]
+		public System.DateTime BIRTH_DAY
+		{
+			get
+			{
+				return this._BIRTH_DAY;
+			}
+			set
+			{
+				if ((this._BIRTH_DAY != value))
+				{
+					this.OnBIRTH_DAYChanging(value);
+					this.SendPropertyChanging();
+					this._BIRTH_DAY = value;
+					this.SendPropertyChanged("BIRTH_DAY");
+					this.OnBIRTH_DAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASSWORD", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string PASSWORD
+		{
+			get
+			{
+				return this._PASSWORD;
+			}
+			set
+			{
+				if ((this._PASSWORD != value))
+				{
+					this.OnPASSWORDChanging(value);
+					this.SendPropertyChanging();
+					this._PASSWORD = value;
+					this.SendPropertyChanged("PASSWORD");
+					this.OnPASSWORDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_ADMIN", DbType="Bit NOT NULL")]
+		public bool IS_ADMIN
+		{
+			get
+			{
+				return this._IS_ADMIN;
+			}
+			set
+			{
+				if ((this._IS_ADMIN != value))
+				{
+					this.OnIS_ADMINChanging(value);
+					this.SendPropertyChanging();
+					this._IS_ADMIN = value;
+					this.SendPropertyChanged("IS_ADMIN");
+					this.OnIS_ADMINChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POSITION_ID", DbType="Int")]
+		public System.Nullable<int> POSITION_ID
+		{
+			get
+			{
+				return this._POSITION_ID;
+			}
+			set
+			{
+				if ((this._POSITION_ID != value))
+				{
+					if (this._POSITIONS.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPOSITION_IDChanging(value);
+					this.SendPropertyChanging();
+					this._POSITION_ID = value;
+					this.SendPropertyChanged("POSITION_ID");
+					this.OnPOSITION_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="USERS_PERMISSIONS", Storage="_PERMISSIONS", ThisKey="ID", OtherKey="EMPLOYEE_ID")]
+		public EntitySet<PERMISSIONS> PERMISSIONS
+		{
+			get
+			{
+				return this._PERMISSIONS;
+			}
+			set
+			{
+				this._PERMISSIONS.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="USERS_SALARIES", Storage="_SALARIES", ThisKey="ID", OtherKey="EMPLOYEE_ID")]
+		public EntitySet<SALARIES> SALARIES
+		{
+			get
+			{
+				return this._SALARIES;
+			}
+			set
+			{
+				this._SALARIES.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="USERS_TASKS", Storage="_TASKS", ThisKey="ID", OtherKey="EMPLOYEE_ID")]
+		public EntitySet<TASKS> TASKS
+		{
+			get
+			{
+				return this._TASKS;
+			}
+			set
+			{
+				this._TASKS.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEPARTAMENTS_USERS", Storage="_DEPARTAMENTS", ThisKey="DEPARTAMENT_ID", OtherKey="ID", IsForeignKey=true)]
+		public DEPARTAMENTS DEPARTAMENTS
+		{
+			get
+			{
+				return this._DEPARTAMENTS.Entity;
+			}
+			set
+			{
+				DEPARTAMENTS previousValue = this._DEPARTAMENTS.Entity;
+				if (((previousValue != value) 
+							|| (this._DEPARTAMENTS.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DEPARTAMENTS.Entity = null;
+						previousValue.USERS.Remove(this);
+					}
+					this._DEPARTAMENTS.Entity = value;
+					if ((value != null))
+					{
+						value.USERS.Add(this);
+						this._DEPARTAMENT_ID = value.ID;
+					}
+					else
+					{
+						this._DEPARTAMENT_ID = default(int);
+					}
+					this.SendPropertyChanged("DEPARTAMENTS");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="POSITIONS_USERS", Storage="_POSITIONS", ThisKey="POSITION_ID", OtherKey="ID", IsForeignKey=true)]
+		public POSITIONS POSITIONS
+		{
+			get
+			{
+				return this._POSITIONS.Entity;
+			}
+			set
+			{
+				POSITIONS previousValue = this._POSITIONS.Entity;
+				if (((previousValue != value) 
+							|| (this._POSITIONS.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._POSITIONS.Entity = null;
+						previousValue.USERS.Remove(this);
+					}
+					this._POSITIONS.Entity = value;
+					if ((value != null))
+					{
+						value.USERS.Add(this);
+						this._POSITION_ID = value.ID;
+					}
+					else
+					{
+						this._POSITION_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("POSITIONS");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PERMISSIONS(PERMISSIONS entity)
+		{
+			this.SendPropertyChanging();
+			entity.USERS = this;
+		}
+		
+		private void detach_PERMISSIONS(PERMISSIONS entity)
+		{
+			this.SendPropertyChanging();
+			entity.USERS = null;
+		}
+		
+		private void attach_SALARIES(SALARIES entity)
+		{
+			this.SendPropertyChanging();
+			entity.USERS = this;
+		}
+		
+		private void detach_SALARIES(SALARIES entity)
+		{
+			this.SendPropertyChanging();
+			entity.USERS = null;
+		}
+		
+		private void attach_TASKS(TASKS entity)
+		{
+			this.SendPropertyChanging();
+			entity.USERS = this;
+		}
+		
+		private void detach_TASKS(TASKS entity)
+		{
+			this.SendPropertyChanging();
+			entity.USERS = null;
 		}
 	}
 }

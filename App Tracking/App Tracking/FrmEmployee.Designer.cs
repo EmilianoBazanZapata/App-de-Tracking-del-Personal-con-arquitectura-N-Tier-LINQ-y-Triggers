@@ -123,6 +123,7 @@
             this.btnCheck.TabIndex = 4;
             this.btnCheck.Text = "Check";
             this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // txtUserNo
             // 
@@ -218,6 +219,7 @@
             this.btnBrowse.TabIndex = 7;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // cboPosition
             // 
@@ -246,6 +248,7 @@
             this.cboDepartament.Name = "cboDepartament";
             this.cboDepartament.Size = new System.Drawing.Size(138, 28);
             this.cboDepartament.TabIndex = 11;
+            this.cboDepartament.SelectedIndexChanged += new System.EventHandler(this.cboDepartament_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -314,6 +317,7 @@
             this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtSalary
             // 
@@ -362,6 +366,7 @@
             this.Controls.Add(this.label4);
             this.Name = "FrmEmployee";
             this.Text = "Employee";
+            this.Load += new System.EventHandler(this.FrmEmployee_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();

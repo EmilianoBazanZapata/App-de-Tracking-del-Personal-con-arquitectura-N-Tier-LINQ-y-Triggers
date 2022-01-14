@@ -4,27 +4,8 @@
     <Type Name="DEPARTAMENTS">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="DEPARTAMENT_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="DEPARTAMENTS_USERS" Member="USERS" ThisKey="ID" OtherKey="DEPARTAMENT_ID" Type="USERS" />
       <Association Name="DEPARTAMENTS_POSITIONS" Member="POSITIONS" ThisKey="ID" OtherKey="DEPARTAMENT_ID" Type="POSITIONS" />
-    </Type>
-  </Table>
-  <Table Name="dbo.USERS" Member="USERS">
-    <Type Name="USERS">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USER_NO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SURNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IMAGE_PATH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="DEPARTAMENT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SALARY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="ADRESS" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="BIRTH_DAY" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="PASSWORD" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="IS_ADMIN" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="USERS_PERMISSIONS" Member="PERMISSIONS" ThisKey="ID" OtherKey="EMPLOYEE_ID" Type="PERMISSIONS" />
-      <Association Name="USERS_SALARIES" Member="SALARIES" ThisKey="ID" OtherKey="EMPLOYEE_ID" Type="SALARIES" />
-      <Association Name="USERS_TASKS" Member="TASKS" ThisKey="ID" OtherKey="EMPLOYEE_ID" Type="TASKS" />
-      <Association Name="DEPARTAMENTS_USERS" Member="DEPARTAMENTS" ThisKey="DEPARTAMENT_ID" OtherKey="ID" Type="DEPARTAMENTS" IsForeignKey="true" />
+      <Association Name="DEPARTAMENTS_USERS" Member="USERS" ThisKey="ID" OtherKey="DEPARTAMENT_ID" Type="USERS" />
     </Type>
   </Table>
   <Table Name="dbo.MONTHS" Member="MONTHS">
@@ -43,8 +24,8 @@
       <Column Name="PERMISSION_STATE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PERMISSION_EXPLANATION" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="PERMISSION_DAY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="USERS_PERMISSIONS" Member="USERS" ThisKey="EMPLOYEE_ID" OtherKey="ID" Type="USERS" IsForeignKey="true" />
       <Association Name="STATETS_PERMISSIONS_PERMISSIONS" Member="STATETS_PERMISSIONS" ThisKey="PERMISSION_STATE" OtherKey="ID" Type="STATETS_PERMISSIONS" IsForeignKey="true" />
+      <Association Name="USERS_PERMISSIONS" Member="USERS" ThisKey="EMPLOYEE_ID" OtherKey="ID" Type="USERS" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.POSITIONS" Member="POSITIONS">
@@ -52,6 +33,7 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="POSITION_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DEPARTAMENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="POSITIONS_USERS" Member="USERS" ThisKey="ID" OtherKey="POSITION_ID" Type="USERS" />
       <Association Name="DEPARTAMENTS_POSITIONS" Member="DEPARTAMENTS" ThisKey="DEPARTAMENT_ID" OtherKey="ID" Type="DEPARTAMENTS" IsForeignKey="true" />
     </Type>
   </Table>
@@ -91,6 +73,27 @@
       <Column Name="TASK_STATE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="STATES_TASKS" Member="STATES" ThisKey="TASK_STATE" OtherKey="ID" Type="STATES" IsForeignKey="true" />
       <Association Name="USERS_TASKS" Member="USERS" ThisKey="EMPLOYEE_ID" OtherKey="ID" Type="USERS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USERS" Member="USERS">
+    <Type Name="USERS">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USER_NO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SURNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IMAGE_PATH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DEPARTAMENT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SALARY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ADRESS" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="BIRTH_DAY" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="IS_ADMIN" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="POSITION_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="USERS_PERMISSIONS" Member="PERMISSIONS" ThisKey="ID" OtherKey="EMPLOYEE_ID" Type="PERMISSIONS" />
+      <Association Name="USERS_SALARIES" Member="SALARIES" ThisKey="ID" OtherKey="EMPLOYEE_ID" Type="SALARIES" />
+      <Association Name="USERS_TASKS" Member="TASKS" ThisKey="ID" OtherKey="EMPLOYEE_ID" Type="TASKS" />
+      <Association Name="DEPARTAMENTS_USERS" Member="DEPARTAMENTS" ThisKey="DEPARTAMENT_ID" OtherKey="ID" Type="DEPARTAMENTS" IsForeignKey="true" />
+      <Association Name="POSITIONS_USERS" Member="POSITIONS" ThisKey="POSITION_ID" OtherKey="ID" Type="POSITIONS" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
