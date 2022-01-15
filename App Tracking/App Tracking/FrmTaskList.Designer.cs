@@ -47,7 +47,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cboDepartament = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtSurname = new System.Windows.Forms.TextBox();
+            this.txtSurName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -137,6 +137,7 @@
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cboTaskState
             // 
@@ -156,6 +157,7 @@
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // label6
             // 
@@ -221,7 +223,7 @@
             this.pnlAdmin.Controls.Add(this.label7);
             this.pnlAdmin.Controls.Add(this.cboDepartament);
             this.pnlAdmin.Controls.Add(this.label8);
-            this.pnlAdmin.Controls.Add(this.txtSurname);
+            this.pnlAdmin.Controls.Add(this.txtSurName);
             this.pnlAdmin.Controls.Add(this.label5);
             this.pnlAdmin.Controls.Add(this.txtName);
             this.pnlAdmin.Controls.Add(this.label4);
@@ -271,13 +273,13 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Departament";
             // 
-            // txtSurname
+            // txtSurName
             // 
-            this.txtSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSurname.Location = new System.Drawing.Point(136, 79);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(143, 26);
-            this.txtSurname.TabIndex = 5;
+            this.txtSurName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSurName.Location = new System.Drawing.Point(136, 79);
+            this.txtSurName.Name = "txtSurName";
+            this.txtSurName.Size = new System.Drawing.Size(143, 26);
+            this.txtSurName.TabIndex = 5;
             // 
             // label5
             // 
@@ -393,6 +395,7 @@
             // 
             // dgvTaskList
             // 
+            this.dgvTaskList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTaskList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaskList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTaskList.Location = new System.Drawing.Point(0, 187);
@@ -435,7 +438,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Panel pnlAdmin;
-        private System.Windows.Forms.TextBox txtSurname;
+        private System.Windows.Forms.TextBox txtSurName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;

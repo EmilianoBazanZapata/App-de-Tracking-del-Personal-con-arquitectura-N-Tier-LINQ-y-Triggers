@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DTO
 {
-    public class TaskDetailDTOcs
+    public class TaskDetailDTO
     {
         public int Id { get; set; }
         public int UserNo { get; set; }
@@ -20,7 +20,7 @@ namespace DAL.DTO
         public string Title { get; set; }
         public string Content { get; set; }
         public string TaskStateName { get; set; }
-        public DateTime TaskStartDate { get; set; }
-        public DateTime TaskDeliveryDate { get; set; }
+        public DateTime? TaskStartDate { get; set; }
+        public DateTime? TaskDeliveryDate { get; set; }
     }
 }

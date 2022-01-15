@@ -18,6 +18,7 @@ namespace BLL
             taskDTO.Departaments = DepartamentDAO.GetDepartament();
             taskDTO.Positions = PositionDAO.GetPositions();
             taskDTO.TaskStates = TaskDAO.GetTasksStates();
+            taskDTO.Tasks = TaskDAO.GetTasks();
             return taskDTO; 
         }
 
