@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvSalaryList = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cboPosition = new System.Windows.Forms.ComboBox();
             this.cboDepartament = new System.Windows.Forms.ComboBox();
@@ -49,9 +48,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtLastname = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.dgvSalaryList = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSalaryList)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSalaryList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,19 +59,10 @@
             this.panel1.Controls.Add(this.dgvSalaryList);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(274, 0);
+            this.panel1.Location = new System.Drawing.Point(260, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 450);
+            this.panel1.Size = new System.Drawing.Size(661, 450);
             this.panel1.TabIndex = 0;
-            // 
-            // dgvSalaryList
-            // 
-            this.dgvSalaryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSalaryList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSalaryList.Location = new System.Drawing.Point(0, 148);
-            this.dgvSalaryList.Name = "dgvSalaryList";
-            this.dgvSalaryList.Size = new System.Drawing.Size(200, 302);
-            this.dgvSalaryList.TabIndex = 1;
             // 
             // panel2
             // 
@@ -82,14 +73,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 148);
+            this.panel2.Size = new System.Drawing.Size(661, 148);
             this.panel2.TabIndex = 0;
             // 
             // cboPosition
             // 
             this.cboPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPosition.FormattingEnabled = true;
-            this.cboPosition.Location = new System.Drawing.Point(7, 114);
+            this.cboPosition.Location = new System.Drawing.Point(7, 96);
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Size = new System.Drawing.Size(181, 28);
             this.cboPosition.TabIndex = 16;
@@ -98,7 +89,7 @@
             // 
             this.cboDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDepartament.FormattingEnabled = true;
-            this.cboDepartament.Location = new System.Drawing.Point(7, 50);
+            this.cboDepartament.Location = new System.Drawing.Point(7, 32);
             this.cboDepartament.Name = "cboDepartament";
             this.cboDepartament.Size = new System.Drawing.Size(181, 28);
             this.cboDepartament.TabIndex = 14;
@@ -107,7 +98,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 93);
+            this.label7.Location = new System.Drawing.Point(3, 75);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 15;
@@ -117,7 +108,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 27);
+            this.label8.Location = new System.Drawing.Point(3, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 20);
             this.label8.TabIndex = 13;
@@ -143,6 +134,7 @@
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cboMonth
             // 
@@ -254,11 +246,22 @@
             this.label6.TabIndex = 25;
             this.label6.Text = "Surname";
             // 
+            // dgvSalaryList
+            // 
+            this.dgvSalaryList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSalaryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSalaryList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSalaryList.Location = new System.Drawing.Point(0, 148);
+            this.dgvSalaryList.Name = "dgvSalaryList";
+            this.dgvSalaryList.Size = new System.Drawing.Size(661, 302);
+            this.dgvSalaryList.TabIndex = 27;
+            this.dgvSalaryList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSalaryList_RowEnter_1);
+            // 
             // FrmSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 450);
+            this.ClientSize = new System.Drawing.Size(921, 450);
             this.Controls.Add(this.txtLastname);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtYear);
@@ -276,10 +279,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmSalary";
             this.Text = "Salary";
+            this.Load += new System.EventHandler(this.FrmSalary_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSalaryList)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSalaryList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +292,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvSalaryList;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
@@ -308,5 +311,6 @@
         private System.Windows.Forms.ComboBox cboDepartament;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dgvSalaryList;
     }
 }
