@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,46 @@ namespace DAL.DAO
 
                 throw ex;
             }
+        }
+
+        public static List<SalaryDetailDTO> GetSalaries()
+        {
+            List<SalaryDetailDTO> salarylist = new List<SalaryDetailDTO>();
+            var list = (from s in db.SALARIES
+                        join e in db.USERS on s.ID equals e.ID
+                        join m in db.MONTHS on s.MONTH_ID equals m.ID
+                        select new 
+                        {
+                            UserNo = e.USER_NO,
+                            Name = e.NAME,
+                            SurName = e.SURNAME,
+                            Amount = s.AMOUNT,
+                            Year = s.YEAR,
+                            MonthName = m.MONTH_NAME,
+                            MonthId = s.MONTH_ID,
+                            SalaryId = s.ID,
+                            DepartmentId = e.DEPARTAMENT_ID,
+                            PositionID = e.POSITION_ID,
+                            EmployeeId = s.EMPLOYEE_ID
+                        }).OrderBy(x=>x.Year).ToList();
+            foreach (var s in list) 
+            {
+                SalaryDetailDTO dto = new SalaryDetailDTO();
+                dto.UserNo = s.UserNo; 
+                dto.Name = s.Name;
+                dto.SurName = s.SurName;
+                dto.EmployeeId = s.EmployeeId;
+                dto.SalaryAmount = s.Amount;
+                dto.SalaryYear = s.Year;
+                dto.MonthName = s.MonthName;
+                dto.MonthId = s.MonthId;
+                dto.SalaryId = s.SalaryId;
+                dto.DepartmentId = s.DepartmentId;
+                dto.PositionId = s.PositionID;
+                dto.OldSalary = s.Amount;
+                salarylist.Add(dto);
+            }
+            return salarylist;
         }
     }
 }
