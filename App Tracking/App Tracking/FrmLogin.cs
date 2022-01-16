@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DAL;
+using DAL.DAO;
+using DAL.DTO;
 
 namespace App_Tracking
 {
@@ -28,12 +32,32 @@ namespace App_Tracking
         {
             try
             {
-                FrmMain frm = new FrmMain();
-                this.Hide();
-                frm.ShowDialog();
-                this.Visible = true;
+                if (txtPassword.Text.Trim() == "" || txtUserNo.Text.Trim() == "")
+                {
+                    MessageBox.Show("Please Fill The User Dates");
+                }
+                else 
+                {
+                    List<USERS> EmployeeList = EmployeeBLL.getEmployees(Convert.ToInt32(txtUserNo.Text),txtPassword.Text);
+                    if (EmployeeList.Count == 0)
+                    {
+                        MessageBox.Show("Please Control Your Information");
+                    }
+                    else 
+                    {
+                        USERS employee = new USERS();
+                        employee = EmployeeList.First();
+                        UserStatic.EmployeeId = employee.ID;
+                        UserStatic.UserNo = employee.USER_NO;
+                        UserStatic.IsAdmin = employee.IS_ADMIN;
+                        FrmMain frm = new FrmMain();
+                        this.Hide();
+                        frm.ShowDialog();
+                        this.Visible = true;
+                    }
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Application.Exit();
             }
