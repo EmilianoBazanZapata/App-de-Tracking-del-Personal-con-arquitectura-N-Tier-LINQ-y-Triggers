@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.DAO;
+using DAL.DTO;
+
 namespace BLL
 {
     public class PermissionBLL
@@ -13,6 +15,16 @@ namespace BLL
         public static void AddPermission(PERMISSIONS permission)
         {
             PermissionDAO.AddPermision(permission);
+        }
+
+        public static PermissionDTO GetAll()
+        {
+            PermissionDTO dto = new PermissionDTO();
+            dto.Departments = DepartamentDAO.GetDepartament();
+            dto.Positions = PositionDAO.GetPositions();
+            dto.States = PermissionDAO.GetStates();
+            dto.Permissions = PermissionDAO.GetPermissions();
+            return dto;
         }
     }
 }

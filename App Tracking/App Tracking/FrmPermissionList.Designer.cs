@@ -61,6 +61,8 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.dgvPermissionList = new System.Windows.Forms.DataGridView();
+            this.cboState = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlUser.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -81,6 +83,8 @@
             // 
             // pnlUser
             // 
+            this.pnlUser.Controls.Add(this.cboState);
+            this.pnlUser.Controls.Add(this.label10);
             this.pnlUser.Controls.Add(this.txtDayAmount);
             this.pnlUser.Controls.Add(this.label9);
             this.pnlUser.Controls.Add(this.dtpFinish);
@@ -149,10 +153,10 @@
             this.rbDeliveryDate.AutoSize = true;
             this.rbDeliveryDate.Location = new System.Drawing.Point(6, 42);
             this.rbDeliveryDate.Name = "rbDeliveryDate";
-            this.rbDeliveryDate.Size = new System.Drawing.Size(89, 17);
+            this.rbDeliveryDate.Size = new System.Drawing.Size(70, 17);
             this.rbDeliveryDate.TabIndex = 1;
             this.rbDeliveryDate.TabStop = true;
-            this.rbDeliveryDate.Text = "Delivery Date";
+            this.rbDeliveryDate.Text = "End Date";
             this.rbDeliveryDate.UseVisualStyleBackColor = true;
             // 
             // rbStartDate
@@ -169,22 +173,24 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(139, 145);
+            this.btnSearch.Location = new System.Drawing.Point(258, 108);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(107, 26);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(15, 145);
+            this.btnClear.Location = new System.Drawing.Point(258, 139);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(107, 26);
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // label6
             // 
@@ -403,12 +409,32 @@
             // 
             // dgvPermissionList
             // 
+            this.dgvPermissionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPermissionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermissionList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPermissionList.Location = new System.Drawing.Point(0, 188);
             this.dgvPermissionList.Name = "dgvPermissionList";
             this.dgvPermissionList.Size = new System.Drawing.Size(707, 206);
             this.dgvPermissionList.TabIndex = 2;
+            // 
+            // cboState
+            // 
+            this.cboState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboState.FormattingEnabled = true;
+            this.cboState.Location = new System.Drawing.Point(114, 139);
+            this.cboState.Name = "cboState";
+            this.cboState.Size = new System.Drawing.Size(132, 28);
+            this.cboState.TabIndex = 11;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(15, 142);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 20);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "State";
             // 
             // FrmPermissionList
             // 
@@ -420,6 +446,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmPermissionList";
             this.Text = "Permission List";
+            this.Load += new System.EventHandler(this.FrmPermissionList_Load);
             this.panel1.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
             this.pnlUser.PerformLayout();
@@ -468,5 +495,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboState;
+        private System.Windows.Forms.Label label10;
     }
 }
