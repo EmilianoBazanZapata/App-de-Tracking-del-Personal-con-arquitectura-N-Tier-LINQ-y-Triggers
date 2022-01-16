@@ -87,6 +87,7 @@
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(324, 26);
             this.dtpStartDate.TabIndex = 3;
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // label9
             // 
@@ -105,6 +106,7 @@
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(324, 26);
             this.dtpEndDate.TabIndex = 5;
+            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             // 
             // label3
             // 
@@ -131,9 +133,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(18, 143);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 20);
+            this.label4.Size = new System.Drawing.Size(95, 20);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Explication";
+            this.label4.Text = "Explianation";
             // 
             // btnClose
             // 
@@ -155,6 +157,7 @@
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmPermission
             // 
@@ -175,6 +178,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmPermission";
             this.Text = "Permission";
+            this.Load += new System.EventHandler(this.FrmPermission_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
