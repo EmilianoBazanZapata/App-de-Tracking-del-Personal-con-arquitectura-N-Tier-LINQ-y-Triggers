@@ -64,7 +64,6 @@ namespace DAL.DAO
                 dto.TaskStartDate = item.StartDate; 
                 dto.TaskDeliveryDate = item.DeliveryDate;
                 dto.TaskStateName = item.TaskStateName;
-                dto.TaskStateName = item.TaskStateName;
                 dto.UserNo = item.UserNo;
                 dto.Name = item.Name;
                 dto.SurName = item.SurName;

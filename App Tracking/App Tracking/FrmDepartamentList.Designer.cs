@@ -40,11 +40,15 @@
             // 
             // dgvDepartamentList
             // 
+            this.dgvDepartamentList.AllowUserToAddRows = false;
+            this.dgvDepartamentList.AllowUserToDeleteRows = false;
+            this.dgvDepartamentList.AllowUserToOrderColumns = true;
             this.dgvDepartamentList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDepartamentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDepartamentList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDepartamentList.Location = new System.Drawing.Point(0, 0);
             this.dgvDepartamentList.Name = "dgvDepartamentList";
+            this.dgvDepartamentList.ReadOnly = true;
             this.dgvDepartamentList.Size = new System.Drawing.Size(598, 443);
             this.dgvDepartamentList.TabIndex = 0;
             // 
@@ -62,6 +66,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(472, 12);
             this.btnClose.Name = "btnClose";

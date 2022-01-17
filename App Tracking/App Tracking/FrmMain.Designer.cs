@@ -28,111 +28,144 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEmployee = new System.Windows.Forms.Button();
-            this.btnTasks = new System.Windows.Forms.Button();
-            this.btnSalary = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.btnPosition = new System.Windows.Forms.Button();
             this.btnDepartament = new System.Windows.Forms.Button();
             this.btnPermission = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnSalary = new System.Windows.Forms.Button();
+            this.btnTasks = new System.Windows.Forms.Button();
+            this.btnEmployee = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnEmployee
-            // 
-            this.btnEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployee.Location = new System.Drawing.Point(12, 12);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(218, 132);
-            this.btnEmployee.TabIndex = 0;
-            this.btnEmployee.Text = "Employee";
-            this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEmployee.UseVisualStyleBackColor = true;
-            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
-            // 
-            // btnTasks
-            // 
-            this.btnTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTasks.Location = new System.Drawing.Point(236, 12);
-            this.btnTasks.Name = "btnTasks";
-            this.btnTasks.Size = new System.Drawing.Size(218, 132);
-            this.btnTasks.TabIndex = 1;
-            this.btnTasks.Text = "Tasks";
-            this.btnTasks.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTasks.UseVisualStyleBackColor = true;
-            this.btnTasks.Click += new System.EventHandler(this.btnTasks_Click);
-            // 
-            // btnSalary
-            // 
-            this.btnSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalary.Location = new System.Drawing.Point(460, 12);
-            this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(218, 132);
-            this.btnSalary.TabIndex = 2;
-            this.btnSalary.Text = "Salary";
-            this.btnSalary.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSalary.UseVisualStyleBackColor = true;
-            this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
-            // 
-            // btnPosition
-            // 
-            this.btnPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPosition.Location = new System.Drawing.Point(462, 150);
-            this.btnPosition.Name = "btnPosition";
-            this.btnPosition.Size = new System.Drawing.Size(218, 132);
-            this.btnPosition.TabIndex = 5;
-            this.btnPosition.Text = "Position";
-            this.btnPosition.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPosition.UseVisualStyleBackColor = true;
-            this.btnPosition.Click += new System.EventHandler(this.btnPosition_Click);
-            // 
-            // btnDepartament
-            // 
-            this.btnDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepartament.Location = new System.Drawing.Point(236, 150);
-            this.btnDepartament.Name = "btnDepartament";
-            this.btnDepartament.Size = new System.Drawing.Size(218, 132);
-            this.btnDepartament.TabIndex = 4;
-            this.btnDepartament.Text = "Departament";
-            this.btnDepartament.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDepartament.UseVisualStyleBackColor = true;
-            this.btnDepartament.Click += new System.EventHandler(this.btnDepartament_Click);
-            // 
-            // btnPermission
-            // 
-            this.btnPermission.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPermission.Location = new System.Drawing.Point(12, 150);
-            this.btnPermission.Name = "btnPermission";
-            this.btnPermission.Size = new System.Drawing.Size(218, 132);
-            this.btnPermission.TabIndex = 3;
-            this.btnPermission.Text = "Permission";
-            this.btnPermission.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPermission.UseVisualStyleBackColor = true;
-            this.btnPermission.Click += new System.EventHandler(this.btnPermission_Click);
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.DarkViolet;
+            this.btnExit.BackgroundImage = global::App_Tracking.Properties.Resources.exit;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(347, 288);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(218, 132);
             this.btnExit.TabIndex = 7;
-            this.btnExit.Text = "Exit";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnExit, "Exit");
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnLogOut
             // 
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogOut.BackColor = System.Drawing.Color.Crimson;
+            this.btnLogOut.BackgroundImage = global::App_Tracking.Properties.Resources.logout;
+            this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(123, 288);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(218, 132);
             this.btnLogOut.TabIndex = 6;
-            this.btnLogOut.Text = "LogOut";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnLogOut, "LogOut");
+            this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // btnPosition
+            // 
+            this.btnPosition.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnPosition.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnPosition.BackgroundImage = global::App_Tracking.Properties.Resources.position;
+            this.btnPosition.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPosition.Location = new System.Drawing.Point(462, 150);
+            this.btnPosition.Name = "btnPosition";
+            this.btnPosition.Size = new System.Drawing.Size(218, 132);
+            this.btnPosition.TabIndex = 5;
+            this.btnPosition.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnPosition, "Position");
+            this.btnPosition.UseVisualStyleBackColor = false;
+            this.btnPosition.Click += new System.EventHandler(this.btnPosition_Click);
+            // 
+            // btnDepartament
+            // 
+            this.btnDepartament.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDepartament.BackColor = System.Drawing.Color.Gold;
+            this.btnDepartament.BackgroundImage = global::App_Tracking.Properties.Resources.department;
+            this.btnDepartament.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDepartament.Location = new System.Drawing.Point(236, 150);
+            this.btnDepartament.Name = "btnDepartament";
+            this.btnDepartament.Size = new System.Drawing.Size(218, 132);
+            this.btnDepartament.TabIndex = 4;
+            this.btnDepartament.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnDepartament, "Departament");
+            this.btnDepartament.UseVisualStyleBackColor = false;
+            this.btnDepartament.Click += new System.EventHandler(this.btnDepartament_Click);
+            // 
+            // btnPermission
+            // 
+            this.btnPermission.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnPermission.BackColor = System.Drawing.Color.LightCyan;
+            this.btnPermission.BackgroundImage = global::App_Tracking.Properties.Resources.login;
+            this.btnPermission.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPermission.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPermission.Location = new System.Drawing.Point(12, 150);
+            this.btnPermission.Name = "btnPermission";
+            this.btnPermission.Size = new System.Drawing.Size(218, 132);
+            this.btnPermission.TabIndex = 3;
+            this.btnPermission.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnPermission, "Permission");
+            this.btnPermission.UseVisualStyleBackColor = false;
+            this.btnPermission.Click += new System.EventHandler(this.btnPermission_Click);
+            // 
+            // btnSalary
+            // 
+            this.btnSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalary.BackColor = System.Drawing.Color.Magenta;
+            this.btnSalary.BackgroundImage = global::App_Tracking.Properties.Resources.Payment1;
+            this.btnSalary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalary.Location = new System.Drawing.Point(462, 12);
+            this.btnSalary.Name = "btnSalary";
+            this.btnSalary.Size = new System.Drawing.Size(218, 132);
+            this.btnSalary.TabIndex = 2;
+            this.btnSalary.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnSalary, "Salary");
+            this.btnSalary.UseVisualStyleBackColor = false;
+            this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
+            // 
+            // btnTasks
+            // 
+            this.btnTasks.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTasks.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnTasks.BackgroundImage = global::App_Tracking.Properties.Resources.Task;
+            this.btnTasks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTasks.Location = new System.Drawing.Point(236, 12);
+            this.btnTasks.Name = "btnTasks";
+            this.btnTasks.Size = new System.Drawing.Size(218, 132);
+            this.btnTasks.TabIndex = 1;
+            this.btnTasks.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnTasks, "Task");
+            this.btnTasks.UseVisualStyleBackColor = false;
+            this.btnTasks.Click += new System.EventHandler(this.btnTasks_Click);
+            // 
+            // btnEmployee
+            // 
+            this.btnEmployee.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnEmployee.BackgroundImage = global::App_Tracking.Properties.Resources.employee;
+            this.btnEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployee.Location = new System.Drawing.Point(12, 12);
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.Size = new System.Drawing.Size(218, 132);
+            this.btnEmployee.TabIndex = 0;
+            this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnEmployee, "Employee");
+            this.btnEmployee.UseVisualStyleBackColor = false;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // FrmMain
             // 
@@ -163,5 +196,6 @@
         private System.Windows.Forms.Button btnPermission;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

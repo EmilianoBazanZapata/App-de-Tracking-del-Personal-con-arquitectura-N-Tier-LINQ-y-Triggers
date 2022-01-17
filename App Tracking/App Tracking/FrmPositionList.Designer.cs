@@ -52,6 +52,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(472, 12);
             this.btnClose.Name = "btnClose";
@@ -94,11 +95,15 @@
             // 
             // dgvPositionList
             // 
+            this.dgvPositionList.AllowUserToAddRows = false;
+            this.dgvPositionList.AllowUserToDeleteRows = false;
+            this.dgvPositionList.AllowUserToOrderColumns = true;
             this.dgvPositionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPositionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPositionList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPositionList.Location = new System.Drawing.Point(0, 0);
             this.dgvPositionList.Name = "dgvPositionList";
+            this.dgvPositionList.ReadOnly = true;
             this.dgvPositionList.Size = new System.Drawing.Size(604, 450);
             this.dgvPositionList.TabIndex = 0;
             // 

@@ -353,6 +353,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(562, 15);
             this.btnClose.Name = "btnClose";
@@ -395,11 +396,15 @@
             // 
             // dgvTaskList
             // 
+            this.dgvTaskList.AllowUserToAddRows = false;
+            this.dgvTaskList.AllowUserToDeleteRows = false;
+            this.dgvTaskList.AllowUserToOrderColumns = true;
             this.dgvTaskList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTaskList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaskList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTaskList.Location = new System.Drawing.Point(0, 187);
             this.dgvTaskList.Name = "dgvTaskList";
+            this.dgvTaskList.ReadOnly = true;
             this.dgvTaskList.Size = new System.Drawing.Size(691, 186);
             this.dgvTaskList.TabIndex = 1;
             // 

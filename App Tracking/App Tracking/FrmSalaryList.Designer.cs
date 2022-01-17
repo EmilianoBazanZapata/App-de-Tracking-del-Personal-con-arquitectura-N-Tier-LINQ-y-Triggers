@@ -329,6 +329,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(666, 6);
             this.btnClose.Name = "btnClose";
@@ -371,10 +372,15 @@
             // 
             // dgvSalaryList
             // 
+            this.dgvSalaryList.AllowUserToAddRows = false;
+            this.dgvSalaryList.AllowUserToDeleteRows = false;
+            this.dgvSalaryList.AllowUserToOrderColumns = true;
+            this.dgvSalaryList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSalaryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSalaryList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSalaryList.Location = new System.Drawing.Point(0, 187);
             this.dgvSalaryList.Name = "dgvSalaryList";
+            this.dgvSalaryList.ReadOnly = true;
             this.dgvSalaryList.Size = new System.Drawing.Size(792, 201);
             this.dgvSalaryList.TabIndex = 2;
             // 

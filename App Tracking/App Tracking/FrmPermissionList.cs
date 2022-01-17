@@ -17,6 +17,8 @@ namespace App_Tracking
     {
         PermissionDTO dto = new PermissionDTO();
         bool ComboFull = false;
+        public bool IsUpdate = false;
+        PermissionDetailDTO detail = new PermissionDetailDTO();
         public FrmPermissionList()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace App_Tracking
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -40,19 +42,20 @@ namespace App_Tracking
             dto = PermissionBLL.GetAll();
             dgvPermissionList.DataSource = dto.Permissions;
             dgvPermissionList.Columns[0].Visible = false;
-            dgvPermissionList.Columns[1].HeaderText = "User No";
+            dgvPermissionList.Columns[1].Visible = false;
             dgvPermissionList.Columns[2].HeaderText = "Name";
             dgvPermissionList.Columns[3].HeaderText = "SurName";
-            dgvPermissionList.Columns[4].Visible = false;
-            dgvPermissionList.Columns[5].Visible = false;
+            dgvPermissionList.Columns[4].HeaderText = "Departmetn Name";
+            dgvPermissionList.Columns[5].HeaderText = "Position Name";
             dgvPermissionList.Columns[6].Visible = false;
             dgvPermissionList.Columns[7].Visible = false;
             dgvPermissionList.Columns[8].HeaderText = "Start Date";
             dgvPermissionList.Columns[9].HeaderText = "End Date";
-            dgvPermissionList.Columns[10].Visible = false;
-            dgvPermissionList.Columns[11].HeaderText = "Day Amount";
-            dgvPermissionList.Columns[12].HeaderText = "State";
-            dgvPermissionList.Columns[13].Visible = false;
+            dgvPermissionList.Columns[10].HeaderText = "Permission Day Amount";
+            dgvPermissionList.Columns[11].HeaderText = "State";
+            dgvPermissionList.Columns[12].Visible = false;
+            dgvPermissionList.Columns[13].HeaderText = "Explanation";
+            dgvPermissionList.Columns[14].Visible = false;
             ComboFull = false;
             cboDepartament.DataSource = dto.Departments;
             cboDepartament.DisplayMember = "DEPARTAMENT_NAME";
@@ -92,9 +95,9 @@ namespace App_Tracking
             {
                 list = list.Where(x => x.PositionID == Convert.ToInt32(cboPosition.SelectedValue)).ToList();
             }
-            if (rbStartDate.Checked) 
+            if (rbStartDate.Checked)
             {
-                list = list.Where(x=>x.StartDate < Convert.ToDateTime(dtpFinish.Value) && 
+                list = list.Where(x => x.StartDate < Convert.ToDateTime(dtpFinish.Value) &&
                                      x.StartDate > Convert.ToDateTime(dtpStart.Value)).ToList();
             }
             if (rbDeliveryDate.Checked)
@@ -102,11 +105,11 @@ namespace App_Tracking
                 list = list.Where(x => x.EndDate < Convert.ToDateTime(dtpFinish.Value) &&
                                      x.EndDate > Convert.ToDateTime(dtpStart.Value)).ToList();
             }
-            if (cboState.SelectedIndex != -1) 
+            if (cboState.SelectedIndex != -1)
             {
-                list = list.Where(x=>x.State == Convert.ToInt32(cboState.SelectedValue)).ToList();
+                list = list.Where(x => x.State == Convert.ToInt32(cboState.SelectedValue)).ToList();
             }
-            if (txtDayAmount.Text.Trim()!="")
+            if (txtDayAmount.Text.Trim() != "")
             {
                 list = list.Where(x => x.PermissionDayAmount == Convert.ToInt32(txtDayAmount.Text)).ToList();
             }
@@ -127,6 +130,46 @@ namespace App_Tracking
             dtpStart.Value = DateTime.Today;
             dtpFinish.Value = DateTime.Today;
             dgvPermissionList.DataSource = dto.Permissions;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (detail.PermissionId == 0)
+            {
+                MessageBox.Show("Please Select A Permission From Table");
+            }
+            else
+            {
+                FrmPermission frm = new FrmPermission();
+                frm.IsUpdate = true;
+                frm.detail = detail;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+            }
+        }
+
+        private void dgvPermissionList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.PermissionId = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[0].Value);
+            detail.UserNo = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[1].Value);
+            detail.StartDate = Convert.ToDateTime(dgvPermissionList.Rows[e.RowIndex].Cells[8].Value);
+            detail.EndDate = Convert.ToDateTime(dgvPermissionList.Rows[e.RowIndex].Cells[9].Value);
+            detail.PermissionDayAmount = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[10].Value);
+            detail.State = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[12].Value);
+            detail.Explanation = dgvPermissionList.Rows[e.RowIndex].Cells[13].Value.ToString();
+        }
+
+        private void btnApprove_Click(object sender, EventArgs e)
+        {
+            PermissionBLL.UpdatePermissionFrm(detail.PermissionId,PermissionStates.Approved);
+            MessageBox.Show("Approved");
+        }
+
+        private void btnDisapprove_Click(object sender, EventArgs e)
+        {
+            PermissionBLL.UpdatePermissionFrm(detail.PermissionId, PermissionStates.Disapproved);
+            MessageBox.Show("Disapproved");
         }
     }
 }
