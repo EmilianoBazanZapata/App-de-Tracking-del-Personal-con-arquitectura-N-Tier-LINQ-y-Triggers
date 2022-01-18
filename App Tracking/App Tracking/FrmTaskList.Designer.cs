@@ -382,6 +382,7 @@
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnNew
             // 
@@ -407,6 +408,7 @@
             this.dgvTaskList.ReadOnly = true;
             this.dgvTaskList.Size = new System.Drawing.Size(691, 186);
             this.dgvTaskList.TabIndex = 1;
+            this.dgvTaskList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaskList_RowEnter);
             // 
             // FrmTaskList
             // 

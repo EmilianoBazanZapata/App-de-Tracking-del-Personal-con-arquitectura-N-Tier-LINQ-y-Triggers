@@ -17,6 +17,8 @@ namespace App_Tracking
     public partial class FrmTaskList : Form
     {
         TaskDTO dto = new TaskDTO();
+        TaskDetailDTO detail = new TaskDetailDTO();
+        
         public FrmTaskList()
         {
             InitializeComponent();
@@ -46,6 +48,10 @@ namespace App_Tracking
             dgvTaskList.Columns[6].Visible = false;
             dgvTaskList.Columns[7].Visible = false;
             dgvTaskList.Columns[8].Visible = false;
+            cboTaskState.DataSource = dto.TaskStates;
+            cboTaskState.DisplayMember = "STATE_NAME";
+            cboTaskState.ValueMember = "ID";
+            cboDepartament.SelectedIndex = -1;
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -107,6 +113,37 @@ namespace App_Tracking
             rbtDeliveryDate.Checked = false;
             rbtStartDate.Checked = false;
             dgvTaskList.DataSource = dto.Tasks;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (detail.TaskId == 0)
+            {
+                MessageBox.Show("Please Select A Task On Table");
+            }
+            else 
+            {
+                FrmTask frm = new FrmTask();
+                frm.IsUpdate = true;
+                frm.detail = detail;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+            }
+        }
+
+        private void dgvTaskList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+            detail.Id = Convert.ToInt32(dgvTaskList.Rows[e.RowIndex].Cells[0].Value.ToString());
+            detail.UserNo = Convert.ToInt32(dgvTaskList.Rows[e.RowIndex].Cells[1].Value.ToString());
+            detail.Name = dgvTaskList.Rows[e.RowIndex].Cells[2].Value.ToString();
+            detail.SurName = dgvTaskList.Rows[e.RowIndex].Cells[3].Value.ToString();
+            detail.TaskId = Convert.ToInt32(dgvTaskList.Rows[e.RowIndex].Cells[8].Value.ToString());
+            detail.Title = dgvTaskList.Rows[e.RowIndex].Cells[9].Value.ToString();
+            detail.Content = dgvTaskList.Rows[e.RowIndex].Cells[10].Value.ToString();
+            detail.TaskStartDate =  Convert.ToDateTime(dgvTaskList.Rows[e.RowIndex].Cells[12].Value);
+            detail.TaskDeliveryDate =  Convert.ToDateTime(dgvTaskList.Rows[e.RowIndex].Cells[13].Value);
         }
     }
 }

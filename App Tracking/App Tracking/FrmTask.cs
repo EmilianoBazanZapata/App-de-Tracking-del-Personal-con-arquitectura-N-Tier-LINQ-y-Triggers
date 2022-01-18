@@ -18,6 +18,8 @@ namespace App_Tracking
         TaskDTO dto = new TaskDTO();
         bool ComboFull = false;
         TASKS Task = new TASKS();
+        public bool IsUpdate = false;
+        public TaskDetailDTO detail = new TaskDetailDTO();
         public FrmTask()
         {
             InitializeComponent();
@@ -59,6 +61,20 @@ namespace App_Tracking
             cboDepartament.SelectedIndex = -1;
             cboPosition.SelectedIndex = -1;
             ComboFull = true;
+            if (IsUpdate)
+            {
+                cboTaskState.Visible = true;
+                txtName.Text = detail.Name;
+                txtContent.Text = detail.Content;
+                txtSurName.Text = detail.SurName;
+                txtTitle.Text = detail.Title;
+                txtUserNo.Text = detail.UserNo.ToString();
+                cboTaskState.DataSource = dto.TaskStates;
+                cboTaskState.DisplayMember = "STATE_NAME";
+                cboTaskState.ValueMember = "ID";
+                cboTaskState.SelectedValue = detail.TaskId;
+
+            }
         }
 
         private void cboDepartament_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,17 +111,43 @@ namespace App_Tracking
             }
             else
             {
-                Task.TASK_TITLE = txtTitle.Text;
-                Task.TASK_CONTENT = txtContent.Text;
-                Task.TASK_START = DateTime.Today;
-                Task.TASK_STATE = 1;
-                TaskBLL.AddTask(Task);
-                MessageBox.Show("Task Was Added");
-                txtTitle.Clear();
-                txtContent.Clear();
-                cboDepartament.SelectedIndex = -1;
-                cboPosition.SelectedIndex = -1;
-                Task = new TASKS(); 
+                if (!IsUpdate)
+                {
+                    Task.TASK_TITLE = txtTitle.Text;
+                    Task.TASK_CONTENT = txtContent.Text;
+                    Task.TASK_START = DateTime.Today;
+                    Task.TASK_STATE = 1;
+                    TaskBLL.AddTask(Task);
+                    MessageBox.Show("Task Was Added");
+                    txtTitle.Clear();
+                    txtContent.Clear();
+                    cboDepartament.SelectedIndex = -1;
+                    cboPosition.SelectedIndex = -1;
+                    Task = new TASKS();
+                }
+                else if (IsUpdate)
+                {
+                    DialogResult result = MessageBox.Show("Are You Sure ?", "Warning", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        TASKS update = new TASKS();
+                        update.ID = detail.TaskId;
+                        if (Convert.ToInt32(txtUserNo.Text) != detail.UserNo)
+                        {
+                            update.EMPLOYEE_ID = Task.EMPLOYEE_ID;
+                        }
+                        else
+                        {
+                            update.EMPLOYEE_ID = detail.Id;
+                            update.TASK_TITLE = txtTitle.Text;
+                            update.TASK_CONTENT = txtContent.Text;
+                            update.TASK_STATE = Convert.ToInt32(cboTaskState.SelectedValue);
+                            TaskBLL.UpdateTask(update);
+                            MessageBox.Show("Task Was Updated");
+                            this.Close();
+                        }
+                    }
+                }
             }
         }
     }
