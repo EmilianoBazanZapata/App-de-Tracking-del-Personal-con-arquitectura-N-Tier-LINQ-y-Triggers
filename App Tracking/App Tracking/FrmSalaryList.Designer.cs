@@ -358,6 +358,7 @@
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnNew
             // 
@@ -383,6 +384,7 @@
             this.dgvSalaryList.ReadOnly = true;
             this.dgvSalaryList.Size = new System.Drawing.Size(792, 201);
             this.dgvSalaryList.TabIndex = 2;
+            this.dgvSalaryList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSalaryList_RowEnter);
             // 
             // FrmSalaryList
             // 
