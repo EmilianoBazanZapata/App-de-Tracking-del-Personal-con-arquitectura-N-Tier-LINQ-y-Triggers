@@ -19,7 +19,9 @@ namespace App_Tracking
         bool ComboFull = false;
         string filename;
         bool IsUnique = false;
-
+        public EmployeeDetailDTO detail = new EmployeeDetailDTO();
+        public bool IsUpdate = false;
+        string ImagePath = "";
         public FrmEmployee()
         {
             InitializeComponent();
@@ -52,6 +54,22 @@ namespace App_Tracking
             cboDepartament.SelectedIndex = -1;
             cboPosition.SelectedIndex = -1;
             ComboFull = true;
+            if (IsUpdate)
+            {
+                txtName.Text = detail.Name;
+                txtSurname.Text = detail.SurName;
+                txtUserNo.Text = Convert.ToString(detail.UserNo);
+                txtPassword.Text = detail.Password;
+                cbxAdmin.Checked = Convert.ToBoolean(detail.IsAdmin);
+                txtInformation.Text = detail.Adress;
+                dtpBhirtday.Value = Convert.ToDateTime(detail.BhirtDay);
+                cboDepartament.SelectedValue = detail.DepartmentID;
+                cboPosition.SelectedValue = detail.PositionID;
+                txtSalary.Text = Convert.ToString(detail.Salary);
+                ImagePath = Application.StartupPath + "\\images\\" + detail.ImagePath;
+                txtImagePath.Text = ImagePath;
+                pbEmployee.ImageLocation = ImagePath;
+            }
         }
 
         private void cboDepartament_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,7 +83,7 @@ namespace App_Tracking
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK) 
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pbEmployee.Load(openFileDialog1.FileName);
                 txtImagePath.Text = openFileDialog1.FileName;
@@ -104,28 +122,79 @@ namespace App_Tracking
             {
                 MessageBox.Show("Select A Position");
             }
-            else if (EmployeeBLL.IsUnique(Convert.ToInt32(txtUserNo.Text))) 
-            {
-                MessageBox.Show("This User No Is Used By Another Employee Please Change ");
-            }
             else
             {
                 USERS emp = new USERS();
-
-                emp.USER_NO = Convert.ToInt32(txtUserNo.Text);
-                emp.PASSWORD = txtPassword.Text;
-                emp.IS_ADMIN = cbxAdmin.Checked;
-                emp.NAME = txtName.Text;
-                emp.SURNAME = txtSurname.Text;
-                emp.SALARY = Convert.ToInt32(txtSalary.Text);
-                emp.DEPARTAMENT_ID = Convert.ToInt32(cboDepartament.SelectedValue);
-                emp.POSITION_ID = Convert.ToInt32(cboPosition.SelectedValue);
-                emp.ADRESS = txtInformation.Text;
-                emp.BIRTH_DAY = dtpBhirtday.Value;
-                emp.IMAGE_PATH = filename;
-                EmployeeBLL.AddEmployee(emp);
-                File.Copy(txtImagePath.Text, @"images\\" + filename);
-                MessageBox.Show("Employee Was Added");
+                if (!IsUpdate)
+                {
+                    if (!EmployeeBLL.IsUnique(Convert.ToInt32(txtUserNo.Text)))
+                    {
+                        MessageBox.Show("This User No Is Used By Another Employee Please Change ");
+                    }
+                    else
+                    {
+                        emp.USER_NO = Convert.ToInt32(txtUserNo.Text);
+                        emp.PASSWORD = txtPassword.Text;
+                        emp.IS_ADMIN = cbxAdmin.Checked;
+                        emp.NAME = txtName.Text;
+                        emp.SURNAME = txtSurname.Text;
+                        emp.SALARY = Convert.ToInt32(txtSalary.Text);
+                        emp.DEPARTAMENT_ID = Convert.ToInt32(cboDepartament.SelectedValue);
+                        emp.POSITION_ID = Convert.ToInt32(cboPosition.SelectedValue);
+                        emp.ADRESS = txtInformation.Text;
+                        emp.BIRTH_DAY = dtpBhirtday.Value;
+                        emp.IMAGE_PATH = filename;
+                        EmployeeBLL.AddEmployee(emp);
+                        File.Copy(txtImagePath.Text, @"images\\" + filename);
+                        MessageBox.Show("Employee Was Added");
+                    }
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Are You Sure?", "Warning", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        if (txtImagePath.Text != ImagePath)
+                        {
+                            if (File.Exists(@"images\\" + detail.ImagePath))
+                            {
+                                File.Delete(@"images\\" + detail.ImagePath);
+                            }
+                            File.Copy(txtImagePath.Text, @"images\\" + filename);
+                            emp.IMAGE_PATH = filename;
+                            emp.ID = detail.Id;
+                            emp.USER_NO = Convert.ToInt32(txtUserNo.Text);
+                            emp.PASSWORD = txtPassword.Text;
+                            emp.IS_ADMIN = cbxAdmin.Checked;
+                            emp.NAME = txtName.Text;
+                            emp.SURNAME = txtSurname.Text;
+                            emp.SALARY = Convert.ToInt32(txtSalary.Text);
+                            emp.DEPARTAMENT_ID = Convert.ToInt32(cboDepartament.SelectedValue);
+                            emp.POSITION_ID = Convert.ToInt32(cboPosition.SelectedValue);
+                            emp.ADRESS = txtInformation.Text;
+                            emp.BIRTH_DAY = dtpBhirtday.Value;
+                            EmployeeBLL.UpdateEmployee(emp);
+                            MessageBox.Show("Employee Was Updated");
+                        }
+                        else
+                        {
+                            emp.ID = detail.Id;
+                            emp.USER_NO = Convert.ToInt32(txtUserNo.Text);
+                            emp.PASSWORD = txtPassword.Text;
+                            emp.IS_ADMIN = cbxAdmin.Checked;
+                            emp.NAME = txtName.Text;
+                            emp.SURNAME = txtSurname.Text;
+                            emp.SALARY = Convert.ToInt32(txtSalary.Text);
+                            emp.DEPARTAMENT_ID = Convert.ToInt32(cboDepartament.SelectedValue);
+                            emp.POSITION_ID = Convert.ToInt32(cboPosition.SelectedValue);
+                            emp.ADRESS = txtInformation.Text;
+                            emp.BIRTH_DAY = dtpBhirtday.Value;
+                            emp.IMAGE_PATH = detail.ImagePath;
+                            EmployeeBLL.UpdateEmployee(emp);
+                            MessageBox.Show("Employee Was Updated");
+                        }
+                    }
+                }
                 txtUserNo.Clear();
                 txtPassword.Clear();
                 cbxAdmin.Checked = false;
@@ -148,14 +217,14 @@ namespace App_Tracking
             {
                 MessageBox.Show("User Is Empty");
             }
-            else 
+            else
             {
                 IsUnique = EmployeeBLL.IsUnique(Convert.ToInt32(txtUserNo.Text));
                 if (!IsUnique)
                 {
                     MessageBox.Show("This User No Is Used By Another Employee Please Change ");
                 }
-                else 
+                else
                 {
                     MessageBox.Show("This User No Is Usable");
                 }

@@ -203,6 +203,7 @@
             this.dgvEmployeeList.ReadOnly = true;
             this.dgvEmployeeList.Size = new System.Drawing.Size(616, 402);
             this.dgvEmployeeList.TabIndex = 1;
+            this.dgvEmployeeList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployeeList_RowEnter);
             // 
             // panel2
             // 

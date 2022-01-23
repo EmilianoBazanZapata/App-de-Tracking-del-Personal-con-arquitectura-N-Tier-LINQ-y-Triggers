@@ -18,6 +18,7 @@ namespace App_Tracking
     {
         EmployeeDTO dto = new EmployeeDTO();
         bool ComboFull = false;
+        EmployeeDetailDTO detail = new EmployeeDetailDTO();
 
         public FrmEmployeeList()
         {
@@ -39,10 +40,19 @@ namespace App_Tracking
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmEmployee frmEmployee = new FrmEmployee();
-            this.Hide();
-            frmEmployee.ShowDialog();
-            this.Visible = true;
+            if (detail.Id == 0)
+            {
+                MessageBox.Show("Please Select An Employee On Table");
+            }
+            else 
+            {
+                FrmEmployee frm = new FrmEmployee();
+                this.Hide();
+                frm.IsUpdate = true;
+                frm.detail = detail;
+                frm.ShowDialog();
+                this.Visible = true;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -122,6 +132,22 @@ namespace App_Tracking
             cboDepartament.SelectedIndex = -1;
             cboPosition.SelectedIndex = -1;
             dgvEmployeeList.DataSource = dto.Detail;
+        }
+
+        private void dgvEmployeeList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.Id = Convert.ToInt32(dgvEmployeeList.Rows[e.RowIndex].Cells[0].Value);
+            detail.UserNo = Convert.ToInt32(dgvEmployeeList.Rows[e.RowIndex].Cells[1].Value);
+            detail.Name = dgvEmployeeList.Rows[e.RowIndex].Cells[2].Value.ToString();
+            detail.SurName = dgvEmployeeList.Rows[e.RowIndex].Cells[3].Value.ToString();
+            detail.DepartmentID = Convert.ToInt32(dgvEmployeeList.Rows[e.RowIndex].Cells[6].Value);
+            detail.PositionID = Convert.ToInt32(dgvEmployeeList.Rows[e.RowIndex].Cells[7].Value);
+            detail.Salary = Convert.ToInt32(dgvEmployeeList.Rows[e.RowIndex].Cells[8].Value);
+            detail.Password = dgvEmployeeList.Rows[e.RowIndex].Cells[8].Value.ToString();
+            detail.IsAdmin = Convert.ToBoolean(dgvEmployeeList.Rows[e.RowIndex].Cells[10].Value);
+            detail.ImagePath = dgvEmployeeList.Rows[e.RowIndex].Cells[11].Value.ToString();
+            detail.Adress = dgvEmployeeList.Rows[e.RowIndex].Cells[12].Value.ToString();
+            detail.BhirtDay = Convert.ToDateTime(dgvEmployeeList.Rows[e.RowIndex].Cells[13].Value);
         }
     }
 }

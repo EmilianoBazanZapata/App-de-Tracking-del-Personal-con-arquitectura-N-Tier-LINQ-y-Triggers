@@ -75,9 +75,35 @@ namespace DAL.DAO
                 dto.Salary = item.Salary;
                 dto.BhirtDay = item.BirthDay;
                 dto.Adress = item.Adress;
+                dto.ImagePath = item.ImagePath;
                 employeelist.Add(dto);
             }
             return employeelist;
+        }
+
+        public static void UpdateEmployee(USERS emp)
+        {
+            try
+            {
+                USERS em = db.USERS.First(x => x.ID == emp.ID);
+                em.USER_NO = emp.USER_NO;
+                em.SURNAME = emp.SURNAME;
+                em.NAME = emp.NAME;
+                em.PASSWORD = emp.PASSWORD;
+                em.IS_ADMIN = emp.IS_ADMIN;
+                em.BIRTH_DAY = emp.BIRTH_DAY;
+                em.ADRESS = emp.ADRESS;
+                em.DEPARTAMENT_ID = emp.DEPARTAMENT_ID;
+                em.POSITION_ID = emp.POSITION_ID;
+                em.SALARY = emp.SALARY;
+                em.IMAGE_PATH = emp.IMAGE_PATH; 
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public static void UpdateEmployee(int Id, int Amount)
