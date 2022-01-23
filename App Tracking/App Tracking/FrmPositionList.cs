@@ -20,6 +20,7 @@ namespace App_Tracking
             InitializeComponent();
         }
         List<PositionDTO> PositionList = new List<PositionDTO>();
+        PositionDTO detail = new PositionDTO();
         private void FrmPositionList_Load(object sender, EventArgs e)
         {
             FillGrid();
@@ -45,6 +46,31 @@ namespace App_Tracking
         {
             PositionList = PositionBLL.GetPositions();
             dgvPositionList.DataSource = PositionList;
+        }
+
+        private void dgvPositionList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.ID = Convert.ToInt32(dgvPositionList.Rows[e.RowIndex].Cells[1].Value.ToString());
+            detail.POSITION_NAME = dgvPositionList.Rows[e.RowIndex].Cells[2].Value.ToString();
+            detail.DEPARTAMENT_ID = Convert.ToInt32(dgvPositionList.Rows[e.RowIndex].Cells[3].Value.ToString());
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (detail.ID == 0)
+            {
+                MessageBox.Show("Please Select A Position From Table");
+            }
+            else 
+            {
+                FrmPosition frm = new FrmPosition();
+                frm.IsUpdate = true;
+                frm.detail = detail;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                FillGrid();
+            }
         }
     }
 }
