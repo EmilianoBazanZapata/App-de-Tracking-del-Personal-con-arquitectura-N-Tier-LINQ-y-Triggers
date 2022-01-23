@@ -14,6 +14,7 @@ namespace App_Tracking
 {
     public partial class FrmDepartamentList : Form
     {
+        public DEPARTAMENTS detail = new DEPARTAMENTS();    
         public FrmDepartamentList()
         {
             InitializeComponent();
@@ -41,6 +42,29 @@ namespace App_Tracking
             //al momento de agregar un nuevo departamento actualizo la lista
             list = DepartamentBLL.GetDepartamentList();
             dgvDepartamentList.DataSource = list;
+        }
+
+        private void dgvDepartamentList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.ID = Convert.ToInt32(dgvDepartamentList.Rows[e.RowIndex].Cells[0].Value);
+            detail.DEPARTAMENT_NAME = dgvDepartamentList.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (detail.ID == 0)
+            {
+                MessageBox.Show("Please Select An Department From Table");
+            }
+            else 
+            {
+                frmDepartament frm = new frmDepartament();
+                frm.IsUpdate = true;
+                frm.detail = detail;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;    
+            }
         }
     }
 }

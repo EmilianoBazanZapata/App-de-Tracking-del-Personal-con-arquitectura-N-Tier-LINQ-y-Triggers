@@ -14,6 +14,9 @@ namespace App_Tracking
 {
     public partial class frmDepartament : Form
     {
+        public bool IsUpdate = false;
+        public DEPARTAMENTS detail = new DEPARTAMENTS();
+        public int Id = 0;
         public frmDepartament()
         {
             InitializeComponent();
@@ -29,13 +32,36 @@ namespace App_Tracking
             {
                 MessageBox.Show("Please Fill Name Field");
             }
-            else 
+            else
             {
-                DEPARTAMENTS departament = new DEPARTAMENTS();
-                departament.DEPARTAMENT_NAME = txtDepartament.Text;
-                BLL.DepartamentBLL.AddDepartament(departament);
-                MessageBox.Show("Departament Was Added");
-                txtDepartament.Clear();
+                if (!IsUpdate)
+                {
+                    DEPARTAMENTS departament = new DEPARTAMENTS();
+                    departament.DEPARTAMENT_NAME = txtDepartament.Text;
+                    BLL.DepartamentBLL.AddDepartament(departament);
+                    MessageBox.Show("Departament Was Added");
+                    txtDepartament.Clear();
+                }
+                else 
+                {
+                    DialogResult result = MessageBox.Show("Are You Sure ?","Warning",MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes) 
+                    {
+                        detail.ID = Id;
+                        detail.DEPARTAMENT_NAME = txtDepartament.Text;
+                        DepartamentBLL.UpdateDepartment(detail);
+                        MessageBox.Show("Department Was Updated");
+                    }
+                }
+            }
+        }
+
+        private void frmDepartament_Load(object sender, EventArgs e)
+        {
+            if (IsUpdate)
+            {
+                txtDepartament.Text = detail.DEPARTAMENT_NAME;
+                Id = detail.ID;
             }
         }
     }
