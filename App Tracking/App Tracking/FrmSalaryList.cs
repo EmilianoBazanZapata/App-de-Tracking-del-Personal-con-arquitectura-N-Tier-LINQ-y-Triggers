@@ -168,5 +168,14 @@ namespace App_Tracking
                 frm.ShowDialog();
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Salary","Warning",MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes) 
+            {
+                SalaryBLL.DeleteSalary(detail.SalaryId);
+            }
+        }
     }
 }
