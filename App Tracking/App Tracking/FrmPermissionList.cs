@@ -171,5 +171,22 @@ namespace App_Tracking
             PermissionBLL.UpdatePermissionFrm(detail.PermissionId, PermissionStates.Disapproved);
             MessageBox.Show("Disapproved");
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Permission", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                if (detail.State == PermissionStates.Approved || detail.State == PermissionStates.Disapproved)
+                {
+                    MessageBox.Show("You Cannot Delete Approved Or Disapproved Permissions");
+                }
+                else 
+                {
+                    PermissionBLL.DeletePermission(detail.Id);
+                    MessageBox.Show("Permission Was Deleted");
+                }
+            }
+        }
     }
 }

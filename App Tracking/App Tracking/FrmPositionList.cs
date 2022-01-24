@@ -72,5 +72,17 @@ namespace App_Tracking
                 FillGrid();
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Permission","Warning",MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes) 
+            {
+                if(detail) 
+                {
+
+                }
+            }
+        }
     }
 }
