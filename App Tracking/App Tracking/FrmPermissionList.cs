@@ -174,7 +174,7 @@ namespace App_Tracking
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are You Sure To Delete This Permission", "Warning", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Permission ?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (detail.State == PermissionStates.Approved || detail.State == PermissionStates.Disapproved)
