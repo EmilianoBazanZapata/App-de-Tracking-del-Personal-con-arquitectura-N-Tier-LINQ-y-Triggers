@@ -66,5 +66,14 @@ namespace App_Tracking
                 this.Visible = true;    
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Department","Warning",MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes) 
+            {
+                DepartamentBLL.DeleteDepartment(detail.ID);
+            }
+        }
     }
 }
