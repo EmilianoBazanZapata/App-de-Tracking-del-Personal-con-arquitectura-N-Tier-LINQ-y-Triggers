@@ -99,6 +99,27 @@ namespace DAL.DAO
             return employeelist;
         }
 
+        public static void DeleteEmployee(int id)
+        {
+            try
+            {
+                USERS emp = db.USERS.First(x=>x.ID == id);
+                db.USERS.DeleteOnSubmit(emp);
+                db.SubmitChanges();
+                //List<TASKS> tasks = db.TASKS.Where(x => x.EMPLOYEE_ID == id).ToList();
+                //db.TASKS.DeleteAllOnSubmit(tasks);
+                //db.SubmitChanges();
+                //List<PERMISSIONS> permissions = db.PERMISSIONS.Where(x => x.EMPLOYEE_ID == id).ToList();
+                //db.PERMISSIONS.DeleteAllOnSubmit(permissions);
+                //db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public static void UpdateEmployee(USERS emp)
         {
             try

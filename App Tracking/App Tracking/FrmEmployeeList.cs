@@ -33,9 +33,9 @@ namespace App_Tracking
         private void btnNew_Click(object sender, EventArgs e)
         {
             FrmEmployee frmEmployee = new FrmEmployee();
-            this.Hide();    
-            frmEmployee.ShowDialog();   
-            this.Visible = true;    
+            this.Hide();
+            frmEmployee.ShowDialog();
+            this.Visible = true;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace App_Tracking
             {
                 MessageBox.Show("Please Select An Employee On Table");
             }
-            else 
+            else
             {
                 FrmEmployee frm = new FrmEmployee();
                 this.Hide();
@@ -94,14 +94,14 @@ namespace App_Tracking
         {
             if (ComboFull)
             {
-                cboPosition.DataSource = dto.positions.Where(x=>x.DEPARTAMENT_ID == Convert.ToInt32(cboDepartament.SelectedValue)).ToList();
+                cboPosition.DataSource = dto.positions.Where(x => x.DEPARTAMENT_ID == Convert.ToInt32(cboDepartament.SelectedValue)).ToList();
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             List<EmployeeDetailDTO> list = dto.Detail;
-            if(txtUserNo.Text.Trim()!="") 
+            if (txtUserNo.Text.Trim() != "")
             {
                 list = list.Where(x => x.UserNo == Convert.ToInt32(txtUserNo.Text)).ToList();
             }
@@ -148,6 +148,16 @@ namespace App_Tracking
             detail.ImagePath = dgvEmployeeList.Rows[e.RowIndex].Cells[11].Value.ToString();
             detail.Adress = dgvEmployeeList.Rows[e.RowIndex].Cells[12].Value.ToString();
             detail.BhirtDay = Convert.ToDateTime(dgvEmployeeList.Rows[e.RowIndex].Cells[13].Value);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You To Delete This Employee ?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                EmployeeBLL.DeleteEmployee(detail.Id);
+                MessageBox.Show("Employye Was Deleted");
+            }
         }
     }
 }

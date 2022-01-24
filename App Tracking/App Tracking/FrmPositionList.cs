@@ -75,13 +75,11 @@ namespace App_Tracking
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are You Sure To Delete This Permission","Warning",MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Position","Warning",MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes) 
             {
-                if(detail) 
-                {
-
-                }
+                PositionBLL.DeletePosition(detail.ID);
+                MessageBox.Show("Position Was Deleted");
             }
         }
     }
