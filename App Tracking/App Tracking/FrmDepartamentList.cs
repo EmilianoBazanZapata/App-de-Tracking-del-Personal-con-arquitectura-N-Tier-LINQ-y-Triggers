@@ -80,5 +80,10 @@ namespace App_Tracking
             dgvDepartamentList.Columns[0].Visible = false;
             dgvDepartamentList.Columns[1].HeaderText = "Departament Name";
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dgvDepartamentList);
+        }
     }
 }

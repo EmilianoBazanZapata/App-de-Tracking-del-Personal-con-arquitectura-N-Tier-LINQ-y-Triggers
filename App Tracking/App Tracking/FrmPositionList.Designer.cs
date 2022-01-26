@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvPositionList = new System.Windows.Forms.DataGridView();
             this.btnDelete = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnClose = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnNew = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.dgvPositionList = new System.Windows.Forms.DataGridView();
+            this.btnExcel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPositionList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnExcel);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnUpdate);
@@ -47,23 +49,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 379);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(604, 71);
+            this.panel1.Size = new System.Drawing.Size(676, 71);
             this.panel1.TabIndex = 1;
-            // 
-            // dgvPositionList
-            // 
-            this.dgvPositionList.AllowUserToAddRows = false;
-            this.dgvPositionList.AllowUserToDeleteRows = false;
-            this.dgvPositionList.AllowUserToOrderColumns = true;
-            this.dgvPositionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPositionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPositionList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPositionList.Location = new System.Drawing.Point(0, 0);
-            this.dgvPositionList.Name = "dgvPositionList";
-            this.dgvPositionList.ReadOnly = true;
-            this.dgvPositionList.Size = new System.Drawing.Size(604, 450);
-            this.dgvPositionList.TabIndex = 0;
-            this.dgvPositionList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPositionList_RowEnter);
             // 
             // btnDelete
             // 
@@ -125,7 +112,7 @@
             this.btnClose.IconVisible = true;
             this.btnClose.IconZoom = 90D;
             this.btnClose.IsTab = false;
-            this.btnClose.Location = new System.Drawing.Point(475, 8);
+            this.btnClose.Location = new System.Drawing.Point(547, 8);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Normalcolor = System.Drawing.Color.Crimson;
@@ -214,11 +201,63 @@
             this.btnNew.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click_1);
             // 
+            // dgvPositionList
+            // 
+            this.dgvPositionList.AllowUserToAddRows = false;
+            this.dgvPositionList.AllowUserToDeleteRows = false;
+            this.dgvPositionList.AllowUserToOrderColumns = true;
+            this.dgvPositionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPositionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPositionList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPositionList.Location = new System.Drawing.Point(0, 0);
+            this.dgvPositionList.Name = "dgvPositionList";
+            this.dgvPositionList.ReadOnly = true;
+            this.dgvPositionList.Size = new System.Drawing.Size(676, 450);
+            this.dgvPositionList.TabIndex = 0;
+            this.dgvPositionList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPositionList_RowEnter);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Activecolor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExcel.BorderRadius = 0;
+            this.btnExcel.ButtonText = "Export To Excel";
+            this.btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcel.DisabledColor = System.Drawing.Color.Gray;
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnExcel.Iconimage = null;
+            this.btnExcel.Iconimage_right = null;
+            this.btnExcel.Iconimage_right_Selected = null;
+            this.btnExcel.Iconimage_Selected = null;
+            this.btnExcel.IconMarginLeft = 0;
+            this.btnExcel.IconMarginRight = 0;
+            this.btnExcel.IconRightVisible = true;
+            this.btnExcel.IconRightZoom = 0D;
+            this.btnExcel.IconVisible = true;
+            this.btnExcel.IconZoom = 90D;
+            this.btnExcel.IsTab = false;
+            this.btnExcel.Location = new System.Drawing.Point(386, 8);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Normalcolor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.OnHovercolor = System.Drawing.Color.DeepSkyBlue;
+            this.btnExcel.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnExcel.selected = false;
+            this.btnExcel.Size = new System.Drawing.Size(116, 49);
+            this.btnExcel.TabIndex = 16;
+            this.btnExcel.Text = "Export To Excel";
+            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnExcel.Textcolor = System.Drawing.Color.White;
+            this.btnExcel.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
             // FrmPositionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 450);
+            this.ClientSize = new System.Drawing.Size(676, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvPositionList);
             this.Name = "FrmPositionList";
@@ -238,5 +277,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnClose;
         private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
         private Bunifu.Framework.UI.BunifuFlatButton btnNew;
+        private Bunifu.Framework.UI.BunifuFlatButton btnExcel;
     }
 }

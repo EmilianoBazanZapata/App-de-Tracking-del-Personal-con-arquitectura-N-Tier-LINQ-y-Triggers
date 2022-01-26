@@ -85,5 +85,10 @@ namespace App_Tracking
             }
             FillGrid();
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dgvPositionList);
+        }
     }
 }

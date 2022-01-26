@@ -54,12 +54,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnApprove = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnNew = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnDelete = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnClose = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
             this.dgvTaskList = new System.Windows.Forms.DataGridView();
-            this.btnApprove = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnExcel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pnl.SuspendLayout();
             this.pnlUser.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -75,7 +76,7 @@
             this.pnl.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl.Location = new System.Drawing.Point(0, 0);
             this.pnl.Name = "pnl";
-            this.pnl.Size = new System.Drawing.Size(691, 187);
+            this.pnl.Size = new System.Drawing.Size(816, 187);
             this.pnl.TabIndex = 0;
             // 
             // pnlUser
@@ -93,7 +94,7 @@
             this.pnlUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlUser.Location = new System.Drawing.Point(310, 0);
             this.pnlUser.Name = "pnlUser";
-            this.pnlUser.Size = new System.Drawing.Size(381, 187);
+            this.pnlUser.Size = new System.Drawing.Size(506, 187);
             this.pnlUser.TabIndex = 1;
             // 
             // groupBox1
@@ -362,6 +363,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnExcel);
             this.panel2.Controls.Add(this.btnApprove);
             this.panel2.Controls.Add(this.btnNew);
             this.panel2.Controls.Add(this.btnDelete);
@@ -370,8 +372,45 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 373);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(691, 76);
+            this.panel2.Size = new System.Drawing.Size(816, 76);
             this.panel2.TabIndex = 2;
+            // 
+            // btnApprove
+            // 
+            this.btnApprove.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnApprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnApprove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnApprove.BorderRadius = 0;
+            this.btnApprove.ButtonText = "Approve";
+            this.btnApprove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnApprove.DisabledColor = System.Drawing.Color.Gray;
+            this.btnApprove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApprove.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnApprove.Iconimage = null;
+            this.btnApprove.Iconimage_right = null;
+            this.btnApprove.Iconimage_right_Selected = null;
+            this.btnApprove.Iconimage_Selected = null;
+            this.btnApprove.IconMarginLeft = 0;
+            this.btnApprove.IconMarginRight = 0;
+            this.btnApprove.IconRightVisible = true;
+            this.btnApprove.IconRightZoom = 0D;
+            this.btnApprove.IconVisible = true;
+            this.btnApprove.IconZoom = 90D;
+            this.btnApprove.IsTab = false;
+            this.btnApprove.Location = new System.Drawing.Point(12, 15);
+            this.btnApprove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnApprove.Name = "btnApprove";
+            this.btnApprove.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnApprove.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnApprove.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnApprove.selected = false;
+            this.btnApprove.Size = new System.Drawing.Size(116, 49);
+            this.btnApprove.TabIndex = 13;
+            this.btnApprove.Text = "Approve";
+            this.btnApprove.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnApprove.Textcolor = System.Drawing.Color.White;
+            this.btnApprove.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click_1);
             // 
             // btnNew
             // 
@@ -470,7 +509,7 @@
             this.btnClose.IconVisible = true;
             this.btnClose.IconZoom = 90D;
             this.btnClose.IsTab = false;
-            this.btnClose.Location = new System.Drawing.Point(565, 15);
+            this.btnClose.Location = new System.Drawing.Point(690, 15);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Normalcolor = System.Drawing.Color.Crimson;
@@ -533,52 +572,52 @@
             this.dgvTaskList.Location = new System.Drawing.Point(0, 187);
             this.dgvTaskList.Name = "dgvTaskList";
             this.dgvTaskList.ReadOnly = true;
-            this.dgvTaskList.Size = new System.Drawing.Size(691, 186);
+            this.dgvTaskList.Size = new System.Drawing.Size(816, 186);
             this.dgvTaskList.TabIndex = 1;
             this.dgvTaskList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaskList_RowEnter);
             // 
-            // btnApprove
+            // btnExcel
             // 
-            this.btnApprove.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnApprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnApprove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnApprove.BorderRadius = 0;
-            this.btnApprove.ButtonText = "Approve";
-            this.btnApprove.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnApprove.DisabledColor = System.Drawing.Color.Gray;
-            this.btnApprove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApprove.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnApprove.Iconimage = null;
-            this.btnApprove.Iconimage_right = null;
-            this.btnApprove.Iconimage_right_Selected = null;
-            this.btnApprove.Iconimage_Selected = null;
-            this.btnApprove.IconMarginLeft = 0;
-            this.btnApprove.IconMarginRight = 0;
-            this.btnApprove.IconRightVisible = true;
-            this.btnApprove.IconRightZoom = 0D;
-            this.btnApprove.IconVisible = true;
-            this.btnApprove.IconZoom = 90D;
-            this.btnApprove.IsTab = false;
-            this.btnApprove.Location = new System.Drawing.Point(12, 15);
-            this.btnApprove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnApprove.Name = "btnApprove";
-            this.btnApprove.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnApprove.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btnApprove.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnApprove.selected = false;
-            this.btnApprove.Size = new System.Drawing.Size(116, 49);
-            this.btnApprove.TabIndex = 13;
-            this.btnApprove.Text = "Approve";
-            this.btnApprove.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnApprove.Textcolor = System.Drawing.Color.White;
-            this.btnApprove.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click_1);
+            this.btnExcel.Activecolor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExcel.BorderRadius = 0;
+            this.btnExcel.ButtonText = "Export To Excel";
+            this.btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcel.DisabledColor = System.Drawing.Color.Gray;
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnExcel.Iconimage = null;
+            this.btnExcel.Iconimage_right = null;
+            this.btnExcel.Iconimage_right_Selected = null;
+            this.btnExcel.Iconimage_Selected = null;
+            this.btnExcel.IconMarginLeft = 0;
+            this.btnExcel.IconMarginRight = 0;
+            this.btnExcel.IconRightVisible = true;
+            this.btnExcel.IconRightZoom = 0D;
+            this.btnExcel.IconVisible = true;
+            this.btnExcel.IconZoom = 90D;
+            this.btnExcel.IsTab = false;
+            this.btnExcel.Location = new System.Drawing.Point(509, 15);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Normalcolor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.OnHovercolor = System.Drawing.Color.DeepSkyBlue;
+            this.btnExcel.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnExcel.selected = false;
+            this.btnExcel.Size = new System.Drawing.Size(116, 49);
+            this.btnExcel.TabIndex = 15;
+            this.btnExcel.Text = "Export To Excel";
+            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnExcel.Textcolor = System.Drawing.Color.White;
+            this.btnExcel.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // FrmTaskList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 449);
+            this.ClientSize = new System.Drawing.Size(816, 449);
             this.Controls.Add(this.dgvTaskList);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnl);
@@ -632,5 +671,6 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txtName;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtUserNo;
         private Bunifu.Framework.UI.BunifuFlatButton btnApprove;
+        private Bunifu.Framework.UI.BunifuFlatButton btnExcel;
     }
 }

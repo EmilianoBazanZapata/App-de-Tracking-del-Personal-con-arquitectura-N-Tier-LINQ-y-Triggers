@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSurName = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtName = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtUserNo = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnClear = new System.Windows.Forms.Button();
             this.cboPosition = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,10 +46,8 @@
             this.btnClose = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnNew = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.txtUserNo = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.txtName = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.txtSurName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.dgvEmployeeList = new System.Windows.Forms.DataGridView();
+            this.btnExcel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeList)).BeginInit();
@@ -69,14 +70,66 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(616, 155);
+            this.panel1.Size = new System.Drawing.Size(648, 155);
             this.panel1.TabIndex = 0;
+            // 
+            // txtSurName
+            // 
+            this.txtSurName.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtSurName.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSurName.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtSurName.BorderThickness = 3;
+            this.txtSurName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSurName.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtSurName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSurName.isPassword = false;
+            this.txtSurName.Location = new System.Drawing.Point(82, 85);
+            this.txtSurName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSurName.Name = "txtSurName";
+            this.txtSurName.Size = new System.Drawing.Size(130, 29);
+            this.txtSurName.TabIndex = 16;
+            this.txtSurName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtName
+            // 
+            this.txtName.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtName.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtName.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtName.BorderThickness = 3;
+            this.txtName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtName.isPassword = false;
+            this.txtName.Location = new System.Drawing.Point(82, 48);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(130, 29);
+            this.txtName.TabIndex = 15;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtUserNo
+            // 
+            this.txtUserNo.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtUserNo.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUserNo.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtUserNo.BorderThickness = 3;
+            this.txtUserNo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtUserNo.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtUserNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUserNo.isPassword = false;
+            this.txtUserNo.Location = new System.Drawing.Point(81, 11);
+            this.txtUserNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUserNo.Name = "txtUserNo";
+            this.txtUserNo.Size = new System.Drawing.Size(130, 29);
+            this.txtUserNo.TabIndex = 14;
+            this.txtUserNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtUserNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNo_KeyPress_1);
             // 
             // btnClear
             // 
             this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(483, 67);
+            this.btnClear.Location = new System.Drawing.Point(515, 67);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(118, 49);
             this.btnClear.TabIndex = 13;
@@ -129,7 +182,7 @@
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(483, 12);
+            this.btnSearch.Location = new System.Drawing.Point(515, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(118, 49);
             this.btnSearch.TabIndex = 8;
@@ -169,6 +222,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnExcel);
             this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnNew);
@@ -176,7 +230,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 490);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(616, 67);
+            this.panel2.Size = new System.Drawing.Size(648, 67);
             this.panel2.TabIndex = 2;
             // 
             // btnDelete
@@ -239,7 +293,7 @@
             this.btnClose.IconVisible = true;
             this.btnClose.IconZoom = 90D;
             this.btnClose.IsTab = false;
-            this.btnClose.Location = new System.Drawing.Point(487, 9);
+            this.btnClose.Location = new System.Drawing.Point(519, 9);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Normalcolor = System.Drawing.Color.Crimson;
@@ -328,58 +382,6 @@
             this.btnUpdate.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // txtUserNo
-            // 
-            this.txtUserNo.BorderColorFocused = System.Drawing.Color.Blue;
-            this.txtUserNo.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtUserNo.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.txtUserNo.BorderThickness = 3;
-            this.txtUserNo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtUserNo.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtUserNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtUserNo.isPassword = false;
-            this.txtUserNo.Location = new System.Drawing.Point(81, 11);
-            this.txtUserNo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUserNo.Name = "txtUserNo";
-            this.txtUserNo.Size = new System.Drawing.Size(130, 29);
-            this.txtUserNo.TabIndex = 14;
-            this.txtUserNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtUserNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNo_KeyPress_1);
-            // 
-            // txtName
-            // 
-            this.txtName.BorderColorFocused = System.Drawing.Color.Blue;
-            this.txtName.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtName.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.txtName.BorderThickness = 3;
-            this.txtName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtName.isPassword = false;
-            this.txtName.Location = new System.Drawing.Point(82, 48);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(130, 29);
-            this.txtName.TabIndex = 15;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // txtSurName
-            // 
-            this.txtSurName.BorderColorFocused = System.Drawing.Color.Blue;
-            this.txtSurName.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSurName.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.txtSurName.BorderThickness = 3;
-            this.txtSurName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSurName.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtSurName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSurName.isPassword = false;
-            this.txtSurName.Location = new System.Drawing.Point(82, 85);
-            this.txtSurName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSurName.Name = "txtSurName";
-            this.txtSurName.Size = new System.Drawing.Size(130, 29);
-            this.txtSurName.TabIndex = 16;
-            this.txtSurName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // dgvEmployeeList
             // 
             this.dgvEmployeeList.AllowUserToAddRows = false;
@@ -391,15 +393,52 @@
             this.dgvEmployeeList.Location = new System.Drawing.Point(0, 155);
             this.dgvEmployeeList.Name = "dgvEmployeeList";
             this.dgvEmployeeList.ReadOnly = true;
-            this.dgvEmployeeList.Size = new System.Drawing.Size(616, 335);
+            this.dgvEmployeeList.Size = new System.Drawing.Size(648, 335);
             this.dgvEmployeeList.TabIndex = 4;
             this.dgvEmployeeList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployeeList_RowEnter_1);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Activecolor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExcel.BorderRadius = 0;
+            this.btnExcel.ButtonText = "Export To Excel";
+            this.btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcel.DisabledColor = System.Drawing.Color.Gray;
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnExcel.Iconimage = null;
+            this.btnExcel.Iconimage_right = null;
+            this.btnExcel.Iconimage_right_Selected = null;
+            this.btnExcel.Iconimage_Selected = null;
+            this.btnExcel.IconMarginLeft = 0;
+            this.btnExcel.IconMarginRight = 0;
+            this.btnExcel.IconRightVisible = true;
+            this.btnExcel.IconRightZoom = 0D;
+            this.btnExcel.IconVisible = true;
+            this.btnExcel.IconZoom = 90D;
+            this.btnExcel.IsTab = false;
+            this.btnExcel.Location = new System.Drawing.Point(387, 9);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Normalcolor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.OnHovercolor = System.Drawing.Color.DeepSkyBlue;
+            this.btnExcel.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnExcel.selected = false;
+            this.btnExcel.Size = new System.Drawing.Size(116, 49);
+            this.btnExcel.TabIndex = 12;
+            this.btnExcel.Text = "Export To Excel";
+            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnExcel.Textcolor = System.Drawing.Color.White;
+            this.btnExcel.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // FrmEmployeeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 557);
+            this.ClientSize = new System.Drawing.Size(648, 557);
             this.Controls.Add(this.dgvEmployeeList);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -435,5 +474,6 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txtName;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtUserNo;
         private System.Windows.Forms.DataGridView dgvEmployeeList;
+        private Bunifu.Framework.UI.BunifuFlatButton btnExcel;
     }
 }

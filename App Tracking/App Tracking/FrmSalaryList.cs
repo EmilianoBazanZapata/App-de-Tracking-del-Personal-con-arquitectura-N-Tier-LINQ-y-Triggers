@@ -192,5 +192,10 @@ namespace App_Tracking
         {
             e.Handled = General.IsNumber(e);
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dgvSalaryList);
+        }
     }
 }

@@ -164,5 +164,10 @@ namespace App_Tracking
         {
             this.Close();
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dgvEmployeeList);
+        }
     }
 }

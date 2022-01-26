@@ -53,6 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExcel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnDelete = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnClose = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnNew = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -94,7 +95,7 @@
             this.txtSalary.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.txtSalary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtSalary.isPassword = false;
-            this.txtSalary.Location = new System.Drawing.Point(446, 79);
+            this.txtSalary.Location = new System.Drawing.Point(387, 79);
             this.txtSalary.Margin = new System.Windows.Forms.Padding(4);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(160, 29);
@@ -112,7 +113,7 @@
             this.txtYear.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.txtYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtYear.isPassword = false;
-            this.txtYear.Location = new System.Drawing.Point(446, 9);
+            this.txtYear.Location = new System.Drawing.Point(387, 9);
             this.txtYear.Margin = new System.Windows.Forms.Padding(4);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(160, 29);
@@ -124,7 +125,7 @@
             this.groupBox1.Controls.Add(this.rbtEquals);
             this.groupBox1.Controls.Add(this.rbtLess);
             this.groupBox1.Controls.Add(this.rbtMore);
-            this.groupBox1.Location = new System.Drawing.Point(612, 67);
+            this.groupBox1.Location = new System.Drawing.Point(553, 67);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(172, 46);
             this.groupBox1.TabIndex = 26;
@@ -200,7 +201,7 @@
             this.cboMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMonth.FormattingEnabled = true;
-            this.cboMonth.Location = new System.Drawing.Point(446, 44);
+            this.cboMonth.Location = new System.Drawing.Point(387, 44);
             this.cboMonth.Name = "cboMonth";
             this.cboMonth.Size = new System.Drawing.Size(160, 28);
             this.cboMonth.TabIndex = 21;
@@ -370,6 +371,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnExcel);
             this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnNew);
@@ -379,6 +381,43 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(792, 62);
             this.panel2.TabIndex = 1;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Activecolor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExcel.BorderRadius = 0;
+            this.btnExcel.ButtonText = "Export To Excel";
+            this.btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcel.DisabledColor = System.Drawing.Color.Gray;
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnExcel.Iconimage = null;
+            this.btnExcel.Iconimage_right = null;
+            this.btnExcel.Iconimage_right_Selected = null;
+            this.btnExcel.Iconimage_Selected = null;
+            this.btnExcel.IconMarginLeft = 0;
+            this.btnExcel.IconMarginRight = 0;
+            this.btnExcel.IconRightVisible = true;
+            this.btnExcel.IconRightZoom = 0D;
+            this.btnExcel.IconVisible = true;
+            this.btnExcel.IconZoom = 90D;
+            this.btnExcel.IsTab = false;
+            this.btnExcel.Location = new System.Drawing.Point(385, 5);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Normalcolor = System.Drawing.Color.DodgerBlue;
+            this.btnExcel.OnHovercolor = System.Drawing.Color.DeepSkyBlue;
+            this.btnExcel.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnExcel.selected = false;
+            this.btnExcel.Size = new System.Drawing.Size(116, 49);
+            this.btnExcel.TabIndex = 15;
+            this.btnExcel.Text = "Export To Excel";
+            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnExcel.Textcolor = System.Drawing.Color.White;
+            this.btnExcel.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // btnDelete
             // 
@@ -599,5 +638,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtSalary;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtYear;
+        private Bunifu.Framework.UI.BunifuFlatButton btnExcel;
     }
 }

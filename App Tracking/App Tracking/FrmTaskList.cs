@@ -218,5 +218,10 @@ namespace App_Tracking
                 LoadDataGrid();
             }
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dgvTaskList);
+        }
     }
 }
