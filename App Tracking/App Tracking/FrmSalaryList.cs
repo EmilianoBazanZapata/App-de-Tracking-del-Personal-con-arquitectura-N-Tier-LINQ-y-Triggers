@@ -23,26 +23,12 @@ namespace App_Tracking
         {
             InitializeComponent();
         }
-
-        private void txtUserNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = General.IsNumber(e);
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            FrmSalary frmSalary = new FrmSalary();
-            this.Hide();
-            frmSalary.ShowDialog();
-            this.Visible = true;
-        }
-
         private void FrmSalaryList_Load(object sender, EventArgs e)
+        {
+            LoadDataGrid();
+        }
+
+        private void LoadDataGrid()
         {
             dto = SalaryBLL.GetAll();
             dgvSalaryList.DataSource = dto.Salaries;
@@ -64,7 +50,7 @@ namespace App_Tracking
             cboDepartament.DataSource = dto.Departments;
             cboDepartament.DisplayMember = "DEPARTAMENT_NAME";
             cboDepartament.ValueMember = "ID";
-            if (dto.Departments.Count > 0) 
+            if (dto.Departments.Count > 0)
             {
                 ComboFull = true;
             }
@@ -106,17 +92,17 @@ namespace App_Tracking
             {
                 list = list.Where(x => x.MonthId == Convert.ToInt32(cboMonth.SelectedValue)).ToList();
             }
-            if (txtSalary.Text.Trim() != "") 
+            if (txtSalary.Text.Trim() != "")
             {
                 if (rbtMore.Checked)
                 {
-                    list = list.Where(x=>x.SalaryAmount > Convert.ToInt32(txtSalary.Text)).ToList();
+                    list = list.Where(x => x.SalaryAmount > Convert.ToInt32(txtSalary.Text)).ToList();
                 }
                 else if (rbtLess.Checked)
                 {
                     list = list.Where(x => x.SalaryAmount < Convert.ToInt32(txtSalary.Text)).ToList();
                 }
-                else 
+                else
                 {
                     list = list.Where(x => x.SalaryAmount == Convert.ToInt32(txtSalary.Text)).ToList();
                 }
@@ -126,17 +112,17 @@ namespace App_Tracking
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtName.Clear();
-            txtSurName.Clear();
-            txtUserNo.Clear();
+            txtName.Text = "";
+            txtSurName.Text = "";
+            txtUserNo.Text = "";
             cboDepartament.SelectedIndex = -1;
             cboPosition.SelectedIndex = -1;
-            txtYear.Clear();
+            txtYear.Text = "";
             cboMonth.SelectedIndex = -1;
             rbtEquals.Checked = false;
             rbtLess.Checked = false;
             rbtMore.Checked = false;
-            txtSalary.Clear();
+            txtSalary.Text = "";
             dgvSalaryList.DataSource = dto.Salaries;
         }
 
@@ -152,14 +138,21 @@ namespace App_Tracking
             detail.SalaryId = Convert.ToInt32(dgvSalaryList.Rows[e.RowIndex].Cells[12].Value.ToString());
             detail.OldSalary = Convert.ToInt32(dgvSalaryList.Rows[e.RowIndex].Cells[13].Value.ToString());
         }
+        private void btnNew_Click_1(object sender, EventArgs e)
+        {
+            FrmSalary frmSalary = new FrmSalary();
+            this.Hide();
+            frmSalary.ShowDialog();
+            this.Visible = true;
+        }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             if (detail.SalaryId == 0)
             {
                 MessageBox.Show("Please Select A Salary From Table");
             }
-            else 
+            else
             {
                 FrmSalary frm = new FrmSalary();
                 frm.IsUpdate = true;
@@ -167,15 +160,27 @@ namespace App_Tracking
                 this.Hide();
                 frm.ShowDialog();
             }
+            LoadDataGrid();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are You Sure To Delete This Salary","Warning",MessageBoxButtons.YesNo);
-            if(result == DialogResult.Yes) 
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Salary", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
                 SalaryBLL.DeleteSalary(detail.SalaryId);
             }
+            LoadDataGrid();
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtUserNo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = General.IsNumber(e);
         }
     }
 }

@@ -43,12 +43,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cboTaskState = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtContent = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClose = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnSave = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.txtTitle = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaskList)).BeginInit();
             this.panel2.SuspendLayout();
@@ -91,6 +91,7 @@
             // 
             this.cboPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPosition.FormattingEnabled = true;
             this.cboPosition.Location = new System.Drawing.Point(19, 86);
@@ -112,6 +113,7 @@
             // 
             this.cboDepartament.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboDepartament.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDepartament.FormattingEnabled = true;
             this.cboDepartament.Location = new System.Drawing.Point(19, 32);
@@ -197,6 +199,7 @@
             // 
             this.cboTaskState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboTaskState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTaskState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTaskState.FormattingEnabled = true;
             this.cboTaskState.Location = new System.Drawing.Point(151, 111);
@@ -214,16 +217,6 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Task State";
             // 
-            // txtTitle
-            // 
-            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.Location = new System.Drawing.Point(151, 145);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(315, 26);
-            this.txtTitle.TabIndex = 2;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -239,17 +232,17 @@
             this.txtContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContent.Location = new System.Drawing.Point(151, 177);
+            this.txtContent.Location = new System.Drawing.Point(151, 186);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(315, 178);
+            this.txtContent.Size = new System.Drawing.Size(315, 169);
             this.txtContent.TabIndex = 3;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 177);
+            this.label8.Location = new System.Drawing.Point(20, 189);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 20);
             this.label8.TabIndex = 10;
@@ -257,38 +250,108 @@
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(363, 394);
+            this.btnClose.Activecolor = System.Drawing.Color.Crimson;
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Crimson;
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClose.BorderRadius = 0;
+            this.btnClose.ButtonText = "Close";
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.DisabledColor = System.Drawing.Color.Gray;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnClose.Iconimage = null;
+            this.btnClose.Iconimage_right = null;
+            this.btnClose.Iconimage_right_Selected = null;
+            this.btnClose.Iconimage_Selected = null;
+            this.btnClose.IconMarginLeft = 0;
+            this.btnClose.IconMarginRight = 0;
+            this.btnClose.IconRightVisible = true;
+            this.btnClose.IconRightZoom = 0D;
+            this.btnClose.IconVisible = true;
+            this.btnClose.IconZoom = 90D;
+            this.btnClose.IsTab = false;
+            this.btnClose.Location = new System.Drawing.Point(370, 376);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(84, 31);
-            this.btnClose.TabIndex = 5;
+            this.btnClose.Normalcolor = System.Drawing.Color.Crimson;
+            this.btnClose.OnHovercolor = System.Drawing.Color.Red;
+            this.btnClose.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnClose.selected = false;
+            this.btnClose.Size = new System.Drawing.Size(96, 49);
+            this.btnClose.TabIndex = 12;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.Textcolor = System.Drawing.Color.White;
+            this.btnClose.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(238, 394);
+            this.btnSave.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSave.BorderRadius = 0;
+            this.btnSave.ButtonText = "Save";
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSave.Iconimage = null;
+            this.btnSave.Iconimage_right = null;
+            this.btnSave.Iconimage_right_Selected = null;
+            this.btnSave.Iconimage_Selected = null;
+            this.btnSave.IconMarginLeft = 0;
+            this.btnSave.IconMarginRight = 0;
+            this.btnSave.IconRightVisible = true;
+            this.btnSave.IconRightZoom = 0D;
+            this.btnSave.IconVisible = true;
+            this.btnSave.IconZoom = 90D;
+            this.btnSave.IsTab = false;
+            this.btnSave.Location = new System.Drawing.Point(151, 376);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 31);
-            this.btnSave.TabIndex = 4;
+            this.btnSave.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnSave.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnSave.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSave.selected = false;
+            this.btnSave.Size = new System.Drawing.Size(96, 49);
+            this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSave.Textcolor = System.Drawing.Color.White;
+            this.btnSave.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTitle.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtTitle.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTitle.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtTitle.BorderThickness = 3;
+            this.txtTitle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtTitle.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTitle.isPassword = false;
+            this.txtTitle.Location = new System.Drawing.Point(151, 146);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(314, 33);
+            this.txtTitle.TabIndex = 13;
+            this.txtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // FrmTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtContent);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboTaskState);
             this.Controls.Add(this.label6);
@@ -328,11 +391,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboTaskState;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnSave;
+        private Bunifu.Framework.UI.BunifuFlatButton btnClose;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSave;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtTitle;
     }
 }

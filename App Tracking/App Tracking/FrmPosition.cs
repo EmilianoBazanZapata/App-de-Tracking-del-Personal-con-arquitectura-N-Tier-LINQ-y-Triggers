@@ -38,13 +38,7 @@ namespace App_Tracking
         {
             InitializeComponent();
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             if (txtPosition.Text.Trim() == "")
             {
@@ -63,7 +57,7 @@ namespace App_Tracking
                     position.DEPARTAMENT_ID = Convert.ToInt32(cboDepartament.SelectedValue);
                     PositionBLL.AddPosition(position);
                     MessageBox.Show("Position Was Added");
-                    txtPosition.Clear();
+                    txtPosition.Text = "";
                     cboDepartament.SelectedIndex = -1;
                 }
                 else
@@ -78,13 +72,18 @@ namespace App_Tracking
                         control = true;
                         PositionBLL.UpdatePosition(p, control);
                     }
-                    else 
+                    else
                     {
                         PositionBLL.UpdatePosition(p, control);
                     }
                     MessageBox.Show("Position Was Updated");
                 }
             }
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

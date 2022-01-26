@@ -24,12 +24,6 @@ namespace App_Tracking
         {
             InitializeComponent();
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void FrmTask_Load(object sender, EventArgs e)
         {
             dto = TaskBLL.GetAll();
@@ -94,8 +88,7 @@ namespace App_Tracking
             txtSurName.Text = dgvTaskList.Rows[e.RowIndex].Cells[3].Value.ToString();
             Task.EMPLOYEE_ID = Convert.ToInt32(dgvTaskList.Rows[e.RowIndex].Cells[0].Value);
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             if (Task.EMPLOYEE_ID == 0)
             {
@@ -119,7 +112,7 @@ namespace App_Tracking
                     Task.TASK_STATE = 1;
                     TaskBLL.AddTask(Task);
                     MessageBox.Show("Task Was Added");
-                    txtTitle.Clear();
+                    txtTitle.Text = "";
                     txtContent.Clear();
                     cboDepartament.SelectedIndex = -1;
                     cboPosition.SelectedIndex = -1;
@@ -149,6 +142,11 @@ namespace App_Tracking
                     }
                 }
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

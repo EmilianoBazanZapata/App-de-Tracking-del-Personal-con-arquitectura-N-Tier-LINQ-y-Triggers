@@ -28,7 +28,12 @@ namespace App_Tracking
                 e.Handled = General.IsNumber(e);
             }
         }
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -36,14 +41,14 @@ namespace App_Tracking
                 {
                     MessageBox.Show("Please Fill The User Dates");
                 }
-                else 
+                else
                 {
-                    List<USERS> EmployeeList = EmployeeBLL.getEmployees(Convert.ToInt32(txtUserNo.Text),txtPassword.Text);
+                    List<USERS> EmployeeList = EmployeeBLL.getEmployees(Convert.ToInt32(txtUserNo.Text), txtPassword.Text);
                     if (EmployeeList.Count == 0)
                     {
                         MessageBox.Show("Please Control Your Information");
                     }
-                    else 
+                    else
                     {
                         USERS employee = new USERS();
                         employee = EmployeeList.First();
@@ -61,10 +66,6 @@ namespace App_Tracking
             {
                 Application.Exit();
             }
-        }
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

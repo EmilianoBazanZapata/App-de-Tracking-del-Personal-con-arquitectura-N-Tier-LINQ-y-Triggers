@@ -38,8 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtExplication = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClose = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnSave = new Bunifu.Framework.UI.BunifuFlatButton();
             this.SuspendLayout();
             // 
             // txtUserNo
@@ -144,27 +144,75 @@
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(333, 352);
+            this.btnClose.Activecolor = System.Drawing.Color.Red;
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Red;
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClose.BorderRadius = 0;
+            this.btnClose.ButtonText = "Exit";
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.DisabledColor = System.Drawing.Color.Gray;
+            this.btnClose.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnClose.Iconimage = null;
+            this.btnClose.Iconimage_right = null;
+            this.btnClose.Iconimage_right_Selected = null;
+            this.btnClose.Iconimage_Selected = null;
+            this.btnClose.IconMarginLeft = 0;
+            this.btnClose.IconMarginRight = 0;
+            this.btnClose.IconRightVisible = true;
+            this.btnClose.IconRightZoom = 0D;
+            this.btnClose.IconVisible = true;
+            this.btnClose.IconZoom = 90D;
+            this.btnClose.IsTab = false;
+            this.btnClose.Location = new System.Drawing.Point(265, 345);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(84, 31);
-            this.btnClose.TabIndex = 11;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Normalcolor = System.Drawing.Color.Red;
+            this.btnClose.OnHovercolor = System.Drawing.Color.Red;
+            this.btnClose.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnClose.selected = false;
+            this.btnClose.Size = new System.Drawing.Size(180, 38);
+            this.btnClose.TabIndex = 12;
+            this.btnClose.Text = "Exit";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.Textcolor = System.Drawing.Color.White;
+            this.btnClose.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(207, 352);
+            this.btnSave.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSave.BorderRadius = 0;
+            this.btnSave.ButtonText = "Login";
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSave.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSave.Iconimage = null;
+            this.btnSave.Iconimage_right = null;
+            this.btnSave.Iconimage_right_Selected = null;
+            this.btnSave.Iconimage_Selected = null;
+            this.btnSave.IconMarginLeft = 0;
+            this.btnSave.IconMarginRight = 0;
+            this.btnSave.IconRightVisible = true;
+            this.btnSave.IconRightZoom = 0D;
+            this.btnSave.IconVisible = true;
+            this.btnSave.IconZoom = 90D;
+            this.btnSave.IsTab = false;
+            this.btnSave.Location = new System.Drawing.Point(44, 345);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 31);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnSave.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnSave.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSave.selected = false;
+            this.btnSave.Size = new System.Drawing.Size(180, 38);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Login";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSave.Textcolor = System.Drawing.Color.White;
+            this.btnSave.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // FrmPermission
             // 
@@ -203,7 +251,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtExplication;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnSave;
+        private Bunifu.Framework.UI.BunifuFlatButton btnClose;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSave;
     }
 }

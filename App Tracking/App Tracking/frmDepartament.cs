@@ -21,9 +21,13 @@ namespace App_Tracking
         {
             InitializeComponent();
         }
-        private void btnClose_Click(object sender, EventArgs e)
+        private void frmDepartament_Load(object sender, EventArgs e)
         {
-            this.Close();
+            if (IsUpdate)
+            {
+                txtDepartament.Text = detail.DEPARTAMENT_NAME;
+                Id = detail.ID;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -40,12 +44,12 @@ namespace App_Tracking
                     departament.DEPARTAMENT_NAME = txtDepartament.Text;
                     BLL.DepartamentBLL.AddDepartament(departament);
                     MessageBox.Show("Departament Was Added");
-                    txtDepartament.Clear();
+                    txtDepartament.Text = "";
                 }
-                else 
+                else
                 {
-                    DialogResult result = MessageBox.Show("Are You Sure ?","Warning",MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes) 
+                    DialogResult result = MessageBox.Show("Are You Sure ?", "Warning", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
                     {
                         detail.ID = Id;
                         detail.DEPARTAMENT_NAME = txtDepartament.Text;
@@ -56,13 +60,9 @@ namespace App_Tracking
             }
         }
 
-        private void frmDepartament_Load(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            if (IsUpdate)
-            {
-                txtDepartament.Text = detail.DEPARTAMENT_NAME;
-                Id = detail.ID;
-            }
+            this.Close();
         }
     }
 }

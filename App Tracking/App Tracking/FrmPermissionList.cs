@@ -23,53 +23,9 @@ namespace App_Tracking
         {
             InitializeComponent();
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            FrmPermission frmPermission = new FrmPermission();
-            this.Hide();
-            frmPermission.ShowDialog();
-            this.Visible = true;
-        }
-
         private void FrmPermissionList_Load(object sender, EventArgs e)
         {
-            dto = PermissionBLL.GetAll();
-            dgvPermissionList.DataSource = dto.Permissions;
-            dgvPermissionList.Columns[0].Visible = false;
-            dgvPermissionList.Columns[1].Visible = false;
-            dgvPermissionList.Columns[2].HeaderText = "Name";
-            dgvPermissionList.Columns[3].HeaderText = "SurName";
-            dgvPermissionList.Columns[4].HeaderText = "Departmetn Name";
-            dgvPermissionList.Columns[5].HeaderText = "Position Name";
-            dgvPermissionList.Columns[6].Visible = false;
-            dgvPermissionList.Columns[7].Visible = false;
-            dgvPermissionList.Columns[8].HeaderText = "Start Date";
-            dgvPermissionList.Columns[9].HeaderText = "End Date";
-            dgvPermissionList.Columns[10].HeaderText = "Permission Day Amount";
-            dgvPermissionList.Columns[11].HeaderText = "State";
-            dgvPermissionList.Columns[12].Visible = false;
-            dgvPermissionList.Columns[13].HeaderText = "Explanation";
-            dgvPermissionList.Columns[14].Visible = false;
-            ComboFull = false;
-            cboDepartament.DataSource = dto.Departments;
-            cboDepartament.DisplayMember = "DEPARTAMENT_NAME";
-            cboDepartament.ValueMember = "ID";
-            cboPosition.DataSource = dto.Positions;
-            cboPosition.DisplayMember = "POSITION_NAME";
-            cboPosition.ValueMember = "ID";
-            cboState.DataSource = dto.States;
-            cboState.DisplayMember = "STATE_NAME";
-            cboState.ValueMember = "ID";
-            cboDepartament.SelectedIndex = -1;
-            cboPosition.SelectedIndex = -1;
-            cboState.SelectedIndex = -1;
-            ComboFull = true;
+            LoadDataGrid();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -118,10 +74,10 @@ namespace App_Tracking
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtDayAmount.Clear();
-            txtName.Clear();
-            txtSurName.Clear();
-            txtUserNo.Clear();
+            txtDayAmount.Text = "";
+            txtName.Text = "";
+            txtSurName.Text = "";
+            txtUserNo.Text = "";
             cboDepartament.SelectedIndex = -1;
             cboPosition.SelectedIndex = -1;
             cboState.SelectedIndex = -1;
@@ -131,8 +87,26 @@ namespace App_Tracking
             dtpFinish.Value = DateTime.Today;
             dgvPermissionList.DataSource = dto.Permissions;
         }
+        private void dgvPermissionList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.PermissionId = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[0].Value);
+            detail.UserNo = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[1].Value);
+            detail.StartDate = Convert.ToDateTime(dgvPermissionList.Rows[e.RowIndex].Cells[8].Value);
+            detail.EndDate = Convert.ToDateTime(dgvPermissionList.Rows[e.RowIndex].Cells[9].Value);
+            detail.PermissionDayAmount = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[10].Value);
+            detail.State = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[12].Value);
+            detail.Explanation = dgvPermissionList.Rows[e.RowIndex].Cells[13].Value.ToString();
+        }
+        private void btnNew_Click_1(object sender, EventArgs e)
+        {
+            FrmPermission frmPermission = new FrmPermission();
+            this.Hide();
+            frmPermission.ShowDialog();
+            this.Visible = true;
+            LoadDataGrid();
+        }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             if (detail.PermissionId == 0)
             {
@@ -147,32 +121,10 @@ namespace App_Tracking
                 frm.ShowDialog();
                 this.Visible = true;
             }
+            LoadDataGrid();
         }
 
-        private void dgvPermissionList_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            detail.PermissionId = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[0].Value);
-            detail.UserNo = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[1].Value);
-            detail.StartDate = Convert.ToDateTime(dgvPermissionList.Rows[e.RowIndex].Cells[8].Value);
-            detail.EndDate = Convert.ToDateTime(dgvPermissionList.Rows[e.RowIndex].Cells[9].Value);
-            detail.PermissionDayAmount = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[10].Value);
-            detail.State = Convert.ToInt32(dgvPermissionList.Rows[e.RowIndex].Cells[12].Value);
-            detail.Explanation = dgvPermissionList.Rows[e.RowIndex].Cells[13].Value.ToString();
-        }
-
-        private void btnApprove_Click(object sender, EventArgs e)
-        {
-            PermissionBLL.UpdatePermissionFrm(detail.PermissionId,PermissionStates.Approved);
-            MessageBox.Show("Approved");
-        }
-
-        private void btnDisapprove_Click(object sender, EventArgs e)
-        {
-            PermissionBLL.UpdatePermissionFrm(detail.PermissionId, PermissionStates.Disapproved);
-            MessageBox.Show("Disapproved");
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are You Sure To Delete This Permission ?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
@@ -181,12 +133,76 @@ namespace App_Tracking
                 {
                     MessageBox.Show("You Cannot Delete Approved Or Disapproved Permissions");
                 }
-                else 
+                else
                 {
                     PermissionBLL.DeletePermission(detail.Id);
                     MessageBox.Show("Permission Was Deleted");
                 }
             }
+            LoadDataGrid();
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnApprove_Click_1(object sender, EventArgs e)
+        {
+            PermissionBLL.UpdatePermissionFrm(detail.PermissionId, PermissionStates.Approved);
+            MessageBox.Show("Approved");
+            LoadDataGrid();
+        }
+
+        private void btnDisapprove_Click_1(object sender, EventArgs e)
+        {
+            PermissionBLL.UpdatePermissionFrm(detail.PermissionId, PermissionStates.Disapproved);
+            MessageBox.Show("Disapproved");
+            LoadDataGrid();
+        }
+        private void LoadDataGrid() 
+        {
+            dto = PermissionBLL.GetAll();
+            dgvPermissionList.DataSource = dto.Permissions;
+            dgvPermissionList.Columns[0].Visible = false;
+            dgvPermissionList.Columns[1].Visible = false;
+            dgvPermissionList.Columns[2].HeaderText = "Name";
+            dgvPermissionList.Columns[3].HeaderText = "SurName";
+            dgvPermissionList.Columns[4].HeaderText = "Departmetn Name";
+            dgvPermissionList.Columns[5].HeaderText = "Position Name";
+            dgvPermissionList.Columns[6].Visible = false;
+            dgvPermissionList.Columns[7].Visible = false;
+            dgvPermissionList.Columns[8].HeaderText = "Start Date";
+            dgvPermissionList.Columns[9].HeaderText = "End Date";
+            dgvPermissionList.Columns[10].HeaderText = "Permission Day Amount";
+            dgvPermissionList.Columns[11].HeaderText = "State";
+            dgvPermissionList.Columns[12].Visible = false;
+            dgvPermissionList.Columns[13].HeaderText = "Explanation";
+            dgvPermissionList.Columns[14].Visible = false;
+            ComboFull = false;
+            cboDepartament.DataSource = dto.Departments;
+            cboDepartament.DisplayMember = "DEPARTAMENT_NAME";
+            cboDepartament.ValueMember = "ID";
+            cboPosition.DataSource = dto.Positions;
+            cboPosition.DisplayMember = "POSITION_NAME";
+            cboPosition.ValueMember = "ID";
+            cboState.DataSource = dto.States;
+            cboState.DisplayMember = "STATE_NAME";
+            cboState.ValueMember = "ID";
+            cboDepartament.SelectedIndex = -1;
+            cboPosition.SelectedIndex = -1;
+            cboState.SelectedIndex = -1;
+            ComboFull = true;
+        }
+
+        private void txtUserNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = General.IsNumber(e);
+        }
+
+        private void txtDayAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = General.IsNumber(e);
         }
     }
 }

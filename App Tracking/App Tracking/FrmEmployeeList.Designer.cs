@@ -35,36 +35,36 @@
             this.cboDepartament = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSurName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUserNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvEmployeeList = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelete = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnClose = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnNew = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.txtUserNo = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtName = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtSurName = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.dgvEmployeeList = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeList)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtSurName);
+            this.panel1.Controls.Add(this.txtName);
+            this.panel1.Controls.Add(this.txtUserNo);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.cboPosition);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.cboDepartament);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.txtSurName);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtUserNo);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -86,6 +86,7 @@
             // 
             // cboPosition
             // 
+            this.cboPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPosition.FormattingEnabled = true;
             this.cboPosition.Location = new System.Drawing.Point(366, 46);
@@ -105,6 +106,7 @@
             // 
             // cboDepartament
             // 
+            this.cboDepartament.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDepartament.FormattingEnabled = true;
             this.cboDepartament.Location = new System.Drawing.Point(366, 12);
@@ -135,14 +137,6 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // txtSurName
-            // 
-            this.txtSurName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSurName.Location = new System.Drawing.Point(92, 76);
-            this.txtSurName.Name = "txtSurName";
-            this.txtSurName.Size = new System.Drawing.Size(111, 26);
-            this.txtSurName.TabIndex = 7;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -152,14 +146,6 @@
             this.label3.Size = new System.Drawing.Size(74, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Surname";
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(92, 44);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(111, 26);
-            this.txtName.TabIndex = 5;
             // 
             // label2
             // 
@@ -171,15 +157,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Name";
             // 
-            // txtUserNo
-            // 
-            this.txtUserNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserNo.Location = new System.Drawing.Point(92, 12);
-            this.txtUserNo.Name = "txtUserNo";
-            this.txtUserNo.Size = new System.Drawing.Size(111, 26);
-            this.txtUserNo.TabIndex = 3;
-            this.txtUserNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNo_KeyPress);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -189,6 +166,219 @@
             this.label1.Size = new System.Drawing.Size(66, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "UserNO";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Controls.Add(this.btnClose);
+            this.panel2.Controls.Add(this.btnNew);
+            this.panel2.Controls.Add(this.btnUpdate);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 490);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(616, 67);
+            this.panel2.TabIndex = 2;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Activecolor = System.Drawing.Color.Salmon;
+            this.btnDelete.BackColor = System.Drawing.Color.Salmon;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.BorderRadius = 0;
+            this.btnDelete.ButtonText = "Delete";
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.DisabledColor = System.Drawing.Color.Gray;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnDelete.Iconimage = null;
+            this.btnDelete.Iconimage_right = null;
+            this.btnDelete.Iconimage_right_Selected = null;
+            this.btnDelete.Iconimage_Selected = null;
+            this.btnDelete.IconMarginLeft = 0;
+            this.btnDelete.IconMarginRight = 0;
+            this.btnDelete.IconRightVisible = true;
+            this.btnDelete.IconRightZoom = 0D;
+            this.btnDelete.IconVisible = true;
+            this.btnDelete.IconZoom = 90D;
+            this.btnDelete.IsTab = false;
+            this.btnDelete.Location = new System.Drawing.Point(263, 9);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Normalcolor = System.Drawing.Color.Salmon;
+            this.btnDelete.OnHovercolor = System.Drawing.Color.Coral;
+            this.btnDelete.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnDelete.selected = false;
+            this.btnDelete.Size = new System.Drawing.Size(116, 49);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDelete.Textcolor = System.Drawing.Color.White;
+            this.btnDelete.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Activecolor = System.Drawing.Color.Crimson;
+            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnClose.BackColor = System.Drawing.Color.Crimson;
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClose.BorderRadius = 0;
+            this.btnClose.ButtonText = "Close";
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.DisabledColor = System.Drawing.Color.Gray;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnClose.Iconimage = null;
+            this.btnClose.Iconimage_right = null;
+            this.btnClose.Iconimage_right_Selected = null;
+            this.btnClose.Iconimage_Selected = null;
+            this.btnClose.IconMarginLeft = 0;
+            this.btnClose.IconMarginRight = 0;
+            this.btnClose.IconRightVisible = true;
+            this.btnClose.IconRightZoom = 0D;
+            this.btnClose.IconVisible = true;
+            this.btnClose.IconZoom = 90D;
+            this.btnClose.IsTab = false;
+            this.btnClose.Location = new System.Drawing.Point(487, 9);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Normalcolor = System.Drawing.Color.Crimson;
+            this.btnClose.OnHovercolor = System.Drawing.Color.Red;
+            this.btnClose.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnClose.selected = false;
+            this.btnClose.Size = new System.Drawing.Size(116, 49);
+            this.btnClose.TabIndex = 10;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose.Textcolor = System.Drawing.Color.White;
+            this.btnClose.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
+            // 
+            // btnNew
+            // 
+            this.btnNew.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNew.BorderRadius = 0;
+            this.btnNew.ButtonText = "Add";
+            this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNew.DisabledColor = System.Drawing.Color.Gray;
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnNew.Iconimage = null;
+            this.btnNew.Iconimage_right = null;
+            this.btnNew.Iconimage_right_Selected = null;
+            this.btnNew.Iconimage_Selected = null;
+            this.btnNew.IconMarginLeft = 0;
+            this.btnNew.IconMarginRight = 0;
+            this.btnNew.IconRightVisible = true;
+            this.btnNew.IconRightZoom = 0D;
+            this.btnNew.IconVisible = true;
+            this.btnNew.IconZoom = 90D;
+            this.btnNew.IsTab = false;
+            this.btnNew.Location = new System.Drawing.Point(15, 9);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnNew.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnNew.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnNew.selected = false;
+            this.btnNew.Size = new System.Drawing.Size(116, 49);
+            this.btnNew.TabIndex = 8;
+            this.btnNew.Text = "Add";
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnNew.Textcolor = System.Drawing.Color.White;
+            this.btnNew.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Activecolor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdate.BorderRadius = 0;
+            this.btnUpdate.ButtonText = "Update";
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.DisabledColor = System.Drawing.Color.Gray;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnUpdate.Iconimage = null;
+            this.btnUpdate.Iconimage_right = null;
+            this.btnUpdate.Iconimage_right_Selected = null;
+            this.btnUpdate.Iconimage_Selected = null;
+            this.btnUpdate.IconMarginLeft = 0;
+            this.btnUpdate.IconMarginRight = 0;
+            this.btnUpdate.IconRightVisible = true;
+            this.btnUpdate.IconRightZoom = 0D;
+            this.btnUpdate.IconVisible = true;
+            this.btnUpdate.IconZoom = 90D;
+            this.btnUpdate.IsTab = false;
+            this.btnUpdate.Location = new System.Drawing.Point(139, 9);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Normalcolor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdate.OnHovercolor = System.Drawing.Color.DeepSkyBlue;
+            this.btnUpdate.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnUpdate.selected = false;
+            this.btnUpdate.Size = new System.Drawing.Size(116, 49);
+            this.btnUpdate.TabIndex = 9;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnUpdate.Textcolor = System.Drawing.Color.White;
+            this.btnUpdate.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // txtUserNo
+            // 
+            this.txtUserNo.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtUserNo.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUserNo.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtUserNo.BorderThickness = 3;
+            this.txtUserNo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtUserNo.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtUserNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUserNo.isPassword = false;
+            this.txtUserNo.Location = new System.Drawing.Point(81, 11);
+            this.txtUserNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUserNo.Name = "txtUserNo";
+            this.txtUserNo.Size = new System.Drawing.Size(130, 29);
+            this.txtUserNo.TabIndex = 14;
+            this.txtUserNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtUserNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNo_KeyPress_1);
+            // 
+            // txtName
+            // 
+            this.txtName.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtName.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtName.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtName.BorderThickness = 3;
+            this.txtName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtName.isPassword = false;
+            this.txtName.Location = new System.Drawing.Point(82, 48);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(130, 29);
+            this.txtName.TabIndex = 15;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtSurName
+            // 
+            this.txtSurName.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtSurName.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSurName.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtSurName.BorderThickness = 3;
+            this.txtSurName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSurName.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtSurName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSurName.isPassword = false;
+            this.txtSurName.Location = new System.Drawing.Point(82, 85);
+            this.txtSurName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSurName.Name = "txtSurName";
+            this.txtSurName.Size = new System.Drawing.Size(130, 29);
+            this.txtSurName.TabIndex = 16;
+            this.txtSurName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // dgvEmployeeList
             // 
@@ -201,82 +391,25 @@
             this.dgvEmployeeList.Location = new System.Drawing.Point(0, 155);
             this.dgvEmployeeList.Name = "dgvEmployeeList";
             this.dgvEmployeeList.ReadOnly = true;
-            this.dgvEmployeeList.Size = new System.Drawing.Size(616, 402);
-            this.dgvEmployeeList.TabIndex = 1;
-            this.dgvEmployeeList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployeeList_RowEnter);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnClose);
-            this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Controls.Add(this.btnUpdate);
-            this.panel2.Controls.Add(this.btnNew);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 485);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(616, 72);
-            this.panel2.TabIndex = 2;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(483, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(118, 49);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(260, 12);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(118, 49);
-            this.btnDelete.TabIndex = 6;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(136, 12);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(118, 49);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.Location = new System.Drawing.Point(12, 12);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(118, 49);
-            this.btnNew.TabIndex = 4;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.dgvEmployeeList.Size = new System.Drawing.Size(616, 335);
+            this.dgvEmployeeList.TabIndex = 4;
+            this.dgvEmployeeList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployeeList_RowEnter_1);
             // 
             // FrmEmployeeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 557);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvEmployeeList);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmEmployeeList";
             this.Text = "Employee List";
             this.Load += new System.EventHandler(this.FrmEmployeeList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeList)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -284,23 +417,23 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvEmployeeList;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.TextBox txtUserNo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtSurName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboPosition;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboDepartament;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnClear;
+        private Bunifu.Framework.UI.BunifuFlatButton btnDelete;
+        private Bunifu.Framework.UI.BunifuFlatButton btnClose;
+        private Bunifu.Framework.UI.BunifuFlatButton btnNew;
+        private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtSurName;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtName;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtUserNo;
+        private System.Windows.Forms.DataGridView dgvEmployeeList;
     }
 }

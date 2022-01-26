@@ -23,17 +23,9 @@ namespace App_Tracking
         private void FrmDepartamentList_Load(object sender, EventArgs e)
         {
             //leo los datos en la BD y los cargo en la grilla
-            list = DepartamentBLL.GetDepartamentList();
-            dgvDepartamentList.DataSource = list;
-            dgvDepartamentList.Columns[0].Visible = false;
-            dgvDepartamentList.Columns[1].HeaderText = "Departament Name";
+            UpdateDataGridView();
         }
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();   
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
+        private void btnNew_Click_1(object sender, EventArgs e)
         {
             frmDepartament frmDepartament = new frmDepartament();
             this.Hide();
@@ -43,11 +35,19 @@ namespace App_Tracking
             list = DepartamentBLL.GetDepartamentList();
             dgvDepartamentList.DataSource = list;
         }
-
-        private void dgvDepartamentList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            detail.ID = Convert.ToInt32(dgvDepartamentList.Rows[e.RowIndex].Cells[0].Value);
-            detail.DEPARTAMENT_NAME = dgvDepartamentList.Rows[e.RowIndex].Cells[1].Value.ToString();
+            this.Close();
+        }
+
+        private void btnDelete_Click_2(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Department", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                DepartamentBLL.DeleteDepartment(detail.ID);
+            }
+            UpdateDataGridView();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -56,24 +56,29 @@ namespace App_Tracking
             {
                 MessageBox.Show("Please Select An Department From Table");
             }
-            else 
+            else
             {
                 frmDepartament frm = new frmDepartament();
                 frm.IsUpdate = true;
                 frm.detail = detail;
                 this.Hide();
                 frm.ShowDialog();
-                this.Visible = true;    
+                this.Visible = true;
             }
+            UpdateDataGridView();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void dgvDepartamentList_RowEnter_1(object sender, DataGridViewCellEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are You Sure To Delete This Department","Warning",MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) 
-            {
-                DepartamentBLL.DeleteDepartment(detail.ID);
-            }
+            detail.ID = Convert.ToInt32(dgvDepartamentList.Rows[e.RowIndex].Cells[0].Value);
+            detail.DEPARTAMENT_NAME = dgvDepartamentList.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+        private void UpdateDataGridView() 
+        {
+            list = DepartamentBLL.GetDepartamentList();
+            dgvDepartamentList.DataSource = list;
+            dgvDepartamentList.Columns[0].Visible = false;
+            dgvDepartamentList.Columns[1].HeaderText = "Departament Name";
         }
     }
 }

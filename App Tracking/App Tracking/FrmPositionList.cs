@@ -30,18 +30,6 @@ namespace App_Tracking
             dgvPositionList.Columns[3].Visible = false;
             dgvPositionList.Columns[4].Visible = false;
         }
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();   
-        }
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            FrmPosition frmPosition = new FrmPosition();
-            this.Hide();
-            frmPosition.ShowDialog();
-            this.Visible = true;
-            FillGrid();
-        }
         private void FillGrid() 
         {
             PositionList = PositionBLL.GetPositions();
@@ -55,13 +43,38 @@ namespace App_Tracking
             detail.DEPARTAMENT_ID = Convert.ToInt32(dgvPositionList.Rows[e.RowIndex].Cells[3].Value.ToString());
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnNew_Click_1(object sender, EventArgs e)
+        {
+            FrmPosition frmPosition = new FrmPosition();
+            this.Hide();
+            frmPosition.ShowDialog();
+            this.Visible = true;
+            FillGrid();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Position", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                PositionBLL.DeletePosition(detail.ID);
+                MessageBox.Show("Position Was Deleted");
+            }
+            FillGrid();
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             if (detail.ID == 0)
             {
                 MessageBox.Show("Please Select A Position From Table");
             }
-            else 
+            else
             {
                 FrmPosition frm = new FrmPosition();
                 frm.IsUpdate = true;
@@ -69,18 +82,8 @@ namespace App_Tracking
                 this.Hide();
                 frm.ShowDialog();
                 this.Visible = true;
-                FillGrid();
             }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are You Sure To Delete This Position","Warning",MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) 
-            {
-                PositionBLL.DeletePosition(detail.ID);
-                MessageBox.Show("Position Was Deleted");
-            }
+            FillGrid();
         }
     }
 }

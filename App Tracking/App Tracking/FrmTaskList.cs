@@ -28,12 +28,6 @@ namespace App_Tracking
         {
             e.Handled = General.IsNumber(e);
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void FrmTaskList_Load(object sender, EventArgs e)
         {
             //pnlAdmin.Hide();   
@@ -52,14 +46,6 @@ namespace App_Tracking
             cboTaskState.DisplayMember = "STATE_NAME";
             cboTaskState.ValueMember = "ID";
             cboDepartament.SelectedIndex = -1;
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            FrmTask frmTask = new FrmTask();
-            this.Hide();
-            frmTask.ShowDialog();
-            this.Visible = true;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -102,9 +88,9 @@ namespace App_Tracking
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtName.Clear();
-            txtSurName.Clear();
-            txtUserNo.Clear();
+            txtName.Text = "";
+            txtSurName.Text = "";
+            txtUserNo.Text = "";
             cboDepartament.SelectedIndex = -1;
             cboPosition.SelectedIndex = -1;
             dtpStart.Value = DateTime.Today;
@@ -114,24 +100,6 @@ namespace App_Tracking
             rbtStartDate.Checked = false;
             dgvTaskList.DataSource = dto.Tasks;
         }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (detail.TaskId == 0)
-            {
-                MessageBox.Show("Please Select A Task On Table");
-            }
-            else 
-            {
-                FrmTask frm = new FrmTask();
-                frm.IsUpdate = true;
-                frm.detail = detail;
-                this.Hide();
-                frm.ShowDialog();
-                this.Visible = true;
-            }
-        }
-
         private void dgvTaskList_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -146,14 +114,71 @@ namespace App_Tracking
             detail.TaskDeliveryDate =  Convert.ToDateTime(dgvTaskList.Rows[e.RowIndex].Cells[13].Value);
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+
+        private void btnApprove_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are You Sure To Delete This Task ?","Warning",MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) 
+
+        }
+
+        private void btnNew_Click_1(object sender, EventArgs e)
+        {
+            FrmTask frmTask = new FrmTask();
+            this.Hide();
+            frmTask.ShowDialog();
+            this.Visible = true;
+            LoadDataGrid();
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
+        {
+            if (detail.TaskId == 0)
+            {
+                MessageBox.Show("Please Select A Task On Table");
+            }
+            else
+            {
+                FrmTask frm = new FrmTask();
+                frm.IsUpdate = true;
+                frm.detail = detail;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+            }
+            LoadDataGrid();
+        }
+
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You Sure To Delete This Task ?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
                 TaskBLL.DeleteTask(detail.Id);
                 MessageBox.Show("Task Was Deleted");
+                LoadDataGrid();
             }
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void LoadDataGrid() 
+        {
+            dto = TaskBLL.GetAll();
+            dgvTaskList.DataSource = dto.Tasks;
+            dgvTaskList.Columns[0].Visible = false;
+            dgvTaskList.Columns[1].Visible = false;
+            dgvTaskList.Columns[2].HeaderText = "Name";
+            dgvTaskList.Columns[3].HeaderText = "SurName";
+            dgvTaskList.Columns[4].HeaderText = "Department";
+            dgvTaskList.Columns[5].HeaderText = "Position";
+            dgvTaskList.Columns[6].Visible = false;
+            dgvTaskList.Columns[7].Visible = false;
+            dgvTaskList.Columns[8].Visible = false;
+            cboTaskState.DataSource = dto.TaskStates;
+            cboTaskState.DisplayMember = "STATE_NAME";
+            cboTaskState.ValueMember = "ID";
+            cboDepartament.SelectedIndex = -1;
         }
     }
 }

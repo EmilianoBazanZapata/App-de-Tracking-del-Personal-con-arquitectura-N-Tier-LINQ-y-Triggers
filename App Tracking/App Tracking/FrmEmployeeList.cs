@@ -24,70 +24,9 @@ namespace App_Tracking
         {
             InitializeComponent();
         }
-
-        private void txtUserNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = General.IsNumber(e);
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            FrmEmployee frmEmployee = new FrmEmployee();
-            this.Hide();
-            frmEmployee.ShowDialog();
-            this.Visible = true;
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (detail.Id == 0)
-            {
-                MessageBox.Show("Please Select An Employee On Table");
-            }
-            else
-            {
-                FrmEmployee frm = new FrmEmployee();
-                this.Hide();
-                frm.IsUpdate = true;
-                frm.detail = detail;
-                frm.ShowDialog();
-                this.Visible = true;
-            }
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void FrmEmployeeList_Load(object sender, EventArgs e)
         {
-            dto = EmployeeBLL.GetAll();
-            dgvEmployeeList.DataSource = dto.Detail;
-            dgvEmployeeList.Columns[0].Visible = false;
-            dgvEmployeeList.Columns[1].Visible = false;
-            dgvEmployeeList.Columns[2].HeaderText = "Name";
-            dgvEmployeeList.Columns[3].HeaderText = "SurName";
-            dgvEmployeeList.Columns[4].HeaderText = "Department";
-            dgvEmployeeList.Columns[5].HeaderText = "Position";
-            dgvEmployeeList.Columns[6].Visible = false;
-            dgvEmployeeList.Columns[7].Visible = false;
-            dgvEmployeeList.Columns[8].Visible = false;
-            dgvEmployeeList.Columns[9].HeaderText = "Salary";
-            dgvEmployeeList.Columns[10].Visible = false;
-            dgvEmployeeList.Columns[11].Visible = false;
-            dgvEmployeeList.Columns[12].HeaderText = "Adress";
-            dgvEmployeeList.Columns[13].HeaderText = "Bhirt Day";
-            ComboFull = false;
-            cboDepartament.DataSource = dto.Departaments;
-            cboDepartament.DisplayMember = "DEPARTAMENT_NAME";
-            cboDepartament.ValueMember = "ID";
-            cboPosition.DataSource = dto.positions;
-            cboPosition.DisplayMember = "POSITION_NAME";
-            cboPosition.ValueMember = "ID";
-            cboDepartament.SelectedIndex = -1;
-            cboPosition.SelectedIndex = -1;
-            ComboFull = true;
+            LoadDataGrid();
         }
 
         private void cboDepartament_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,15 +65,86 @@ namespace App_Tracking
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtName.Clear();
-            txtSurName.Clear();
-            txtUserNo.Clear();
+            txtName.Text = "";
+            txtSurName.Text = "";
+            txtUserNo.Text = "";
             cboDepartament.SelectedIndex = -1;
             cboPosition.SelectedIndex = -1;
             dgvEmployeeList.DataSource = dto.Detail;
         }
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            FrmEmployee frmEmployee = new FrmEmployee();
+            this.Hide();
+            frmEmployee.ShowDialog();
+            this.Visible = true;
+            LoadDataGrid();
+        }
 
-        private void dgvEmployeeList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (detail.Id == 0)
+            {
+                MessageBox.Show("Please Select An Employee On Table");
+            }
+            else
+            {
+                FrmEmployee frm = new FrmEmployee();
+                this.Hide();
+                frm.IsUpdate = true;
+                frm.detail = detail;
+                frm.ShowDialog();
+                this.Visible = true;
+            }
+            LoadDataGrid();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are You To Delete This Employee ?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                EmployeeBLL.DeleteEmployee(detail.Id);
+                MessageBox.Show("Employee Was Deleted");
+            }
+            LoadDataGrid();
+        }
+        private void LoadDataGrid()
+        {
+            dto = EmployeeBLL.GetAll();
+            dgvEmployeeList.DataSource = dto.Detail;
+            dgvEmployeeList.Columns[0].Visible = false;
+            dgvEmployeeList.Columns[1].Visible = false;
+            dgvEmployeeList.Columns[2].HeaderText = "Name";
+            dgvEmployeeList.Columns[3].HeaderText = "SurName";
+            dgvEmployeeList.Columns[4].HeaderText = "Department";
+            dgvEmployeeList.Columns[5].HeaderText = "Position";
+            dgvEmployeeList.Columns[6].Visible = false;
+            dgvEmployeeList.Columns[7].Visible = false;
+            dgvEmployeeList.Columns[8].Visible = false;
+            dgvEmployeeList.Columns[9].HeaderText = "Salary";
+            dgvEmployeeList.Columns[10].Visible = false;
+            dgvEmployeeList.Columns[11].Visible = false;
+            dgvEmployeeList.Columns[12].HeaderText = "Adress";
+            dgvEmployeeList.Columns[13].HeaderText = "Bhirt Day";
+            ComboFull = false;
+            cboDepartament.DataSource = dto.Departaments;
+            cboDepartament.DisplayMember = "DEPARTAMENT_NAME";
+            cboDepartament.ValueMember = "ID";
+            cboPosition.DataSource = dto.positions;
+            cboPosition.DisplayMember = "POSITION_NAME";
+            cboPosition.ValueMember = "ID";
+            cboDepartament.SelectedIndex = -1;
+            cboPosition.SelectedIndex = -1;
+            ComboFull = true;
+        }
+
+        private void txtUserNo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = General.IsNumber(e);
+        }
+
+        private void dgvEmployeeList_RowEnter_1(object sender, DataGridViewCellEventArgs e)
         {
             detail.Id = Convert.ToInt32(dgvEmployeeList.Rows[e.RowIndex].Cells[0].Value);
             detail.UserNo = Convert.ToInt32(dgvEmployeeList.Rows[e.RowIndex].Cells[1].Value);
@@ -150,14 +160,9 @@ namespace App_Tracking
             detail.BhirtDay = Convert.ToDateTime(dgvEmployeeList.Rows[e.RowIndex].Cells[13].Value);
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnClose_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are You To Delete This Employee ?", "Warning", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                EmployeeBLL.DeleteEmployee(detail.Id);
-                MessageBox.Show("Employye Was Deleted");
-            }
+            this.Close();
         }
     }
 }

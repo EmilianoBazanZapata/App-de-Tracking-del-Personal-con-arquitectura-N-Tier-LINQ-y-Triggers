@@ -26,22 +26,6 @@ namespace App_Tracking
         {
             InitializeComponent();
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void txtUserNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = General.IsNumber(e);
-        }
-
-        private void txtSalary_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = General.IsNumber(e);
-        }
-
         private void FrmEmployee_Load(object sender, EventArgs e)
         {
             employeeDTO = EmployeeBLL.GetAll();
@@ -92,7 +76,27 @@ namespace App_Tracking
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            if (txtUserNo.Text.Trim() == "")
+            {
+                MessageBox.Show("User Is Empty");
+            }
+            else
+            {
+                IsUnique = EmployeeBLL.IsUnique(Convert.ToInt32(txtUserNo.Text));
+                if (!IsUnique)
+                {
+                    MessageBox.Show("This User No Is Used By Another Employee Please Change ");
+                }
+                else
+                {
+                    MessageBox.Show("This User No Is Usable");
+                }
+            }
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             if (txtUserNo.Text.Trim() == "")
             {
@@ -195,14 +199,14 @@ namespace App_Tracking
                         }
                     }
                 }
-                txtUserNo.Clear();
-                txtPassword.Clear();
+                txtUserNo.Text = "";
+                txtPassword.Text = "";
                 cbxAdmin.Checked = false;
-                txtName.Clear();
-                txtSurname.Clear();
-                txtSalary.Clear();
+                txtName.Text = "";
+                txtSurname.Text = "";
+                txtSalary.Text = "";
                 txtInformation.Clear();
-                txtImagePath.Clear();
+                txtImagePath.Text = "";
                 pbEmployee.Image = null;
                 ComboFull = false;
                 cboDepartament.SelectedIndex = -1;
@@ -211,24 +215,14 @@ namespace App_Tracking
             }
         }
 
-        private void btnCheck_Click(object sender, EventArgs e)
+        private void btnClose_Click_1(object sender, EventArgs e)
         {
-            if (txtUserNo.Text.Trim() == "")
-            {
-                MessageBox.Show("User Is Empty");
-            }
-            else
-            {
-                IsUnique = EmployeeBLL.IsUnique(Convert.ToInt32(txtUserNo.Text));
-                if (!IsUnique)
-                {
-                    MessageBox.Show("This User No Is Used By Another Employee Please Change ");
-                }
-                else
-                {
-                    MessageBox.Show("This User No Is Usable");
-                }
-            }
+            this.Close();
+        }
+
+        private void txtUserNo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = General.IsNumber(e);
         }
     }
 }

@@ -25,12 +25,6 @@ namespace App_Tracking
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Close();
-        }
-
         private void FrmPermission_Load(object sender, EventArgs e)
         {
             txtUserNo.Text = UserStatic.UserNo.ToString();
@@ -56,7 +50,7 @@ namespace App_Tracking
             txtDayAmount.Text = PermissionDay.TotalDays.ToString();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             if (txtDayAmount.Text.Trim() == "")
             {
@@ -88,10 +82,10 @@ namespace App_Tracking
                     txtExplication.Clear();
                     txtDayAmount.Text = "0";
                 }
-                else if(IsUpdate)
+                else if (IsUpdate)
                 {
-                    DialogResult reult = MessageBox.Show("Are You Sure","Warning",MessageBoxButtons.YesNo);
-                    if (reult == DialogResult.Yes) 
+                    DialogResult reult = MessageBox.Show("Are You Sure", "Warning", MessageBoxButtons.YesNo);
+                    if (reult == DialogResult.Yes)
                     {
                         Permission.ID = detail.PermissionId;
                         Permission.PERMISSION_EXPLANATION = txtExplication.Text;
@@ -104,6 +98,11 @@ namespace App_Tracking
                     }
                 }
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
