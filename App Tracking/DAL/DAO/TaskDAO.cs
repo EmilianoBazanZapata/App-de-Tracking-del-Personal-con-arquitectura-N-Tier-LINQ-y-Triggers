@@ -72,9 +72,33 @@ namespace DAL.DAO
                 dto.PositionID = item.PositionId;
                 dto.DepartmentID = item.DepartmentId;
                 dto.Id = item.EmployeeId;
+                dto.TaskStateId = item.TaskStateId;
                 tasklist.Add(dto);
             }
             return tasklist;
+        }
+
+        public static void ApproveTask(int taskId, bool isAdmin)
+        {
+            try
+            {
+                TASKS ts = db.TASKS.First(x=>x.ID == taskId);
+                if (isAdmin)
+                {
+                    ts.TASK_STATE = TaskStates.Approved;
+                }
+                else 
+                {
+                    ts.TASK_STATE = TaskStates.Delivered;
+                }
+                ts.TASK_DELIVERY_DATE = DateTime.Today;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public static void DeleteTask(int id)

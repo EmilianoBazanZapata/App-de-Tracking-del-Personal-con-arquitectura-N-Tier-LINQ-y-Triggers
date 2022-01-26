@@ -42,7 +42,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnExit.BackColor = System.Drawing.Color.DarkViolet;
             this.btnExit.BackgroundImage = global::App_Tracking.Properties.Resources.exit;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -58,7 +58,7 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogOut.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLogOut.BackColor = System.Drawing.Color.Crimson;
             this.btnLogOut.BackgroundImage = global::App_Tracking.Properties.Resources.logout;
             this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -74,7 +74,6 @@
             // 
             // btnPosition
             // 
-            this.btnPosition.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnPosition.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnPosition.BackgroundImage = global::App_Tracking.Properties.Resources.position;
             this.btnPosition.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -90,7 +89,6 @@
             // 
             // btnDepartament
             // 
-            this.btnDepartament.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDepartament.BackColor = System.Drawing.Color.Gold;
             this.btnDepartament.BackgroundImage = global::App_Tracking.Properties.Resources.department;
             this.btnDepartament.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -106,7 +104,6 @@
             // 
             // btnPermission
             // 
-            this.btnPermission.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnPermission.BackColor = System.Drawing.Color.LightCyan;
             this.btnPermission.BackgroundImage = global::App_Tracking.Properties.Resources.login;
             this.btnPermission.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -122,7 +119,6 @@
             // 
             // btnSalary
             // 
-            this.btnSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalary.BackColor = System.Drawing.Color.Magenta;
             this.btnSalary.BackgroundImage = global::App_Tracking.Properties.Resources.Payment1;
             this.btnSalary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -138,7 +134,6 @@
             // 
             // btnTasks
             // 
-            this.btnTasks.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnTasks.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnTasks.BackgroundImage = global::App_Tracking.Properties.Resources.Task;
             this.btnTasks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -182,6 +177,7 @@
             this.Controls.Add(this.btnEmployee);
             this.Name = "FrmMain";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }

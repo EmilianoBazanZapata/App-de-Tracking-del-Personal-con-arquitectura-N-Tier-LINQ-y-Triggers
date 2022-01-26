@@ -26,6 +26,42 @@ namespace App_Tracking
         private void FrmPermissionList_Load(object sender, EventArgs e)
         {
             LoadDataGrid();
+            dgvPermissionList.Columns[0].Visible = false;
+            dgvPermissionList.Columns[1].Visible = false;
+            dgvPermissionList.Columns[2].HeaderText = "Name";
+            dgvPermissionList.Columns[3].HeaderText = "SurName";
+            dgvPermissionList.Columns[4].HeaderText = "Departmetn Name";
+            dgvPermissionList.Columns[5].HeaderText = "Position Name";
+            dgvPermissionList.Columns[6].Visible = false;
+            dgvPermissionList.Columns[7].Visible = false;
+            dgvPermissionList.Columns[8].HeaderText = "Start Date";
+            dgvPermissionList.Columns[9].HeaderText = "End Date";
+            dgvPermissionList.Columns[10].HeaderText = "Permission Day Amount";
+            dgvPermissionList.Columns[11].HeaderText = "State";
+            dgvPermissionList.Columns[12].Visible = false;
+            dgvPermissionList.Columns[13].HeaderText = "Explanation";
+            dgvPermissionList.Columns[14].Visible = false;
+            ComboFull = false;
+            cboDepartament.DataSource = dto.Departments;
+            cboDepartament.DisplayMember = "DEPARTAMENT_NAME";
+            cboDepartament.ValueMember = "ID";
+            cboPosition.DataSource = dto.Positions;
+            cboPosition.DisplayMember = "POSITION_NAME";
+            cboPosition.ValueMember = "ID";
+            cboState.DataSource = dto.States;
+            cboState.DisplayMember = "STATE_NAME";
+            cboState.ValueMember = "ID";
+            cboDepartament.SelectedIndex = -1;
+            cboPosition.SelectedIndex = -1;
+            cboState.SelectedIndex = -1;
+            ComboFull = true;
+            if (!UserStatic.IsAdmin) 
+            {
+                pnlAdmin.Visible = false;
+                btnApprove.Visible = false;
+                btnDisapprove.Visible = false;
+                btnDelete.Visible = false;
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -112,6 +148,10 @@ namespace App_Tracking
             {
                 MessageBox.Show("Please Select A Permission From Table");
             }
+            else if (detail.State == PermissionStates.Approved || detail.State == PermissionStates.Disapproved) 
+            {
+                MessageBox.Show("You Can Not Any Approved Or Disapproved Permission");
+            }
             else
             {
                 FrmPermission frm = new FrmPermission();
@@ -163,36 +203,11 @@ namespace App_Tracking
         private void LoadDataGrid() 
         {
             dto = PermissionBLL.GetAll();
+            if (!UserStatic.IsAdmin) 
+            {
+                dto.Permissions = dto.Permissions.Where(x=>x.Id == UserStatic.EmployeeId).ToList();
+            }
             dgvPermissionList.DataSource = dto.Permissions;
-            dgvPermissionList.Columns[0].Visible = false;
-            dgvPermissionList.Columns[1].Visible = false;
-            dgvPermissionList.Columns[2].HeaderText = "Name";
-            dgvPermissionList.Columns[3].HeaderText = "SurName";
-            dgvPermissionList.Columns[4].HeaderText = "Departmetn Name";
-            dgvPermissionList.Columns[5].HeaderText = "Position Name";
-            dgvPermissionList.Columns[6].Visible = false;
-            dgvPermissionList.Columns[7].Visible = false;
-            dgvPermissionList.Columns[8].HeaderText = "Start Date";
-            dgvPermissionList.Columns[9].HeaderText = "End Date";
-            dgvPermissionList.Columns[10].HeaderText = "Permission Day Amount";
-            dgvPermissionList.Columns[11].HeaderText = "State";
-            dgvPermissionList.Columns[12].Visible = false;
-            dgvPermissionList.Columns[13].HeaderText = "Explanation";
-            dgvPermissionList.Columns[14].Visible = false;
-            ComboFull = false;
-            cboDepartament.DataSource = dto.Departments;
-            cboDepartament.DisplayMember = "DEPARTAMENT_NAME";
-            cboDepartament.ValueMember = "ID";
-            cboPosition.DataSource = dto.Positions;
-            cboPosition.DisplayMember = "POSITION_NAME";
-            cboPosition.ValueMember = "ID";
-            cboState.DataSource = dto.States;
-            cboState.DisplayMember = "STATE_NAME";
-            cboState.ValueMember = "ID";
-            cboDepartament.SelectedIndex = -1;
-            cboPosition.SelectedIndex = -1;
-            cboState.SelectedIndex = -1;
-            ComboFull = true;
         }
 
         private void txtUserNo_KeyPress(object sender, KeyPressEventArgs e)

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSalary = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtYear = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbtEquals = new System.Windows.Forms.RadioButton();
             this.rbtLess = new System.Windows.Forms.RadioButton();
@@ -39,7 +41,7 @@
             this.cboMonth = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlAdmin = new System.Windows.Forms.Panel();
             this.txtSurName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txtName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txtUserNo = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -56,11 +58,9 @@
             this.btnNew = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
             this.dgvSalaryList = new System.Windows.Forms.DataGridView();
-            this.txtYear = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.txtSalary = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnlAdmin.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalaryList)).BeginInit();
             this.SuspendLayout();
@@ -76,12 +76,48 @@
             this.panel1.Controls.Add(this.cboMonth);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.pnlAdmin);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(792, 187);
             this.panel1.TabIndex = 0;
+            // 
+            // txtSalary
+            // 
+            this.txtSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSalary.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtSalary.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSalary.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtSalary.BorderThickness = 3;
+            this.txtSalary.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSalary.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtSalary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSalary.isPassword = false;
+            this.txtSalary.Location = new System.Drawing.Point(446, 79);
+            this.txtSalary.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(160, 29);
+            this.txtSalary.TabIndex = 31;
+            this.txtSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtYear
+            // 
+            this.txtYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtYear.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtYear.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtYear.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtYear.BorderThickness = 3;
+            this.txtYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtYear.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtYear.isPassword = false;
+            this.txtYear.Location = new System.Drawing.Point(446, 9);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(4);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(160, 29);
+            this.txtYear.TabIndex = 30;
+            this.txtYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // groupBox1
             // 
@@ -189,23 +225,23 @@
             this.label6.TabIndex = 20;
             this.label6.Text = "Year";
             // 
-            // panel3
+            // pnlAdmin
             // 
-            this.panel3.Controls.Add(this.txtSurName);
-            this.panel3.Controls.Add(this.txtName);
-            this.panel3.Controls.Add(this.txtUserNo);
-            this.panel3.Controls.Add(this.cboPosition);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.cboDepartament);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(314, 187);
-            this.panel3.TabIndex = 0;
+            this.pnlAdmin.Controls.Add(this.txtSurName);
+            this.pnlAdmin.Controls.Add(this.txtName);
+            this.pnlAdmin.Controls.Add(this.txtUserNo);
+            this.pnlAdmin.Controls.Add(this.cboPosition);
+            this.pnlAdmin.Controls.Add(this.label5);
+            this.pnlAdmin.Controls.Add(this.cboDepartament);
+            this.pnlAdmin.Controls.Add(this.label4);
+            this.pnlAdmin.Controls.Add(this.label3);
+            this.pnlAdmin.Controls.Add(this.label2);
+            this.pnlAdmin.Controls.Add(this.label1);
+            this.pnlAdmin.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlAdmin.Location = new System.Drawing.Point(0, 0);
+            this.pnlAdmin.Name = "pnlAdmin";
+            this.pnlAdmin.Size = new System.Drawing.Size(314, 187);
+            this.pnlAdmin.TabIndex = 0;
             // 
             // txtSurName
             // 
@@ -508,42 +544,6 @@
             this.dgvSalaryList.TabIndex = 2;
             this.dgvSalaryList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSalaryList_RowEnter);
             // 
-            // txtYear
-            // 
-            this.txtYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtYear.BorderColorFocused = System.Drawing.Color.Blue;
-            this.txtYear.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtYear.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.txtYear.BorderThickness = 3;
-            this.txtYear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtYear.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtYear.isPassword = false;
-            this.txtYear.Location = new System.Drawing.Point(446, 9);
-            this.txtYear.Margin = new System.Windows.Forms.Padding(4);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(160, 29);
-            this.txtYear.TabIndex = 30;
-            this.txtYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // txtSalary
-            // 
-            this.txtSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSalary.BorderColorFocused = System.Drawing.Color.Blue;
-            this.txtSalary.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSalary.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.txtSalary.BorderThickness = 3;
-            this.txtSalary.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSalary.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtSalary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtSalary.isPassword = false;
-            this.txtSalary.Location = new System.Drawing.Point(446, 79);
-            this.txtSalary.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(160, 29);
-            this.txtSalary.TabIndex = 31;
-            this.txtSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // FrmSalaryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,8 +559,8 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlAdmin.ResumeLayout(false);
+            this.pnlAdmin.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalaryList)).EndInit();
             this.ResumeLayout(false);
@@ -570,7 +570,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlAdmin;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvSalaryList;
         private System.Windows.Forms.ComboBox cboPosition;

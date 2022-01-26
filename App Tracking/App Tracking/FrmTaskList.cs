@@ -30,9 +30,13 @@ namespace App_Tracking
         }
         private void FrmTaskList_Load(object sender, EventArgs e)
         {
-            //pnlAdmin.Hide();   
+            //pnlAdmin.Hide();
             dto = TaskBLL.GetAll();
-            dgvTaskList.DataSource = dto.Tasks;
+            if (!UserStatic.IsAdmin)
+            {
+                dto.Tasks = dto.Tasks.Where(x => x.Id == UserStatic.EmployeeId).ToList();
+            }
+                dgvTaskList.DataSource = dto.Tasks;
             dgvTaskList.Columns[0].Visible = false;
             dgvTaskList.Columns[1].Visible = false;
             dgvTaskList.Columns[2].HeaderText = "Name";
@@ -43,9 +47,18 @@ namespace App_Tracking
             dgvTaskList.Columns[7].Visible = false;
             dgvTaskList.Columns[8].Visible = false;
             cboTaskState.DataSource = dto.TaskStates;
-            cboTaskState.DisplayMember = "STATE_NAME";
-            cboTaskState.ValueMember = "ID";
-            cboDepartament.SelectedIndex = -1;
+                cboTaskState.DisplayMember = "STATE_NAME";
+                cboTaskState.ValueMember = "ID";
+                cboDepartament.SelectedIndex = -1;
+            if (!UserStatic.IsAdmin) 
+            {
+                btnNew.Visible = false;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+                pnlAdmin.Visible = false;
+                btnApprove.Text = "Delivery";
+                
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -102,7 +115,6 @@ namespace App_Tracking
         }
         private void dgvTaskList_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-
             detail.Id = Convert.ToInt32(dgvTaskList.Rows[e.RowIndex].Cells[0].Value.ToString());
             detail.UserNo = Convert.ToInt32(dgvTaskList.Rows[e.RowIndex].Cells[1].Value.ToString());
             detail.Name = dgvTaskList.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -110,8 +122,8 @@ namespace App_Tracking
             detail.TaskId = Convert.ToInt32(dgvTaskList.Rows[e.RowIndex].Cells[8].Value.ToString());
             detail.Title = dgvTaskList.Rows[e.RowIndex].Cells[9].Value.ToString();
             detail.Content = dgvTaskList.Rows[e.RowIndex].Cells[10].Value.ToString();
-            detail.TaskStartDate =  Convert.ToDateTime(dgvTaskList.Rows[e.RowIndex].Cells[12].Value);
-            detail.TaskDeliveryDate =  Convert.ToDateTime(dgvTaskList.Rows[e.RowIndex].Cells[13].Value);
+            detail.TaskStartDate = Convert.ToDateTime(dgvTaskList.Rows[e.RowIndex].Cells[13].Value);
+            detail.TaskDeliveryDate = Convert.ToDateTime(dgvTaskList.Rows[e.RowIndex].Cells[14].Value);
         }
 
 
@@ -179,6 +191,32 @@ namespace App_Tracking
             cboTaskState.DisplayMember = "STATE_NAME";
             cboTaskState.ValueMember = "ID";
             cboDepartament.SelectedIndex = -1;
+        }
+
+        private void btnApprove_Click_1(object sender, EventArgs e)
+        {
+            if (UserStatic.IsAdmin && detail.TaskStateId == TaskStates.OnEmployee && detail.Id != UserStatic.EmployeeId)
+            {
+                MessageBox.Show("Before Approve A Task Employee Have To Delivery Task");
+            }
+            else if (UserStatic.IsAdmin && detail.TaskStateId == TaskStates.Approved)
+            {
+                MessageBox.Show("This Task Is Ready Approved");
+            }
+            else if (!UserStatic.IsAdmin && detail.TaskStateId == TaskStates.Delivered)
+            {
+                MessageBox.Show("This Task Is Ready Delivered");
+            }
+            else if (!UserStatic.IsAdmin && detail.TaskStateId == TaskStates.Approved)
+            {
+                MessageBox.Show("This Task Is Ready Approved");
+            }
+            else 
+            {
+                TaskBLL.ApproveTask(detail.TaskId,UserStatic.IsAdmin);
+                MessageBox.Show("Task Was Updated");
+                LoadDataGrid();
+            }
         }
     }
 }

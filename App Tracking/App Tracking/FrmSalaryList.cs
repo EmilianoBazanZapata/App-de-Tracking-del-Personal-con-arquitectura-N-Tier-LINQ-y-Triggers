@@ -26,11 +26,21 @@ namespace App_Tracking
         private void FrmSalaryList_Load(object sender, EventArgs e)
         {
             LoadDataGrid();
+            if (!UserStatic.IsAdmin) 
+            {
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+                pnlAdmin.Visible = false;
+            }
         }
 
         private void LoadDataGrid()
         {
             dto = SalaryBLL.GetAll();
+            if (!UserStatic.IsAdmin) 
+            {
+                dto.Salaries.Where(x=>x.EmployeeId == UserStatic.EmployeeId).ToList();
+            }
             dgvSalaryList.DataSource = dto.Salaries;
             dgvSalaryList.Columns[0].Visible = false;
             dgvSalaryList.Columns[1].Visible = false;

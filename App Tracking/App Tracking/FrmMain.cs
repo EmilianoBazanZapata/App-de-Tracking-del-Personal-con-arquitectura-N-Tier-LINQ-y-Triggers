@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using DAL.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,10 +26,24 @@ namespace App_Tracking
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            FrmEmployeeList frmEmployee = new FrmEmployeeList();
-            this.Hide();
-            frmEmployee.ShowDialog();
-            this.Visible = true;
+            if (!UserStatic.IsAdmin)
+            {
+                EmployeeDTO dto = EmployeeBLL.GetAll();
+                EmployeeDetailDTO detail = dto.Detail.First(x=>x.Id == UserStatic.EmployeeId);
+                FrmEmployee frm = new FrmEmployee();
+                frm.detail = detail;
+                frm.IsUpdate = true;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+            }
+            else 
+            {
+                FrmEmployeeList frmEmployee = new FrmEmployeeList();
+                this.Hide();
+                frmEmployee.ShowDialog();
+                this.Visible = true;
+            }
         }
 
         private void btnTasks_Click(object sender, EventArgs e)
@@ -76,6 +92,15 @@ namespace App_Tracking
             this.Hide();
             frmPositionList.ShowDialog();
             this.Visible = true;
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            if (!UserStatic.IsAdmin) 
+            {
+                btnDepartament.Visible = false;
+                btnPosition.Visible = false;
+            }
         }
     }
 }

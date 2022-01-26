@@ -53,6 +53,14 @@ namespace App_Tracking
                 ImagePath = Application.StartupPath + "\\images\\" + detail.ImagePath;
                 txtImagePath.Text = ImagePath;
                 pbEmployee.ImageLocation = ImagePath;
+                if (!UserStatic.IsAdmin) 
+                {
+                    cbxAdmin.Enabled = false;
+                    txtUserNo.Enabled = false;
+                    txtSalary.Enabled = false;
+                    cboDepartament.Enabled = false;
+                    cboPosition.Enabled = false;
+                }
             }
         }
 

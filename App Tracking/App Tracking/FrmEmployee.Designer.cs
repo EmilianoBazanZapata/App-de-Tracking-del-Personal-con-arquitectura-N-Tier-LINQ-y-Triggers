@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPassword = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txtUserNo = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxAdmin = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtInformation = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtUserNo = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.txtPassword = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txtName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txtSurname = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txtImagePath = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -75,6 +75,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(575, 55);
             this.panel1.TabIndex = 0;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtPassword.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtPassword.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtPassword.BorderThickness = 3;
+            this.txtPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtPassword.isPassword = true;
+            this.txtPassword.Location = new System.Drawing.Point(379, 5);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(81, 34);
+            this.txtPassword.TabIndex = 21;
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtUserNo
+            // 
+            this.txtUserNo.BorderColorFocused = System.Drawing.Color.Blue;
+            this.txtUserNo.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUserNo.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.txtUserNo.BorderThickness = 3;
+            this.txtUserNo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtUserNo.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtUserNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUserNo.isPassword = false;
+            this.txtUserNo.Location = new System.Drawing.Point(83, 4);
+            this.txtUserNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUserNo.Name = "txtUserNo";
+            this.txtUserNo.Size = new System.Drawing.Size(100, 35);
+            this.txtUserNo.TabIndex = 20;
+            this.txtUserNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtUserNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNo_KeyPress_1);
             // 
             // label3
             // 
@@ -279,42 +315,6 @@
             this.label11.Size = new System.Drawing.Size(53, 20);
             this.label11.TabIndex = 8;
             this.label11.Text = "Salary";
-            // 
-            // txtUserNo
-            // 
-            this.txtUserNo.BorderColorFocused = System.Drawing.Color.Blue;
-            this.txtUserNo.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtUserNo.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.txtUserNo.BorderThickness = 3;
-            this.txtUserNo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtUserNo.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtUserNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtUserNo.isPassword = false;
-            this.txtUserNo.Location = new System.Drawing.Point(83, 4);
-            this.txtUserNo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUserNo.Name = "txtUserNo";
-            this.txtUserNo.Size = new System.Drawing.Size(100, 35);
-            this.txtUserNo.TabIndex = 20;
-            this.txtUserNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtUserNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNo_KeyPress_1);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.BorderColorFocused = System.Drawing.Color.Blue;
-            this.txtPassword.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPassword.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.txtPassword.BorderThickness = 3;
-            this.txtPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPassword.isPassword = false;
-            this.txtPassword.Location = new System.Drawing.Point(379, 5);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(81, 34);
-            this.txtPassword.TabIndex = 21;
-            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // txtName
             // 
